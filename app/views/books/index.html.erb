@@ -1,0 +1,14 @@
+<h1>Tous tes bouquins</h1>
+
+<h2>Ajouter un nouveau livre.</h2>
+
+<%= simple_form_for(@book) do |f| %>
+  <%= f.input :title %>
+  <%= f.submit %>
+<% end %>
+
+<ul>
+  <% @books.each do |book| %>
+    <li><%= book.title %></li>
+  <% end %>
+</ul>
