@@ -7,3 +7,18 @@
   <%= f.input :content %>
   <%= f.submit %>
 <% end %>
+
+
+<h3>Présents dans ce chapitre :</h3>
+<ul>
+  <% @chapter.appearances.each do |appearance| %>
+    <li><%= appearance.place.name %> : <%= appearance.character.name %></li>
+  <% end %>
+</ul>
+
+<h3>Associer des personnages à ce chapitre</h3>
+<%= simple_form_for [@chapter.book, @chapter, @appearance] do |f| %>
+  <%= f.input :character, collection: @chapter.book.characters %>
+  <%= f.input :place, collection: @chapter.book.places %>
+  <%= f.submit %>
+<% end %>

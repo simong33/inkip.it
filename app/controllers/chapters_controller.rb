@@ -2,6 +2,9 @@ class ChaptersController < ApplicationController
 
   def show
     @chapter = Chapter.find(params[:id])
+    @appearance = Appearance.new
+    @characters_left = @chapter.book.characters - @chapter.characters
+    @places_left = @chapter.book.places - @chapter.places
   end
 
   def create
@@ -16,7 +19,7 @@ class ChaptersController < ApplicationController
     @chapter = Chapter.find(params[:id])
     @chapter.update(chapter_params)
 
-    redirect_to book_chapter_path(@chapter)
+    redirect_to book_chapter_path(@chapter.book, @chapter)
   end
 
   private
