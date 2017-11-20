@@ -1,1 +1,41 @@
 <h1> <%= @book.title %> </h1>
+<h2>Chapitres</h2>
+<ul>
+  <% @book.chapters.each_with_index do |chapter, i| %>
+    <li>Chapter <%= i + 1 %> : <%= chapter.title %></li>
+  <% end %>
+</ul>
+<h3>Ajouter un chapitre à ce livre</h3>
+<%= simple_form_for [@book, @chapter] do |f| %>
+  <%= f.input :title %>
+  <%= f.submit %>
+<% end %>
+
+<h2>Personnages</h2>
+
+<ul>
+  <% @book.characters.each do |character| %>
+    <li><%= character.name %></li>
+  <% end %>
+</ul>
+<h3>Ajouter un personnage à ce livre</h3>
+<%= simple_form_for [@book, @character] do |f| %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.submit %>
+<% end %>
+
+<h2>Lieux</h2>
+
+<ul>
+  <% @book.places.each do |place| %>
+    <li><%= place.name %></li>
+  <% end %>
+</ul>
+
+<h3>Ajouter un lieu à ce livre</h3>
+<%= simple_form_for [@book, @place] do |f| %>
+  <%= f.input :name %>
+  <%= f.submit %>
+<% end %>
+

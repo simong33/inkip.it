@@ -8,6 +8,9 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+    @chapter = Chapter.new
+    @character = Character.new
+    @place = Place.new
   end
 
   def new
