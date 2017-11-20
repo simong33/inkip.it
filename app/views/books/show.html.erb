@@ -2,7 +2,7 @@
 <h2>Chapitres</h2>
 <ul>
   <% @book.chapters.each_with_index do |chapter, i| %>
-    <li>Chapter <%= i + 1 %> : <%= chapter.title %></li>
+    <li><a href="<%= book_chapter_path(@book, chapter) %>">Chapter <%= i + 1 %> : <%= chapter.title %></a></li>
   <% end %>
 </ul>
 <h3>Ajouter un chapitre à ce livre</h3>
@@ -39,3 +39,9 @@
   <%= f.submit %>
 <% end %>
 
+<h2>Analytics</h2>
+<ul>
+<li>Caractères: <%= @book.signs %></li>
+<li>Mots : <%= @book.wordcount %> en <%= @book.age_in_days %> jours</li>
+<li>Moyenne de mots par jour: <%= @book.average_daily_wordcount %></li>
+</ul>

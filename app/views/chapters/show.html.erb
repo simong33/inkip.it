@@ -1,0 +1,9 @@
+<h1><%= @chapter.title %></h1>
+
+<p><%= @chapter.content %></p>
+<h3>Ajouter un chapitre à ce livre</h3>
+<%= simple_form_for [@chapter.book, @chapter] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :content %>
+  <%= f.submit %>
+<% end %>
