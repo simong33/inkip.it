@@ -1,14 +1,7 @@
-<h1>Tous tes bouquins</h1>
-
-<h2>Ajouter un nouveau livre.</h2>
-
-<%= simple_form_for(@book) do |f| %>
-  <%= f.input :title %>
-  <%= f.submit %>
-<% end %>
-
-<ul>
-  <% @books.each do |book| %>
-    <li><a href="<%= book_path(book.id) %>"><%= book.title %></a></li>
-  <% end %>
-</ul>
+<div class="workspace">
+  <div class="container">
+    <div class="row">
+      <%= render "shared/cards" %>
+    </div>
+  </div>
+</div>
