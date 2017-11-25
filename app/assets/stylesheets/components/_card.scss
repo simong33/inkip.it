@@ -4,8 +4,56 @@
   position: relative;
   background-color: #FFFFFF;
   margin: 0 30px 24px 0;
+  border-radius: 4px;
+  border: solid 1px #CCCCCC;
+  font-size: 12px;
+  padding: 0 12px 0 12px;
+  transition: transform .5s ease;
+
+  &:hover {
+    transform: translate(0, -5px);
+  }
 }
 
-.card__title {
+.card-container {
+  position: relative;
+}
+
+.card__upper-content {
+  position: relative;
+  height: 114px;
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.card__lower-content {
+  position: relative;
+  padding: 12px;
+  text-align: center;
+}
+
+.card__title {
   position: absolute;
+  color: #3D3D3D;
+  bottom: 0;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: bold;
+}
+
+.card__link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2;
+  background: black;
+  opacity: 0;
+  transition: opacity .5s;
+
+  &:hover {
+    opacity: 0.1;
+  }
 }
