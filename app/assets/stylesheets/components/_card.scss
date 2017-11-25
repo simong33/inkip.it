@@ -40,6 +40,7 @@
   margin: 0 auto;
   text-align: center;
   font-weight: bold;
+  width: 100%;
 }
 
 .card__link {
@@ -54,6 +55,25 @@
   transition: opacity .5s;
 
   &:hover {
-    opacity: 0.1;
+    opacity: .1;
   }
 }
+
+// Add a book
+
+.card--add {
+  background-color: #98CBCC;
+
+  &:hover {
+    transform: none;
+  }
+
+  a:hover {
+    opacity: 0;
+  }
+}
+
+.card__title--add {
+  color: white;
+}
+
