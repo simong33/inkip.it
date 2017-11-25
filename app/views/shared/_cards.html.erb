@@ -3,20 +3,20 @@
     <div class="card__upper-content">
       <div class="card__title card__title--add">Ajouter un livre</div>
     </div>
-    <a class="card__link card__link--add" id="add-a-book-card" href="#"></a>
+    <a class="card__link card__link--add" data-toggle="modal" href="#exampleModal" data-target="#exampleModal"></a>
  </div>
 </div>
-<% @books.each do %>
+<% @books.each do |book| %>
   <div class="col-xs-12 col-md-3">
     <div class="card">
       <div class="card__upper-content">
-        <div class="card__title">Le livre de la jungle: le retour du jedi</div>
+        <div class="card__title"><%= book.title %></div>
       </div>
       <div class="card__lower-content">
-        <div class="card__book-chapters">12 chapitres</div>
-        <div class="card__wordcount">54 214 mots</div>
+        <div class="card__book-chapters"><%= book.chapters.count %> chapitres</div>
+        <div class="card__wordcount"><%= book.wordcount %> mots</div>
       </div>
-      <a class="card__link" href="#"></a>
+      <%= link_to "", book_path(book), class:"card__link" %>
    </div>
   </div>
 <% end %>
