@@ -5,10 +5,10 @@ class Chapter < ApplicationRecord
   has_many :places, through: :appearances
 
   def signs
-    self.content.size
+    self.content.nil? ? 0 : self.content.size
   end
 
   def wordcount
-    self.content.scan(/[[:alpha:]]+/).count
+    self.signs > 0 ? self.content.scan(/[[:alpha:]]+/).count : 0
   end
 end

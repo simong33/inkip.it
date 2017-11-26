@@ -67,6 +67,11 @@
 
   &:hover {
     transform: none;
+    opacity: .9;
+    .card__title--add {
+
+    }
+
   }
 
   a:hover {
@@ -78,3 +83,10 @@
   color: white;
 }
 
+#plus-add-a-chapter {
+  display: none;
+  font-size: 36px;
+  color: white;
+  bottom: 0;
+  position: absolute;
+}

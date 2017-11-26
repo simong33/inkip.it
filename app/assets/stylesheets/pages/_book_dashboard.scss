@@ -123,7 +123,6 @@ body {
 .sidebar-item--active {
   background-color: #DBECED;
   box-shadow: 0 0 0;
-  font-weight: 400;
   opacity: .9;
 
   &:hover{
@@ -136,4 +135,7 @@ body {
   width: 100%;
   position: relative;
   z-index: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
 }
