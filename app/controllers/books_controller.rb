@@ -2,7 +2,7 @@ class BooksController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
 
   def index
-    @books = current_user.books
+    @books = current_user.books.order('updated_at DESC')
     @book = Book.new
   end
 
@@ -20,7 +20,10 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     @book.user = current_user
-    @book.save
+
+    if @book.save
+      redirect_to book_path(@book), alert: 'Vous avez ajouté un nouveau livre !'
+    end
   end
 
   private
