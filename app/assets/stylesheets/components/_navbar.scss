@@ -6,16 +6,27 @@
   transition: all 0.3s ease;
   height: 60px;
   padding: 0px 30px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  position: relative;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+
 }
 
 /* Logo */
 .navbar-wagon-brand {
   height: 50px;
   color: white;
-  padding-top: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &:hover {
+    text-decoration: none;
+    color: white;
+  }
 }
 
 /* User Avatar */
@@ -27,9 +38,11 @@
 
 /* Right section */
 .navbar-wagon-right {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  position: absolute;
+  right: 0;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* Basic navbar item */
