@@ -1,8 +1,19 @@
 <%= render "books/book_dashboard_navbar" %>
 
 <div class="wrapper">
-  <div class="sidebar">test</div>
-  <div class="content-dashboard">content</div>
+  <div class="sidebar">
+    <div class="sidebar-buttons">
+      <a class="sidebar-item sidebar-item--active" href="#">
+        <!-- <i class="fa fa-paragraph" aria-hidden="true"></i> -->
+        Chapitres
+      </a>
+      <a class="sidebar-item" href="#">Personnages</a>
+      <a class="sidebar-item" href="#">Lieux</a>
+    </div>
+  </div>
+  <div class="content-dashboard">
+    Ici récupérer les cards et itérer sur les chapitres
+  </div>
 </div>
 <!-- <h1> <%= @book.title %> </h1>
 <h2>Chapitres</h2>
