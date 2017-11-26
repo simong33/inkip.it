@@ -1,5 +1,10 @@
 <%= render "books/book_dashboard_navbar" %>
-<h1> <%= @book.title %> </h1>
+
+<div class="wrapper">
+  <div class="sidebar">test</div>
+  <div class="content-dashboard">content</div>
+</div>
+<!-- <h1> <%= @book.title %> </h1>
 <h2>Chapitres</h2>
 <ul>
   <% @book.chapters.each_with_index do |chapter, i| %>
@@ -46,3 +51,4 @@
 <li>Mots : <%= @book.wordcount %> en <%= @book.age_in_days %> jours</li>
 <li>Moyenne de mots par jour: <%= @book.age_in_days > 0 ? @book.average_daily_wordcount : 0 %></li>
 </ul>
+ -->
