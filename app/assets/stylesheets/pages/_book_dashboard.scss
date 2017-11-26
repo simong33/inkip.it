@@ -1,0 +1,59 @@
+.navbar-book-dashboard {
+  height: 60px;
+  background-color: #475059;
+  border: none;
+  border-top: 1px solid #2F363E;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-book-dashboard-content {
+  width: 400px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.navbar-book-list {
+  list-style: none;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-item {
+  display: inline;
+  margin-right: 36px;
+  height: 60px;
+  float: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  a {
+    color: #AAA;
+    font-size: 14px;
+
+    &:hover {
+      text-decoration: none;
+      color: white;
+    }
+  }
+}
+
+.navbar-item--active {
+  color: white;
+  position: relative;
+
+  &:before {
+    border-top: solid 4px white;
+    position: absolute;
+    content: '';
+    top: 0;
+    width: 100%;
+  }
+
+  a {
+    color: white;
+  }
+}

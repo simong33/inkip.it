@@ -1,3 +1,4 @@
+<%= render "books/book_dashboard_navbar" %>
 <h1> <%= @book.title %> </h1>
 <h2>Chapitres</h2>
 <ul>
@@ -43,5 +44,5 @@
 <ul>
 <li>Caractères: <%= @book.signs %></li>
 <li>Mots : <%= @book.wordcount %> en <%= @book.age_in_days %> jours</li>
-<li>Moyenne de mots par jour: <%= @book.average_daily_wordcount %></li>
+<li>Moyenne de mots par jour: <%= @book.age_in_days > 0 ? @book.average_daily_wordcount : 0 %></li>
 </ul>
