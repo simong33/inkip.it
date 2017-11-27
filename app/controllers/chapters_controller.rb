@@ -2,6 +2,7 @@ class ChaptersController < ApplicationController
 
   def show
     @chapter = Chapter.find(params[:id])
+    @book = @chapter.book
     @appearance = Appearance.new
     @characters_left = @chapter.book.characters - @chapter.characters
     @places_left = @chapter.book.places - @chapter.places

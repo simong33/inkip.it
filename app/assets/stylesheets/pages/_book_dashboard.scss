@@ -67,6 +67,24 @@ body {
   }
 }
 
+.navbar-back {
+  position: absolute;
+  left: 24px;
+  color: white;
+  font-size: 14px;
+}
+
+.navbar-back-link {
+  font-size: 14px;
+  color: white;
+
+  &:hover {
+    color: white;
+    opacity: .9;
+    text-decoration: none;
+  }
+}
+
 // CONTENT
 
 .wrapper {

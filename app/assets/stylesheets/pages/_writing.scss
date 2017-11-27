@@ -1,0 +1,24 @@
+.content-writing {
+  margin: 0 auto;
+  width: 600px;
+}
+
+.content-writing-title {
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.content-writing-text {
+  background-color: white;
+  height: 706px;
+
+  textarea {
+    height: 706px;
+    font-size: 16px;
+  }
+}
+
+.content-writing-text-field {
+  height: 100%;
+}

@@ -1,4 +1,23 @@
-<h1><%= @chapter.title %></h1>
+<%= render "books/book_dashboard_navbar", subsection: true %>
+
+<div class="wrapper">
+  <div class="sidebar">
+    Infos
+  </div>
+  <div class="content-dashboard">
+    <div class="content-writing">
+      <div class="content-writing-title"><%= @chapter.title %></div>
+      <div class="content-writing-text">
+        <%= simple_form_for [@chapter.book, @chapter] do |f| %>
+          <%= f.input :content, label: false, input_html: { class: 'content-writing-text-field' } %>
+      </div>
+          <%= f.button :submit, "Enregistrer" %>
+        <% end %>
+    </div>
+  </div>
+</div>
+
+<!-- <h1><%= @chapter.title %></h1>
 
 <p><%= @chapter.content %></p>
 <h3>Ajouter un chapitre à ce livre</h3>
@@ -21,4 +40,4 @@
   <%= f.input :character, collection: @chapter.book.characters %>
   <%= f.input :place, collection: @chapter.book.places %>
   <%= f.submit %>
-<% end %>
+<% end %> -->
