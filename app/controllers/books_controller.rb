@@ -10,7 +10,9 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @chapters = @book.chapters
     @chapter = Chapter.new
+    @characters = @book.characters
     @character = Character.new
+    @places = @book.places
     @place = Place.new
   end
 

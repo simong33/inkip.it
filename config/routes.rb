@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :chapters, only: [:create, :show, :update] do
       resources :appearances, only: [:create, :update]
     end
-    resources :characters, only: [:create]
-    resources :places, only: [:create]
+    resources :characters, only: [:create, :index, :show]
+    resources :places, only: [:create, :index, :show]
   end
 end

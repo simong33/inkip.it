@@ -3,8 +3,16 @@ class PlacesController < ApplicationController
     @place = Place.new(place_params)
     @place.book = Book.find(params[:book_id])
     if @place.save
-      redirect_to book_path(@place.book), alert: "Vous avez ajouté un nouveau lieu!"
+      redirect_to book_places_path(@place.book), alert: "Vous avez ajouté un nouveau lieu!"
     end
+  end
+
+  def index
+    @book = Book.find(params[:book_id])
+    @place = Place.new
+    @characters = @book.characters
+    @chapters = @book.chapters
+    @places = @book.places
   end
 
   private

@@ -3,12 +3,12 @@
 <div class="wrapper">
   <div class="sidebar">
     <div class="sidebar-buttons">
-      <a class="sidebar-item sidebar-item--active" href="#">
+      <a class="sidebar-item sidebar-item--active" href="">
         <!-- <i class="fa fa-paragraph" aria-hidden="true"></i> -->
         Chapitres
       </a>
-      <a class="sidebar-item" href="#">Personnages</a>
-      <a class="sidebar-item" href="#">Lieux</a>
+      <%= link_to "Personnages", book_characters_path(@book), class: "sidebar-item" %>
+      <%= link_to "Lieux", book_places_path(@book), class: "sidebar-item" %>
     </div>
   </div>
   <div class="content-dashboard">
