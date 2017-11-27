@@ -5,10 +5,14 @@ class Chapter < ApplicationRecord
   has_many :places, through: :appearances
 
   def signs
-    self.content.nil? ? 0 : self.content.size
+    !self.content.nil? ? WordsCounted.count(self.strip_tags).char_count : 0
+  end
+
+  def strip_tags
+    ActionView::Base.full_sanitizer.sanitize(self.content)
   end
 
   def wordcount
-    self.signs > 0 ? self.content.scan(/[[:alpha:]]+/).count : 0
+    self.signs > 0 ? WordsCounted.count(self.strip_tags).token_count : 0
   end
 end
