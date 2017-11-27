@@ -9,9 +9,10 @@ class ChaptersController < ApplicationController
 
   def create
     @chapter = Chapter.new(chapter_params)
-    @chapter.book = Book.find(params[:book_id])
+    book = Book.find(params[:book_id])
+    @chapter.book = book
     if @chapter.save
-      redirect_to book_chapter_path(@chapter), alert: "Vous avez ajouté un nouveau chapitre!"
+      redirect_to book_chapter_path(book, @chapter), alert: "Vous avez ajouté un nouveau chapitre!"
     end
   end
 
