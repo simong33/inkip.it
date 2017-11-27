@@ -2,14 +2,23 @@
 
 <div class="wrapper">
   <div class="sidebar">
-    Infos
+    Infos sur le chapitre
+    <ul>
+      <li><%= @chapter.wordcount %> mots</li>
+    </ul>
+    Next steps :
+    <ul>
+      <li>Mettre cette sidebar en sticky</li>
+      <li>Mettre le scroll sur la page et enlever la height fixe sur le textarea</li>
+      <li>revoir le compteur de mots (il déconne)</li>
+    </ul>
   </div>
   <div class="content-dashboard">
     <div class="content-writing">
       <div class="content-writing-title"><%= @chapter.title %></div>
       <div class="content-writing-text">
         <%= simple_form_for [@chapter.book, @chapter] do |f| %>
-          <%= f.input :content, label: false, input_html: { class: 'content-writing-text-field' } %>
+          <%= f.input :content, label: false, input_html: { class: 'content-writing-text-field editable' } %>
       </div>
           <%= f.button :submit, "Enregistrer" %>
         <% end %>
@@ -17,18 +26,14 @@
   </div>
 </div>
 
-<!-- <h1><%= @chapter.title %></h1>
-
-<p><%= @chapter.content %></p>
-<h3>Ajouter un chapitre à ce livre</h3>
-<%= simple_form_for [@chapter.book, @chapter] do |f| %>
-  <%= f.input :title %>
-  <%= f.input :content %>
-  <%= f.submit %>
-<% end %>
+<!-- https://github.com/yabwe/medium-editor -->
+<script src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
 
 
-<h3>Présents dans ce chapitre :</h3>
+
+
+<!--<h3>Présents dans ce chapitre :</h3>
 <ul>
   <% @chapter.appearances.each do |appearance| %>
     <li><%= appearance.place.name %> : <%= appearance.character.name %></li>
