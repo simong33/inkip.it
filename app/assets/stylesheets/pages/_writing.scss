@@ -147,7 +147,6 @@
   color: #4A4A4A;
 }
 
-
 .bottom-bar__back-to-book {
   color: #4A4A4A;
 
@@ -156,4 +155,29 @@
     opacity: .8;
     text-decoration: none;
   }
+}
+
+// MENTION.JS
+
+.mention_name{
+  font-size:12px;
+}
+
+.mention_username{
+  font-size:12px;
+  color:#999;
+}
+
+.mention_image{
+  float: left;
+  margin-right: 5px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  width: 20px;
+  height: 20px;
+}
+
+.active .mention_username{
+  color:#fff;
 }
