@@ -1,7 +1,5 @@
-<%= render "books/book_dashboard_navbar", subsection: true %>
-
-<div class="wrapper">
-  <div class="sidebar">
+<div class="wrapper wrapper--white">
+<!--   <div class="sidebar">
     Infos sur le chapitre
     <ul>
       <li><%= @chapter.wordcount %> mots</li>
@@ -14,37 +12,31 @@
       <li>revoir le compteur de mots (il déconne)</li>
       <li>pour analytics créé une mosaïque de contrib alla github</li>
     </ul>
-  </div>
-  <div class="content-dashboard">
+  </div> -->
+  <div class="content-dashboard content-dashboard--writing">
     <div class="content-writing">
-      <div class="content-writing-title"><%= @chapter.title %></div>
+        <%= simple_form_for [@chapter.book, @chapter], html: { class: "form-writing"} do |f| %>
+        <%= f.input :title, label: false, input_html: { class: 'content-writing-title' } %>
       <div class="content-writing-text">
-        <%= simple_form_for [@chapter.book, @chapter] do |f| %>
           <%= f.input :content, label: false, input_html: { class: 'content-writing-text-field editable' } %>
       </div>
-          <%= f.button :submit, "Enregistrer" %>
-        <% end %>
     </div>
   </div>
+</div>
+
+<div class="bottom-bar">
+  <div class="bottom-bar__go-back">
+    <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+      <%= link_to "Retour au livre", book_path(@book), class: "bottom-bar__back-to-book" %>
+  </div>
+  <div class="bottom-bar__progress-bar">Progress bar</div>
+  <div class="bottom-bar__save-status">
+    <%= f.button :submit, "Enregistrer" %>
+  </div>
+      <% end %>
 </div>
 
 <!-- https://github.com/yabwe/medium-editor -->
 <script src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
 
-
-
-
-<!--<h3>Présents dans ce chapitre :</h3>
-<ul>
-  <% @chapter.appearances.each do |appearance| %>
-    <li><%= appearance.place.name %> : <%= appearance.character.name %></li>
-  <% end %>
-</ul>
-
-<h3>Associer des personnages à ce chapitre</h3>
-<%= simple_form_for [@chapter.book, @chapter, @appearance] do |f| %>
-  <%= f.input :character, collection: @chapter.book.characters %>
-  <%= f.input :place, collection: @chapter.book.places %>
-  <%= f.submit %>
-<% end %> -->
