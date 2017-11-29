@@ -44,6 +44,28 @@
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
 
 <% content_for(:after_js) do %>
-  <%= javascript_include_tag ('writing_manifest') %>
+  <%= javascript_include_tag 'writing_manifest' %>
+
+  <script>
+
+    var line = new ProgressBar.Line('#progress-bar-book', {
+      strokeWidth: 4,
+      text: {
+        value: '<%= @chapter.wordcount %>/100',
+      },
+      easing: 'easeIn',
+    });
+
+    $(document).ready(function(){
+
+      line.animate('<%= @chapter.wordcount.to_f / 20 %>', {
+        duration: 800
+      }, function() {
+        console.log("don't look at me!");
+      });
+    });
+
+  </script>
+
 <% end %>
 

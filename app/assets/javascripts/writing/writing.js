@@ -24,21 +24,7 @@ var editor = new MediumEditor('.editable', {
   }
 });
 
-var line = new ProgressBar.Line('#progress-bar-book', {
-  strokeWidth: 4,
-  text: {
-    value: '2356/10000',
-  },
-  easing: 'easeIn',
-});
-
 $(document).ready(function(){
-
-  line.animate(0.8, {
-    duration: 800
-  }, function() {
-    console.log('Finished!');
-  });
 
   // $(".content-writing-text").mention({
   //   users: [{
@@ -84,3 +70,4 @@ $(document).ready(function(){
   //   }]
   // });
 });
+
