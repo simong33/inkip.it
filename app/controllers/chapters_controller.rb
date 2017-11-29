@@ -6,11 +6,6 @@ class ChaptersController < ApplicationController
     @appearance = Appearance.new
     @characters_left = @chapter.book.characters - @chapter.characters
     @places_left = @chapter.book.places - @chapter.places
-
-    respond_to do |format|
-      format.html
-      format.js
-    end
   end
 
   def create
@@ -27,6 +22,7 @@ class ChaptersController < ApplicationController
     @chapter.update(chapter_params)
 
     redirect_to book_chapter_path(@chapter.book, @chapter)
+
   end
 
   private

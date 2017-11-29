@@ -1,18 +1,5 @@
 <div class="wrapper wrapper--white">
-<!--   <div class="sidebar">
-    Infos sur le chapitre
-    <ul>
-      <li><%= @chapter.wordcount %> mots</li>
-      <li><%= @chapter.signs %> caractères</li>
-    </ul>
-    Next steps :
-    <ul>
-      <li>Mettre cette sidebar en sticky</li>
-      <li>Mettre le scroll sur la page et enlever la height fixe sur le textarea</li>
-      <li>revoir le compteur de mots (il déconne)</li>
-      <li>pour analytics créé une mosaïque de contrib alla github</li>
-    </ul>
-  </div> -->
+
   <div class="content-dashboard content-dashboard--writing">
     <div class="content-writing">
         <%= simple_form_for [@chapter.book, @chapter], html: { class: "form-writing"} do |f| %>
@@ -25,17 +12,25 @@
 </div>
 
 <div class="bottom-bar">
-  <div class="bottom-bar__go-back">
-    <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
-      <%= link_to "Retour au livre", book_path(@book), class: "bottom-bar__back-to-book" %>
-  </div>
-  <div class="bottom-bar__progress-bar">
-    <div id="progress-bar-book"></div>
-  </div>
-  <div class="bottom-bar__save-status">
-    <%= f.button :submit, "Enregistrer" %>
-  </div>
+  <div class="bottom-bar-container">
+    <div class="bottom-bar-hidden">HELLO</div>
+    <div class="bottom-bar-shown">
+      <div class="bottom-bar__go-back">
+        <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+          <%= link_to "Retour au livre", book_path(@book), class: "bottom-bar__back-to-book" %>
+      </div>
+      <% unless @book.word_goal.nil? %>
+        <div class="bottom-bar__progress-bar">
+          <div id="progress-bar-book"></div>
+        </div>
       <% end %>
+      <div class="bottom-bar__save-status">
+        <%= f.button :submit, "Enregistrer" %>
+      </div>
+          <% end %>
+    </div>
+  </div>
+
 </div>
 
 <!-- https://github.com/yabwe/medium-editor -->
@@ -51,15 +46,17 @@
     var line = new ProgressBar.Line('#progress-bar-book', {
       strokeWidth: 4,
       text: {
-        value: '<%= @chapter.wordcount %>/100',
+        value: '<%= @book.wordcount %>/ <%= @book.word_goal %> mots',
       },
       easing: 'easeIn',
     });
 
     $(document).ready(function(){
 
-      line.animate('<%= @chapter.wordcount.to_f / 20 %>', {
-        duration: 800
+      line.animate('<%= @book.word_goal_ratio %>', {
+        duration: 800,
+        from: { color: '#eee' },
+        to: { color: '#000' },
       }, function() {
         console.log("don't look at me!");
       });

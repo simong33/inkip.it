@@ -139,12 +139,45 @@
   height: 60px;
   background-color: #EDEDEE;
   border-top: 1px solid lightgray;
+  font-size: 14px;
+  color: #4A4A4A;
+
+}
+
+.bottom-bar-container {
+  width: 100%;
+
+  &:hover {
+    .bottom-bar-hidden {
+      cursor: pointer;
+      transform: translateY(-60px);
+      height: 260px;
+    }
+  }
+}
+
+.bottom-bar-shown {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #EDEDEE;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 6px 24px;
-  font-size: 14px;
-  color: #4A4A4A;
+
+}
+
+.bottom-bar-hidden {
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  height: 100%;
+  background-color: #EDEDEE;
+  transition: .5s ease;
+  width: 100%;
+  border-top: 1px solid lightgray;
 }
 
 .bottom-bar__back-to-book {
