@@ -29,6 +29,9 @@ class BooksController < ApplicationController
     end
   end
 
+  def statistics
+  end
+
   private
 
   def book_params
