@@ -18,7 +18,8 @@
       </div>
       <div class="modal-body">
         <%= simple_form_for (@book) do |f| %>
-          <%= f.input :title, label: 'Titre' %>
+          <%= f.input :title, label: 'Titre', placeholder: "A la recherche du temps perdu" %>
+          <%= f.input :word_goal, label: 'Objectif de mots', placeholder: 20000 %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>

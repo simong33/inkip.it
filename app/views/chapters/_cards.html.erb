@@ -1,7 +1,7 @@
 
 <div class="card card--add card--chapter" id="add-chapter-card">
   <div class="card__upper-content">
-    <div class="card__title card__title--add" id="text-add-a-chapter">Ajouter un chapitre</div>
+    <div class="card__title-section card__title--add" id="text-add-a-chapter">Ajouter un chapitre</div>
     <i class="fa fa-plus-square-o" id="plus-add-a-chapter" aria-hidden="true"></i>
   </div>
   <a class="card__link card__link--add" data-toggle="modal" href="#exampleModal" data-target="#exampleModal" id="add-chapter-btn"></a>
@@ -11,9 +11,13 @@
 
     <div class="card card--chapter">
       <div class="card__upper-content">
-        <div class="card__title">Chapitre <%= i + 1 %> : <%= chapter.title %></div>
+        <div class="card__title-section">
+
+          <div class="card__title"><%= chapter.title %></div>
+        </div>
       </div>
       <div class="card__lower-content">
+        <div class="card__chapter-number">Chapitre <%= i + 1 %></div>
         <div class="card__wordcount"><%= chapter.wordcount %> mots</div>
       </div>
       <%= link_to "", book_chapter_path(@book, chapter), class:"card__link" %>
