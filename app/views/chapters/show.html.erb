@@ -20,8 +20,13 @@
           <%= link_to "Retour au livre", book_path(@book), class: "bottom-bar__back-to-book" %>
       </div>
       <% unless @book.word_goal.nil? %>
-        <div class="bottom-bar__progress-bar">
-          <div id="progress-bar-book"></div>
+        <div class="bottom-bar__progress-bar
+        <% if @book.wordcount > @book.word_goal %>
+        progress-bar--completed">
+            <p>Bravo, votre objectif de <%= @book.word_goal %> mots est atteint !</p>
+          <% else %>">
+            <div id="progress-bar-book"></div>
+          <% end %>
         </div>
       <% end %>
       <div class="bottom-bar__save-status">

@@ -8,7 +8,7 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
-    @chapters = @book.chapters
+    @chapters = @book.chapters.order('created_at')
     @chapter = Chapter.new
     @characters = @book.characters
     @character = Character.new
@@ -30,6 +30,7 @@ class BooksController < ApplicationController
   end
 
   def statistics
+    @book = Book.find(params[:book_id])
   end
 
   private

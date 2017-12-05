@@ -3,6 +3,7 @@ class Book < ApplicationRecord
   has_many :chapters
   has_many :characters
   has_many :places
+  has_many :streaks
 
   def signs
     signs = 0
@@ -35,4 +36,5 @@ class Book < ApplicationRecord
   def age_in_days
     ((Time.current - self.created_at) / (60*60*24)).floor
   end
+
 end

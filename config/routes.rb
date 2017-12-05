@@ -11,5 +11,5 @@ Rails.application.routes.draw do
     resources :places, only: [:create, :index, :show]
   end
 
-  get "/:book/statistics" => "books#statistics", as: :book_statistics
+  get "books/:book_id/statistics" => "books#statistics", as: :book_statistics
 end

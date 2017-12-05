@@ -204,6 +204,14 @@
   }
 }
 
+.progress-bar--completed {
+  background-color: transparent;
+
+  p {
+    margin-bottom: 0;
+  }
+}
+
 // MENTION.JS
 
 .mention_name{
