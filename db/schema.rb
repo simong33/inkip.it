@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171205111024) do
+ActiveRecord::Schema.define(version: 20171205123018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,11 +31,12 @@ ActiveRecord::Schema.define(version: 20171205111024) do
     t.string   "genre"
     t.datetime "deadline"
     t.integer  "user_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.integer  "word_goal"
     t.integer  "max_streaks"
     t.integer  "current_streaks"
+    t.integer  "max_daily_wordcount"
     t.index ["user_id"], name: "index_books_on_user_id", using: :btree
   end
 
@@ -59,6 +60,14 @@ ActiveRecord::Schema.define(version: 20171205111024) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["book_id"], name: "index_characters_on_book_id", using: :btree
+  end
+
+  create_table "daily_word_counts", force: :cascade do |t|
+    t.integer  "wordcount"
+    t.integer  "book_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_daily_word_counts_on_book_id", using: :btree
   end
 
   create_table "places", force: :cascade do |t|
@@ -101,6 +110,7 @@ ActiveRecord::Schema.define(version: 20171205111024) do
   add_foreign_key "books", "users"
   add_foreign_key "chapters", "books"
   add_foreign_key "characters", "books"
+  add_foreign_key "daily_word_counts", "books"
   add_foreign_key "places", "books"
   add_foreign_key "streaks", "books"
 end

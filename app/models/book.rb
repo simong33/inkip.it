@@ -4,6 +4,7 @@ class Book < ApplicationRecord
   has_many :characters
   has_many :places
   has_many :streaks
+  has_many :daily_word_counts
 
   def signs
     signs = 0
