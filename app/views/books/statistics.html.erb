@@ -15,5 +15,44 @@
 </div>
 <div class="wrapper">
   <div class="content-dashboard content-dashboard--statistics"></div>
+    <div class="content-chart">
+      <canvas id="myChart" width="800" height="800"></canvas>
+    </div>
 
 </div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
+
+<script>
+
+  console.log("<%= @dwc_dates.join(',') %>");
+  var ctx = document.getElementById("myChart").getContext('2d');
+
+  var myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+          labels: <%= raw @dwc_dates.as_json %>,
+          datasets: [{
+              label: 'Nombre de mots',
+              data: <%= raw @dwc_values.as_json %>,
+              backgroundColor: 'rgba(255, 99, 132, 0.2)',
+              borderColor: 'rgba(255,99,132,1)',
+              borderWidth: 1
+          }]
+      },
+      options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero:true
+                  }
+              }],
+              xAxes: [{
+                              time: {
+                                  unit: 'day'
+                              }
+                          }]
+          }
+      }
+  });
+</script>

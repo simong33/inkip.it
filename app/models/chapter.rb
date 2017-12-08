@@ -52,16 +52,19 @@ class Chapter < ApplicationRecord
     count = 0
 
     unless book.daily_word_counts.empty?
-      book.daily_word_counts.each do |dwc|
-        if dwc.created_at.today?
-          dwc.wordcount = book.wordcount
-          dwc.save
-          count += 1
-        end
+
+      last_dwc = book.daily_word_counts.last
+      yesterday_dwc = book.daily_word_counts.last(2).first
+
+      if last_dwc.created_at.today?
+        last_dwc.wordcount += ( book.wordcount - yesterday_dwc.wordcount)
+        last_dwc.save
+        count += 1
       end
+
       if count == 0
-        daily_wordcount = DailyWordCount.new(book: book, wordcount: book.wordcount)
-        daily_wordcount.save
+        first_daily_wordcount = DailyWordCount.new(book: book, wordcount: book.wordcount - last_dwc.wordcount + 1)
+        first_daily_wordcount.save
       end
     else
       daily_wordcount = DailyWordCount.new(book: book, wordcount: book.wordcount)
