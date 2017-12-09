@@ -9,3 +9,7 @@ public/assets
 # Ignore application configuration
 /config/application.yml
 /node_modules
+.babelrc
+package-lock.json
+package.json
+yarn.lock
