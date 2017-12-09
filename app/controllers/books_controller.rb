@@ -32,6 +32,8 @@ class BooksController < ApplicationController
   def statistics
     @book = Book.find(params[:book_id])
 
+    # DWC
+
     @dwc = @book.daily_word_counts.order('created_at').last(30)
     @dwc_dates = []
     @dwc_values = []

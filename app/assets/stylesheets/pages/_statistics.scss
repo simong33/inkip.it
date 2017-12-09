@@ -7,7 +7,50 @@
 
 .content-chart {
   background-color: white;
-  height: 400px;
+  width: 100%;
+  height: 50%;
+  border-radius: 4px;
+  box-shadow: 0 0 5px darkgrey;
+  padding: 12px;
+}
+
+.sidebar--statistics {
+  flex: 0 0 400px;
+}
+
+.sidebar-block {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  text-align: center;
+  padding: 0 12px;
+}
+
+.streaks {
+  display: flex;
+  justify-content: space-around;
+}
+
+.streaks-title {
+  margin-bottom: 12px;
+}
+
+.streaks-data {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 12px;
+  align-items: center;
+  font-size: 24px;
+}
+
+#fire-streaks-current {
+  color: #F8AE3D;
+}
+
+#fire-streaks-max {
+  color: #A8CDFE;
+}
+
+.streaks-text {
+  font-size: 12px;
 }
