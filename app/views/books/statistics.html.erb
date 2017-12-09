@@ -127,6 +127,7 @@
       }
   });
 
+  console.log(<%= raw @dwc_calendar %>)
   var cal = new CalHeatMap();
   cal.init({
     domain: 'month',
@@ -135,6 +136,9 @@
     cellRadius: 0,
     domainGutter: 12,
     tooltip: true,
-
+    range: 2,
+    data: <%= raw @dwc_calendar %>
   });
+
+  console.log(<%= raw @dwc_calendar %>)
 </script>
