@@ -12,6 +12,10 @@
   border-radius: 4px;
   box-shadow: 0 0 5px darkgrey;
   padding: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 12px;
 }
 
 .sidebar--statistics {

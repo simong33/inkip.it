@@ -49,7 +49,9 @@
   <div class="content-dashboard content-dashboard--statistics">
     <div class="content-chart">
       <canvas id="wordCounts"></canvas>
-<!--       <progress id="animationProgress" max="1" value="0" style="width: 100%"></progress> -->
+    </div>
+    <div class="content-chart">
+      <div id="cal-heatmap"></div>
     </div>
   </div>
 
@@ -123,5 +125,16 @@
       options: {
           maintainAspectRatio: false,
       }
+  });
+
+  var cal = new CalHeatMap();
+  cal.init({
+    domain: 'month',
+    subdomain: 'day',
+    cellSize: 15,
+    cellRadius: 0,
+    domainGutter: 12,
+    tooltip: true,
+
   });
 </script>
