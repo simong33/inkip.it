@@ -1,3 +1,13 @@
 .content-dashboard--statistics {
   min-height: calc(100vh - 120px);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.content-chart {
+  background-color: white;
+  height: 400px;
+  display: flex;
+  justify-content: center;
 }

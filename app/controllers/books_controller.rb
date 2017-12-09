@@ -35,13 +35,13 @@ class BooksController < ApplicationController
     @dwc = @book.daily_word_counts.order('created_at').last(30)
     @dwc_dates = []
     @dwc_values = []
+    @dwc_total_values = []
 
     @dwc.each do |dwc|
       @dwc_dates << dwc.created_at.strftime('%d/%m/%Y')
       @dwc_values << dwc.wordcount
+      @dwc_total_values << dwc.total_word_count
     end
-
-
 
   end
 
