@@ -14,9 +14,9 @@ cal.init({
       filled: "Vous avez écrit {count} {name} le {date}"
     },
   legendTitleFormat: {
-    lower: "Moins de {min} {name}, Master Lao Zhi a du prendre une pause",
-    inner: "Entre {down} et {up} {name}, pas mal",
-    upper: "Plus de {max} {name}, fuyez !"
+    lower: "Moins de {min} {name}",
+    inner: "Entre {down} et {up} {name}",
+    upper: "Plus de {max} {name}, bravo !"
   },
   domainLabelFormat: "%m-%Y"
 });

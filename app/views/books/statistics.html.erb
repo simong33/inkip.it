@@ -23,15 +23,45 @@
   <div class="content-dashboard content-dashboard--statistics statistics-grid">
 
   <div class="sidebar--statistics">
-    <div class="sidebar-block">
+    <div class="sidebar-block wordcount-goal">
+      <h2><%= @book.wordcount %> mots</h2>
+      <p>depuis le <%= @book.created_at.strftime('%d/%m/%Y') %></p>
       <canvas id="wordCountGoal"></canvas>
     </div>
-    <ul>
-      <li>nombre de mots / objectif (pie ?)</li>
-      <li>comparaison de nombre de mots écrits ce mois par rapport aux autres membres</li>
-    </ul>
     <div class="sidebar-block">
-      <div class="streaks-title">Jours d'écriture consécutifs</div>
+      <div class="sidebar-block-data">
+        <%= @book.chapters.count %>
+      </div>
+      <div class="sidebar-block-label">
+        Chapitres
+      </div>
+      <div class="sidebar-block-sidenote">
+        <%= @words_per_chapter %> mots en moyenne par chapitre
+      </div>
+    </div>
+    <div class="sidebar-block">
+      <div class="sidebar-block-data">
+        <%= @book.characters.count %>
+      </div>
+      <div class="sidebar-block-label">
+        Personnages
+      </div>
+    </div>
+    <div class="sidebar-block">
+      <div class="sidebar-block-data">
+        <%= @book.places.count %>
+      </div>
+      <div class="sidebar-block-label">
+        Lieux
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+    <div class="content-chart content-chart--up">
+      <canvas id="wordCounts"></canvas>
+    </div>
+    <div class="content-chart content-chart--down content-chart--down-1">
       <div class="streaks">
         <div class="streaks-current">
           <div class="streaks-data">
@@ -48,15 +78,17 @@
           <div class="streaks-text">Votre record</div>
         </div>
       </div>
+      <div class="content-chart-label">Jours d'écriture consécutifs</div>
     </div>
-  </div>
-
-  <!-- CONTENT -->
-    <div class="content-chart content-chart--up">
-      <canvas id="wordCounts"></canvas>
+    <div class="content-chart content-chart--down content-chart--down-2">
+      <div class="content-chart-data"><%= @words_per_session %></div>
+      <div class="content-chart-label">Mots écrits par jour</div>
+      <div class="content-chart-data">745</div>
+      <div class="content-chart-label">Mots écrits en moyenne par jour par les autres auteurs</div>
     </div>
-    <div class="content-chart content-chart--down">
+    <div class="content-chart content-chart--down content-chart--down-3">
       <div id="cal-heatmap"></div>
+      <div class="content-chart-label">Calendrier de vos contributions</div>
     </div>
   </div>
 

@@ -31,24 +31,27 @@ class BooksController < ApplicationController
 
   def statistics
     @book = Book.find(params[:book_id])
+    chapters = @book.chapters
 
     # DWC
 
-    @dwc = @book.daily_word_counts.order('created_at').last(30)
-    @dwc_year = @book.daily_word_counts.order('created_at').last(365)
-    @dwc_dates = []
-    @dwc_values = []
-    @dwc_total_values = []
+    dwc = @book.daily_word_counts.order('created_at').last(30)
+    dwc_year = @book.daily_word_counts.order('created_at').last(365)
+    dwc_all = @book.daily_word_counts
 
-    @dwc.each do |dwc|
-      @dwc_dates << dwc.created_at.strftime('%d/%m/%Y')
-      @dwc_values << dwc.wordcount
-      @dwc_total_values << dwc.total_word_count
+    dwc_dates = []
+    dwc_values = []
+    dwc_total_values = []
+
+    dwc.each do |dwc|
+      dwc_dates << dwc.created_at.strftime('%d/%m/%Y')
+      dwc_values << dwc.wordcount
+      dwc_total_values << dwc.total_word_count
     end
 
-    gon.dwc_dates = @dwc_dates.as_json
-    gon.dwc_values = @dwc_values.as_json
-    gon.dwc_total_values = @dwc_total_values.as_json
+    gon.dwc_dates = dwc_dates.as_json
+    gon.dwc_values = dwc_values.as_json
+    gon.dwc_total_values = dwc_total_values.as_json
 
     # WORDCOUNT GOAL
 
@@ -57,10 +60,25 @@ class BooksController < ApplicationController
 
     # CAL-HEATMAP
 
-    dwc_map = @dwc_year.map {|dwc| [dwc.created_at.to_datetime.strftime('%s'), dwc.wordcount]}
+    dwc_map = dwc_year.map {|dwc| [dwc.created_at.to_datetime.strftime('%s'), dwc.wordcount]}
     dwc_hash = Hash[dwc_map]
     gon.dwc_calendar = dwc_hash
 
+    # WORDS PER SESSION
+
+    unless chapters.empty?
+      @words_per_session = @book.wordcount / dwc_all.count
+    else
+      @words_per_session = 0
+    end
+
+    # WORDS PER CHAPTER
+
+    unless chapters.empty?
+      @words_per_chapter = (@book.wordcount / chapters.count)
+    else
+      @words_per_chapter = 0
+    end
   end
 
   private
