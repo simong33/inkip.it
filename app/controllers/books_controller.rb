@@ -57,10 +57,9 @@ class BooksController < ApplicationController
 
     # CAL-HEATMAP
 
-    dwc_map = @dwc_year.map {|dwc| [dwc.created_at.strftime('%Y/%m/%d'), dwc.wordcount]}
+    dwc_map = @dwc_year.map {|dwc| [dwc.created_at.to_datetime.strftime('%s'), dwc.wordcount]}
     dwc_hash = Hash[dwc_map]
-    @dwc_calendar = dwc_hash.to_json
-    gon.dwc_calendar = @dwc_calendar
+    gon.dwc_calendar = dwc_hash
 
   end
 
