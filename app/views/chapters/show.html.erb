@@ -44,30 +44,5 @@
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
 
 <% content_for(:after_js) do %>
-  <%= javascript_include_tag 'writing_manifest' %>
-
-  <script>
-
-    var line = new ProgressBar.Line('#progress-bar-book', {
-      strokeWidth: 4,
-      text: {
-        value: '<%= @book.wordcount %>/ <%= @book.word_goal %> mots',
-      },
-      easing: 'easeIn',
-    });
-
-    $(document).ready(function(){
-
-      line.animate('<%= @book.word_goal_ratio %>', {
-        duration: 800,
-        from: { color: '#eee' },
-        to: { color: '#000' },
-      }, function() {
-        console.log("don't look at me!");
-      });
-    });
-
-  </script>
-
+  <%= javascript_include_tag 'writing_manifest'%>
 <% end %>
-

@@ -23,3 +23,21 @@ var editor = new MediumEditor('.editable', {
       hideOnClick: true
   }
 });
+
+var line = new ProgressBar.Line('#progress-bar-book', {
+  strokeWidth: 4,
+  text: {
+    value: gon.wordcount,
+  },
+  easing: 'easeIn',
+});
+
+$(document).ready(function(){
+
+  line.animate(gon.word_goal_ratio, {
+    duration: 800,
+    from: { color: '#eee' },
+    to: { color: '#000' },
+  }, function() {
+  });
+});

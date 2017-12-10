@@ -46,11 +46,21 @@ class BooksController < ApplicationController
       @dwc_total_values << dwc.total_word_count
     end
 
+    gon.dwc_dates = @dwc_dates.as_json
+    gon.dwc_values = @dwc_values.as_json
+    gon.dwc_total_values = @dwc_total_values.as_json
+
+    # WORDCOUNT GOAL
+
+    gon.wordcount = @book.wordcount
+    gon.words_left = @book.word_goal - @book.wordcount
+
     # CAL-HEATMAP
 
     dwc_map = @dwc_year.map {|dwc| [dwc.created_at.strftime('%Y/%m/%d'), dwc.wordcount]}
     dwc_hash = Hash[dwc_map]
     @dwc_calendar = dwc_hash.to_json
+    gon.dwc_calendar = @dwc_calendar
 
   end
 

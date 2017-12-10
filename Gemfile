@@ -10,6 +10,7 @@ gem 'rails', '5.0.5'
 gem 'redis'
 # https://github.com/abitdodgy/words_counted
 gem 'words_counted'
+gem 'gon'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'

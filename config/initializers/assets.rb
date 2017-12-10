@@ -14,3 +14,5 @@ Rails.application.config.assets.precompile += %w( bootstrap-typehead.js )
 Rails.application.config.assets.precompile += %w( progressbar.js )
 
 Rails.application.config.assets.precompile += %w( writing_manifest.js )
+
+Rails.application.config.assets.precompile += %w( statistics_manifest.js )
