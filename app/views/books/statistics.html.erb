@@ -1,4 +1,5 @@
 <!-- NAVBAR -->
+
 <div class="navbar-book-dashboard">
   <% if defined? subsection != nil %>
     <div class="navbar-back">
@@ -15,10 +16,13 @@
   </div>
 </div>
 
-<!-- CONTENT -->
+<!-- WRAPPER -->
 
 <div class="wrapper">
-  <div class="sidebar sidebar--statistics">
+
+  <div class="content-dashboard content-dashboard--statistics statistics-grid">
+
+  <div class="sidebar--statistics">
     <div class="sidebar-block">
       <canvas id="wordCountGoal"></canvas>
     </div>
@@ -46,11 +50,12 @@
       </div>
     </div>
   </div>
-  <div class="content-dashboard content-dashboard--statistics">
-    <div class="content-chart">
+
+  <!-- CONTENT -->
+    <div class="content-chart content-chart--up">
       <canvas id="wordCounts"></canvas>
     </div>
-    <div class="content-chart">
+    <div class="content-chart content-chart--down">
       <div id="cal-heatmap"></div>
     </div>
   </div>
