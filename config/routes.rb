@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   end
 
   get "books/:book_id/statistics" => "books#statistics", as: :book_statistics
+  get "books/:book_id/chapters/:chapter_id/refresh_wordcount" => "chapters#refresh_wordcount", as: :refresh_wordcount
 end

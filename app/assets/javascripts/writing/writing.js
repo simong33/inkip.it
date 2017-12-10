@@ -24,23 +24,26 @@ var editor = new MediumEditor('.editable', {
   }
 });
 
-var line = new ProgressBar.Line('#progress-bar-book', {
-  strokeWidth: 4,
-  text: {
-    value: gon.wordcount,
-  },
-  easing: 'easeIn',
-});
 
-$(document).ready(function(){
-
-  line.animate(gon.word_goal_ratio, {
-    duration: 800,
-    from: { color: '#eee' },
-    to: { color: '#000' },
-  }, function() {
+if ($('#progress-bar-book').length) {
+  var line = new ProgressBar.Line('#progress-bar-book', {
+    strokeWidth: 4,
+    easing: 'easeIn',
   });
-});
+  $(document).ready(function(){
+
+    line.animate(gon.word_goal_ratio, {
+      duration: 800,
+      from: { color: '#eee' },
+      to: { color: '#000' },
+    }, function() {
+    });
+  });
+}
+
+
+
+// AUTO-SAVE WHEN USER STOP WRITING
 
 //setup before functions
 var typingTimer ;
@@ -61,9 +64,15 @@ $form.on('keydown', function () {
   clearTimeout(typingTimer);
 });
 
-//user is "finished typing," do something
+// user is "finished typing," do something
 function doneTyping () {
   $form.submit();
   $save.addClass("saving-status--saved");
   $save.html("Enregistré !");
+  if ($('#progress-bar-book').length) {
+    $.get(gon.fetch_refresh_wordcount_url,function(data){
+         console.log(data)
+         line.animate(data);
+      });
+  }
 }

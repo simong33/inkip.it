@@ -9,6 +9,8 @@ class ChaptersController < ApplicationController
 
     gon.wordcount = @book.wordcount.to_s + ' / ' + @book.word_goal.to_s + ' mots'
     gon.word_goal_ratio = @book.word_goal_ratio
+    gon.fetch_refresh_wordcount_url = "/books/" + @book.id.to_s + "/chapters/" + @chapter.id.to_s + "/refresh_wordcount"
+
   end
 
   def create
@@ -29,6 +31,13 @@ class ChaptersController < ApplicationController
       format.html
     end
 
+  end
+
+  def refresh_wordcount
+    book = Book.find(params[:book_id])
+    @word_goal_ratio = book.word_goal_ratio
+
+    render json: @word_goal_ratio
   end
 
   private

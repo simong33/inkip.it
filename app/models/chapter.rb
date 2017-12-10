@@ -20,14 +20,11 @@ class Chapter < ApplicationRecord
 
   def create_streak
     book = self.book
+
     unless book.streaks.empty?
-      book.streaks.each do |streak|
-        if streak.created_at.today?
-          break
-        else
-          streak = Streak.new(book: book)
-          streak.save
-        end
+      unless book.streaks.last.created_at.today?
+        streak = Streak.new(book: book)
+        streak.save
       end
     else
       streak = Streak.new(book: book)
