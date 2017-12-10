@@ -24,7 +24,10 @@ class ChaptersController < ApplicationController
     @chapter = Chapter.find(params[:id])
     @chapter.update(chapter_params)
 
-    redirect_to book_chapter_path(@chapter.book, @chapter)
+    respond_to do |format|
+      format.js
+      format.html
+    end
 
   end
 

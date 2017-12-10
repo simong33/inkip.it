@@ -41,3 +41,29 @@ $(document).ready(function(){
   }, function() {
   });
 });
+
+//setup before functions
+var typingTimer ;
+var doneTypingInterval = 2000 ;
+var $form = $('#form') ;
+var $save = $('.saving-status');
+
+//on keyup, start the countdown
+$form.on('keyup', function () {
+  $save.removeClass("saving-status--saved");
+  $save.html("En train de sauvegarder...");
+  clearTimeout(typingTimer);
+  typingTimer = setTimeout(doneTyping, doneTypingInterval);
+});
+
+//on keydown, clear the countdown
+$form.on('keydown', function () {
+  clearTimeout(typingTimer);
+});
+
+//user is "finished typing," do something
+function doneTyping () {
+  $form.submit();
+  $save.addClass("saving-status--saved");
+  $save.html("Enregistré !");
+}

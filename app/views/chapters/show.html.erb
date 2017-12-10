@@ -2,10 +2,12 @@
 
   <div class="content-dashboard content-dashboard--writing">
     <div class="content-writing">
-        <%= simple_form_for [@chapter.book, @chapter], html: { class: "form-writing"} do |f| %>
+        <%= simple_form_for [@chapter.book, @chapter], remote: true, html: { class: "form-writing", id: "form"} do |f| %>
         <%= f.input :title, label: false, input_html: { class: 'content-writing-title' }, placeholder: 'Titre du chapitre' %>
       <div class="content-writing-text">
           <%= f.input :content, label: false, input_html: { class: 'content-writing-text-field editable' } %>
+          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+          <% end %>
       </div>
     </div>
   </div>
@@ -30,9 +32,8 @@
         </div>
       <% end %>
       <div class="bottom-bar__save-status">
-        <%= f.button :submit, "Enregistrer" %>
+        <div class="saving-status saving-status--saved">Enregistré !</div>
       </div>
-          <% end %>
     </div>
   </div>
 

@@ -194,6 +194,23 @@
   background-color: white;
 }
 
+.bottom-bar__save-status {
+  width: 200px;
+  text-align: right;
+}
+
+.saving-status {
+  background-color: darkgrey;
+  display: inline-block;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 5px;
+}
+
+.saving-status--saved {
+  background-color: #45A597;
+}
+
 #progress-bar-book {
   width: 100%;
   height: 100%;
