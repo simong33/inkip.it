@@ -136,6 +136,8 @@ html, body {
   justify-content: center;
   border: 1px solid darkgrey;
   box-shadow: 0 1px 0 darkgrey;
+  font-family: $headers-font;
+  text-transform: uppercase;
 
 
   &:hover {
@@ -169,6 +171,10 @@ html, body {
   justify-content: space-around;
   padding: 0 12px;
   margin-bottom: 0;
+
+  &:hover {
+    color: white;
+  }
 
   &:focus {
     text-decoration: none;

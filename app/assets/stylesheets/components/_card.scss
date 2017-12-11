@@ -7,6 +7,7 @@
   border-radius: 4px;
   border: solid 1px #CCCCCC;
   box-shadow: 0 0 5px 0 transparent;
+  box-shadow: 4px 4px 5px lightgrey;
   font-size: 12px;
   padding: 0 12px 0 12px;
   transition: transform .5s ease;
@@ -50,7 +51,8 @@
 }
 
 .card__title {
-  font-weight: bold;
+  font-size: 16px;
+  text-transform: uppercase;
 }
 
 .card__link {

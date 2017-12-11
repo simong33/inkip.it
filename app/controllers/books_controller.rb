@@ -98,6 +98,10 @@ class BooksController < ApplicationController
     end
   end
 
+  def settings
+
+  end
+
   private
 
   def book_params

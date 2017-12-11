@@ -10,10 +10,9 @@
 
     <div class="card card--chapter">
       <div class="card__upper-content">
-        <div class="card__title-section card__title"><%= character.name %></div>
+        <h3 class="card__title-section card__title"><%= character.name %></h3>
       </div>
       <div class="card__lower-content">
-        <div class="card__wordcount">Dernière apparition: Chapitre 2</div>
       </div>
       <%= link_to "", book_character_path(@book, character), class:"card__link" %>
    </div>

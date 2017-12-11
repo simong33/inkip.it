@@ -10,6 +10,7 @@
       </a>
       <%= link_to "Lieux", book_places_path(@book), class: "sidebar-item" %>
     </div>
+    <a href="<%= download_book_path(@book) %>" class="sidebar-item sidebar-cta"><i class="fa fa-cloud-download" aria-hidden="true"></i>Téléchargez votre livre</a>
   </div>
   <div class="content-dashboard">
     <%= render "characters/cards.html.erb" %>
