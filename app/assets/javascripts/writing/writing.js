@@ -3,7 +3,7 @@ var editor = new MediumEditor('.editable', {
       /* These are the default options for the toolbar,
          if nothing is passed this is what is used */
       allowMultiParagraphSelection: true,
-      buttons: ['bold', 'italic', 'underline', 'h2', 'h3', 'quote'],
+      buttons: ['bold', 'italic', 'underline'],
       diffLeft: 0,
       diffTop: -10,
       firstButtonClass: 'medium-editor-button-first',

@@ -12,5 +12,8 @@ Rails.application.routes.draw do
   end
 
   get "books/:book_id/statistics" => "books#statistics", as: :book_statistics
+
   get "books/:book_id/chapters/:chapter_id/refresh_wordcount" => "chapters#refresh_wordcount", as: :refresh_wordcount
+
+  get "books/:book_id/download" => "books#download", as: :download_book, format: 'docx'
 end

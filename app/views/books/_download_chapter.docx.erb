@@ -1,0 +1,9 @@
+<h2><%= chapter[0] %></h2>
+
+<br>
+<% chapter[1].split("<br>").each do |string|  %>
+<%= ActionView::Base.full_sanitizer.sanitize(string) %>
+  <br>
+<% end %>
+
+<div class="-page-break"></div>

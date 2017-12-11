@@ -11,6 +11,7 @@ gem 'redis'
 # https://github.com/abitdodgy/words_counted
 gem 'words_counted'
 gem 'gon'
+gem 'htmltoword'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'

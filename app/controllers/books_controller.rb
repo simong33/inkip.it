@@ -29,6 +29,23 @@ class BooksController < ApplicationController
     end
   end
 
+  def download
+    @book = Book.find(params[:book_id])
+    chapters = @book.chapters.order('created_at')
+
+    @book_content = []
+
+    chapters.each do |chapter|
+      @book_content << [chapter.title, chapter.content]
+    end
+
+    respond_to do |format|
+      format.docx do
+        render docx: 'download_book', filename: @book.title + ".docx"
+      end
+    end
+  end
+
   def statistics
     @book = Book.find(params[:book_id])
     chapters = @book.chapters
