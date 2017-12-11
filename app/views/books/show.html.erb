@@ -4,13 +4,12 @@
   <div class="sidebar">
     <div class="sidebar-buttons">
       <a class="sidebar-item sidebar-item--active" href="">
-        <!-- <i class="fa fa-paragraph" aria-hidden="true"></i> -->
         Chapitres
       </a>
       <%= link_to "Personnages", book_characters_path(@book), class: "sidebar-item" %>
       <%= link_to "Lieux", book_places_path(@book), class: "sidebar-item" %>
-      <%= link_to "Téléchargez votre livre", download_book_path(@book) %>
     </div>
+      <a href="<%= download_book_path(@book) %>" class="sidebar-item sidebar-cta"><i class="fa fa-cloud-download" aria-hidden="true"></i>Téléchargez votre livre</a>
   </div>
   <div class="content-dashboard">
     <%= render "chapters/cards.html.erb" %>
