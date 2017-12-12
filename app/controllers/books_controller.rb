@@ -99,6 +99,7 @@ class BooksController < ApplicationController
   end
 
   def settings
+    @book = Book.find(params[:book_id])
 
   end
 
