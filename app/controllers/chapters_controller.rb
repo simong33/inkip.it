@@ -3,6 +3,8 @@ class ChaptersController < ApplicationController
   def show
     @chapter = Chapter.find(params[:id])
     @book = @chapter.book
+    authorize @book
+
     @appearance = Appearance.new
     @characters_left = @chapter.book.characters - @chapter.characters
     @places_left = @chapter.book.places - @chapter.places
@@ -17,6 +19,8 @@ class ChaptersController < ApplicationController
     @chapter = Chapter.new(chapter_params)
     book = Book.find(params[:book_id])
     @chapter.book = book
+    authorize @chapter
+
     if @chapter.save
       redirect_to book_chapter_path(book, @chapter), alert: "Vous avez ajouté un nouveau chapitre!"
     end

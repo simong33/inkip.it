@@ -2,6 +2,8 @@ class CharactersController < ApplicationController
   def create
     @character = Character.new(character_params)
     @character.book = Book.find(params[:book_id])
+    authorize @character
+
     if @character.save
       redirect_to book_characters_path(@character.book), alert: "Vous avez ajouté un nouveau personnage!"
     end
@@ -9,8 +11,9 @@ class CharactersController < ApplicationController
 
   def index
     @book = Book.find(params[:book_id])
-    @character = Character.new
-    @characters = @book.characters
+    @character = Character.new(book: @book)
+    @characters = policy_scope(Character).where(book: @book)
+
     @chapters = @book.chapters
     @places = @book.places
   end

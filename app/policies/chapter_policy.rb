@@ -1,0 +1,11 @@
+class ChapterPolicy < ApplicationPolicy
+  class Scope < Scope
+    def resolve
+      scope
+    end
+  end
+
+  def create?
+    record.book.user == user
+  end
+end

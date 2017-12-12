@@ -2,12 +2,13 @@ class BooksController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
 
   def index
-    @books = current_user.books.order('updated_at DESC')
+    @books = policy_scope(Book).order('updated_at DESC')
     @book = Book.new
   end
 
   def show
     @book = Book.find(params[:id])
+    authorize @book
     @chapters = @book.chapters.order('created_at')
     @chapter = Chapter.new
     @characters = @book.characters
@@ -48,6 +49,8 @@ class BooksController < ApplicationController
 
   def statistics
     @book = Book.find(params[:book_id])
+    authorize @book
+
     chapters = @book.chapters
 
     # DWC
@@ -83,7 +86,7 @@ class BooksController < ApplicationController
 
     # WORDS PER SESSION
 
-    unless chapters.empty?
+    unless chapters.empty? || dwc_all.empty?
       @words_per_session = @book.wordcount / dwc_all.count
     else
       @words_per_session = 0
@@ -100,6 +103,7 @@ class BooksController < ApplicationController
 
   def settings
     @book = Book.find(params[:book_id])
+    authorize @book
 
   end
 
