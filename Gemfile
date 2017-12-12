@@ -12,6 +12,7 @@ gem 'redis'
 gem 'words_counted'
 gem 'gon'
 gem 'htmltoword'
+gem 'pundit'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
