@@ -5,7 +5,7 @@
   opacity: .9;
   transition: all 0.3s ease;
   height: 60px;
-  padding: 0px 30px;
+  padding: 0px 50px;
   position: relative;
   display:flex;
   flex-direction: column;
@@ -18,10 +18,12 @@
   height: 50px;
   color: white;
   text-decoration: none;
-  font-weight: bold;
   display:flex;
   flex-direction: column;
   justify-content: center;
+  font-size: 24px;
+  text-shadow: 2px 2px $purple-light;
+  letter-spacing: 6px;
 
   &:hover {
     text-decoration: none;
@@ -53,12 +55,11 @@
 
 /* Navbar link */
 .navbar-wagon-link {
-  color: #616668;
+  color: white;
   font-size: 14px;
 }
 .navbar-wagon-link:hover {
-  color: #da552f;
-  text-decoration: none;
+  color: white;
 }
 
 /* Dropdown menu */

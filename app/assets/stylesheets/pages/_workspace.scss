@@ -12,5 +12,13 @@
 }
 
 .container__books {
-  width: 70%;
+  width: 65%;
+
+  @include mq($until: tablet) {
+    width: 100%;
+  }
+
+  @include mq($from: tablet, $until: wide) {
+    width: 90%;
+  }
 }

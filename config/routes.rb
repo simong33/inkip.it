@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  root to: 'books#index'
+  root to: 'pages#landing'
 
   resources :users, only: [:show] do
     resources :books, only: [:index], name_prefix: "user_"
