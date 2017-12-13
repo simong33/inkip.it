@@ -4,3 +4,13 @@
   height: 100%;
   background-color: #F1F1F1;
 }
+
+.content-dashboard__workspace {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  justify-content: center;
+}
+
+.container__books {
+  width: 70%;
+}

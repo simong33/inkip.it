@@ -18,5 +18,6 @@ cal.init({
     inner: "Entre {down} et {up} {name}",
     upper: "Plus de {max} {name}, bravo !"
   },
+  legend: [100, 500, 1000, 2000, 5000],
   domainLabelFormat: "%m-%Y"
 });

@@ -1,0 +1,39 @@
+.content-dashboard--settings {
+  min-height: calc(100vh - 120px);
+  display: flex;
+  justify-content: center;
+}
+
+.container__settings {
+  background-color: white;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+}
+
+.settings__edit-book {
+  width: 80%;
+  form {
+    text-align: center;
+  }
+}
+
+#delete-book-btn:hover, #delete-book-btn:focus {
+  opacity: .8;
+  text-decoration: none;
+  opacity: .7;
+}
+
+#delete-book-btn {
+  background-color: red;
+  color: white;
+  display: inline-block;
+  text-decoration: none;
+  padding: 20px 12px;
+  border-radius: 5px;
+}
+

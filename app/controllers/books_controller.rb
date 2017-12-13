@@ -30,6 +30,23 @@ class BooksController < ApplicationController
     end
   end
 
+  def update
+    @book = Book.find(params[:id])
+    authorize @book
+
+    if @book.update(book_params)
+      redirect_to book_settings_path(@book), alert: "Vous avez modifié votre livre !"
+    end
+  end
+
+  def destroy
+    @book = Book.find(params[:id])
+    @book.destroy
+    authorize @book
+
+    redirect_to root_path, alert: "Vous venez d'effacer votre livre :( !"
+  end
+
   def download
     @book = Book.find(params[:book_id])
     chapters = @book.chapters.order('created_at')
@@ -76,7 +93,10 @@ class BooksController < ApplicationController
     # WORDCOUNT GOAL
 
     gon.wordcount = @book.wordcount
-    gon.words_left = @book.word_goal - @book.wordcount
+
+    if @book.word_goal
+      gon.words_left = @book.word_goal - @book.wordcount
+    end
 
     # CAL-HEATMAP
 

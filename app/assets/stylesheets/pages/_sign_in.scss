@@ -1,0 +1,33 @@
+.wrapper__signin {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  background-color: white;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  border-radius: 4px;
+  box-shadow: 4px 4px 8px lightgrey;
+}
+
+.container__signin {
+  background-color: white;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+
+  form {
+    margin-bottom: 24px;
+  }
+}
