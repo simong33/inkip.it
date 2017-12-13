@@ -21,6 +21,8 @@ Rails.application.routes.draw do
     #   resources :places, only: [:create, :index, :show]
     # end
 
+  get "books" => "books#index",  as: :user_root_path
+
   get "books/:book_id/statistics" => "books#statistics", as: :book_statistics
 
   get "books/:book_id/settings" => "books#settings", as: :book_settings

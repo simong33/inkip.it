@@ -9,7 +9,7 @@ html, body {
 
 .navbar-book-dashboard {
   height: 60px;
-  background-color: #475059;
+  background-color: $navy-blue;
   border: none;
   border-top: 1px solid #2F363E;
   display: flex;
@@ -150,7 +150,8 @@ html, body {
 }
 
 .sidebar-item--active {
-  background-color: #DBECED;
+  background-color: darkgrey;
+  color: white;
   box-shadow: 0 0 0;
   opacity: .9;
 
@@ -160,7 +161,7 @@ html, body {
 }
 
 .sidebar-cta {
-  background-color: #A1CDCE;
+  background-color: $purple-light;
   color: white;
   border: none;
   font-size: 16px;

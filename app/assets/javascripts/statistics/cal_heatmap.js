@@ -18,6 +18,11 @@ cal.init({
     inner: "Entre {down} et {up} {name}",
     upper: "Plus de {max} {name}, bravo !"
   },
-  legend: [100, 500, 1000, 2000, 5000],
+  legend: [10, 20, 30, 50, 80],
+  legendColors: {
+    min: "#F6F6F6",
+    max: "#C06C84",
+    empty: "white"
+  },
   domainLabelFormat: "%m-%Y"
 });

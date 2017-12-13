@@ -1,1 +1,8 @@
 // Specific CSS for your home-page
+a {
+  color: $navy-blue;
+
+  &:hover {
+    color: $navy-blue;
+  }
+}
