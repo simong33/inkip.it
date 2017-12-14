@@ -43,6 +43,16 @@
   grid-row: 2 / span 1;
   grid-column: 3 / span 1;
   margin: 0 3px 0 3px;
+  padding: 24px 12px;
+  justify-content: space-around;
+
+  .content-chart-data:first-child {
+    font-size: 24px;
+  }
+
+  .content-chart-label:last-child {
+    font-size: 14px;
+  }
 }
 
 .content-chart--down-3 {
