@@ -6,7 +6,7 @@ var wordCountGoalChart = new Chart(ctxWordCountGoal, {
           data: [gon.wordcount, gon.words_left],
           backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
-          'rgba(188, 99, 132, 0.2)'
+          'rgba(57, 92, 124, 0.2)'
           ],
         }]
     },

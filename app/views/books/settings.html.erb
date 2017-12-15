@@ -1,18 +1,4 @@
-<!-- NAVBAR -->
-
-<div class="navbar-book-dashboard">
-  <div class="navbar-back">
-    <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
-    <%= link_to "Retour au livre", book_path(@book), class: "navbar-back-link" %>
-  </div>
-  <div class="navbar-book-dashboard-content">
-    <ul class="navbar-book-list">
-    <li class="navbar-item"><a href="<%= book_path(@book) %>">Ecrire</a></li>
-    <li class="navbar-item"><a href="<%= book_statistics_path(@book) %> ">Analyser</a></li>
-    <li class="navbar-item navbar-item--active"><a href="<%= book_settings_path(@book)%> ">Configurer</a></li>
-    </ul>
-  </div>
-</div>
+<%= render 'shared/navbar_dashboard', settings: 'settings' %>
 
 <div class="content-dashboard content-dashboard--settings">
   <div class="container__settings">
