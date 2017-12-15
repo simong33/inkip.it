@@ -1,10 +1,22 @@
 class Book < ApplicationRecord
   belongs_to :user
-  has_many :chapters
-  has_many :characters
-  has_many :places
-  has_many :streaks
-  has_many :daily_word_counts
+  has_many :chapters, dependent: :destroy
+  has_many :characters, dependent: :destroy
+  has_many :places, dependent: :destroy
+  has_many :streaks, dependent: :destroy
+  has_many :daily_word_counts, dependent: :destroy
+
+  validate do |book|
+    book.errors.add(:base, "Ajoutez un titre à votre livre !") if book.title.blank?
+  end
+
+  after_initialize :init
+
+  def init
+    self.max_streaks = 0
+    self.current_streaks = 0
+    self.max_daily_wordcount = 0
+  end
 
   def signs
     signs = 0

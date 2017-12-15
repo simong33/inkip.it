@@ -1,0 +1,61 @@
+.modal-content {
+  border-radius: 5px;
+}
+
+.close:hover {
+  color: $purple-light;
+}
+
+.modal-header {
+  padding: 32px 64px 15px 64px;
+  border-image: linear-gradient(to right, $purple-light, $purple-strong);
+  border-image-slice: 1;
+  border-top: 6px solid transparent;
+  border-bottom: none;
+  display: flex;
+  justify-content: space-between;
+
+  h5 {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+  }
+
+  &:before, &:after {
+    content: none;
+  }
+}
+
+.modal-body {
+  padding: 32px 64px;
+
+  label {
+    color: rgba(0,0,0,.7);
+    border-bottom: 8px solid $purple-light;
+    display: inline-block;
+    line-height: 0.35;
+  }
+}
+
+.modal-footer {
+  padding: 15px 64px;
+
+  button {
+    background-color: transparent;
+    border: 1px solid lightgrey;
+
+    &:hover {
+      opacity: .8;
+    }
+  }
+
+  input {
+    background-color: $purple-light;
+    border: none;
+
+    &:hover, &:focus, &:active {
+      background-color: $purple-light !important;
+      opacity: .8;
+      border: none !important;
+    }
+  }
+}

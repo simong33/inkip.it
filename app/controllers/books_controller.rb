@@ -24,9 +24,15 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     @book.user = current_user
+    authorize @book
 
-    if @book.save
-      redirect_to book_path(@book), alert: 'Vous avez ajouté un nouveau livre !'
+    respond_to do |format|
+      if @book.save
+        flash[:notice] = "Vous avez ajouté un nouveau livre !"
+        format.js {render js: "window.location.href='#{book_path(@book)}'"}
+      else
+        format.js {render "books/errors"}
+      end
     end
   end
 
@@ -44,7 +50,7 @@ class BooksController < ApplicationController
     @book.destroy
     authorize @book
 
-    redirect_to root_path, alert: "Vous venez d'effacer votre livre :( !"
+    redirect_to user_books_path(current_user), alert: "Vous venez d'effacer votre livre :( !"
   end
 
   def download

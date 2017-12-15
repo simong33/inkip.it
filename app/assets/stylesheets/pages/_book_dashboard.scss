@@ -153,7 +153,7 @@ html, body {
 }
 
 .sidebar-item--active {
-  background-color: darkgrey;
+  background-color: lightgrey;
   color: white;
   box-shadow: 0 0 0;
   opacity: .9;
@@ -177,6 +177,7 @@ html, body {
   justify-content: space-between;
   padding: 12px;
   margin-bottom: 0;
+  opacity: 1;
 
   &:hover {
     color: white;

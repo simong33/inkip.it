@@ -1,0 +1,4 @@
+$("#book-errors").empty()
+<% @book.errors.full_messages.each do |error| %>
+  $("#book-errors").append('<p>' + '<%= error %>' + '</p>')
+<% end %>
