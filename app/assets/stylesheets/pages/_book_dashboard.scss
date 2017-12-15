@@ -136,17 +136,18 @@ html, body {
   flex-direction: column;
   justify-content: center;
   border: 1px solid darkgrey;
-  box-shadow: 0 1px 0 darkgrey;
+  box-shadow: 0 3px 0 darkgrey;
   font-family: $headers-font;
   text-transform: uppercase;
+  transition: all .4s ease;
 
 
   &:hover {
     text-decoration: none;
     box-shadow: 0 0 0;
     color: #39434F;
-    transform: translateY(1px);
-    transition: transform .4s ease;
+    transform: translateY(2px);
+    transition: all .2s ease;
   }
 
 }
