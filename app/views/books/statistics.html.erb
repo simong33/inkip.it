@@ -51,14 +51,18 @@
       <div class="streaks">
         <div class="streaks-current">
           <div class="streaks-data">
-            <i class="fa fa-fire" id="fire-streaks-current" aria-hidden="true"></i>
+            <div class="icon-circle icon-circle--streak-gold">
+              <i class="fa fa-diamond" id="fire-streaks-current" aria-hidden="true"></i>
+            </div>
             <%= @book.current_streaks %>
             </div>
           <div class="streaks-text">Actuellement</div>
         </div>
         <div class="streaks-max">
           <div class="streaks-data">
-            <i class="fa fa-fire" id="fire-streaks-max" aria-hidden="true"></i>
+            <div class="icon-circle icon-circle--streak-current">
+              <i class="fa fa-diamond" id="fire-streaks-max" aria-hidden="true"></i>
+            </div>
             <%= @book.max_streaks %>
             </div>
           <div class="streaks-text">Votre record</div>

@@ -49,6 +49,8 @@ class BooksController < ApplicationController
 
   def download
     @book = Book.find(params[:book_id])
+    authorize @book
+
     chapters = @book.chapters.order('created_at')
 
     @book_content = []

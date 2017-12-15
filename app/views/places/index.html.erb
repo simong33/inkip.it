@@ -1,16 +1,7 @@
-<%= render "books/book_dashboard_navbar" %>
+<%= render "shared/navbar_dashboard", dashboard: 'dashboard' %>
 
 <div class="wrapper">
-  <div class="sidebar">
-    <div class="sidebar-buttons">
-      <%= link_to "Chapitres", book_path(@book), class: "sidebar-item" %>
-      <%= link_to "Personnages", book_characters_path(@book), class: "sidebar-item" %>
-      <a class="sidebar-item sidebar-item--active" href="">
-        Lieux
-      </a>
-    </div>
-    <a href="<%= download_book_path(@book) %>" class="sidebar-item sidebar-cta"><i class="fa fa-cloud-download" aria-hidden="true"></i>Téléchargez votre livre</a>
-  </div>
+  <%= render "shared/dashboard_sidebar", places: 'places' %>
   <div class="content-dashboard">
     <%= render "places/cards.html.erb" %>
   </div>

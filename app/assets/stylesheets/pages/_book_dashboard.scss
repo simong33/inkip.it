@@ -126,7 +126,9 @@ html, body {
   width: 100%;
   height: 64px;
   color: #39434F;
-  font-weight: lighter;
+  font-weight: 300;
+  letter-spacing: 5px;
+  opacity: .8;
   background-color: #F1F1F1;
   border-radius: 3px;
   margin: 0 auto 24px auto;
@@ -157,6 +159,7 @@ html, body {
 
   &:hover{
     transform: none;
+    color: white;
   }
 }
 
@@ -164,13 +167,14 @@ html, body {
   background-color: $purple-light;
   color: white;
   border: none;
-  font-size: 16px;
+  font-size: 14px;
+  letter-spacing: 4px;
   font-weight: 400;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
-  padding: 0 12px;
+  justify-content: space-between;
+  padding: 12px;
   margin-bottom: 0;
 
   &:hover {
@@ -179,6 +183,17 @@ html, body {
 
   &:focus {
     text-decoration: none;
+  }
+
+  i {
+    color: white;
+    font-size: 18px;
+    margin: 0 12px;
+  }
+
+  .icon-circle {
+    height: 32px;
+    width: 32px;
   }
 }
 

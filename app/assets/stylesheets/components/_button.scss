@@ -1,0 +1,18 @@
+.btn-inkipit {
+  transition: transform box-shadow .5s ease;
+
+  &:hover {
+    transform: translate(0, -2px);
+    box-shadow: 2px 2px 5px darkgrey;
+  }
+}
+
+.icon-circle {
+  background-color: white;
+  height: 20px;
+  width: 20px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

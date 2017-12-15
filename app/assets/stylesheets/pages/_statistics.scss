@@ -134,19 +134,35 @@
   padding: 0 12px;
   align-items: center;
   font-size: 24px;
+
+  i {
+    font-size: 16px;
+  }
 }
 
 #fire-streaks-current {
-  color: #F8AE3D;
+  color: white;
 }
 
 #fire-streaks-max {
-  color: #A8CDFE;
+  color: white;
 }
 
 .streaks-text {
   font-size: 12px;
   margin-bottom: 12px;
+}
+
+.icon-circle--streak-gold {
+  background-color: #F8AE3D !important;
+  height: 32px;
+  width: 32px;
+}
+
+.icon-circle--streak-current {
+  background-color: #A8CDFE !important;
+  height: 32px;
+  width: 32px;
 }
 
 #cal-heatmap {
