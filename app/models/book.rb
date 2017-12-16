@@ -10,12 +10,12 @@ class Book < ApplicationRecord
     book.errors.add(:base, "Ajoutez un titre à votre livre !") if book.title.blank?
   end
 
-  after_initialize :init
+  after_create :init
 
   def init
-    self.max_streaks = 0
-    self.current_streaks = 0
-    self.max_daily_wordcount = 0
+    self.max_streaks ||= 0
+    self.current_streaks ||= 0
+    self.max_daily_wordcount ||= 0
   end
 
   def signs

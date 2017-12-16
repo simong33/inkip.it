@@ -1,0 +1,38 @@
+form {
+
+  label {
+    color: rgba(0,0,0,.7);
+    border-bottom: 8px solid $purple-light;
+    display: inline-block;
+    line-height: 0.55;
+    font-weight: 300;
+  }
+
+  button {
+    background-color: transparent;
+    border: 1px solid lightgrey;
+
+    &:hover {
+      opacity: .8;
+    }
+  }
+
+  input .btn {
+    background-color: $purple-light;
+    border: none;
+
+    &:hover, &:focus, &:active {
+      background-color: $purple-light !important;
+      opacity: .8;
+      border: none !important;
+    }
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  margin-bottom: 24px;
+}

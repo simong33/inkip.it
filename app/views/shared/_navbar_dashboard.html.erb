@@ -1,13 +1,7 @@
 <div class="navbar-book-dashboard">
-  <% unless defined?(dashboard) %>
-  <div class="navbar-back">
-    <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
-    <%= link_to "Retour au livre", book_path(@book), class: "navbar-back-link" %>
-  </div>
-  <% end %>
   <div class="navbar-book-dashboard-content">
     <ul class="navbar-book-list">
-    <li class="navbar-item <%= "navbar-item--active" if defined?(dashboard) %>"><a href="<%= book_path(@book) %>">Ecrire</a></li>
+    <li class="navbar-item <%= "navbar-item--active" if defined?(dashboard) %>"><a href="<%= book_path(@book) %>">Écrire</a></li>
     <li class="navbar-item <%= "navbar-item--active" if defined?(statistics) %>""><a href="<%= book_statistics_path(@book) %>">Analyser</a></li>
     <li class="navbar-item <%= "navbar-item--active" if defined?(settings) %>"><a href="<%= book_settings_path(@book)%>">Configurer</a></li>
     </ul>

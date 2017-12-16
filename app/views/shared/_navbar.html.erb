@@ -11,6 +11,12 @@
 
     <% if user_signed_in? %>
 
+    <div class="navbar-wagon-item underlined-anchor">
+      <%= link_to user_books_path(current_user) do %>
+         <%= t(".profile", default: "Mes livres", class: "") %>
+      <% end %>
+    </div>
+
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
@@ -22,11 +28,6 @@
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Profil") %>
               <% end %>
             </li> -->
-            <li>
-              <%= link_to user_books_path(current_user) do %>
-                <i class="fa fa-book"></i>  <%= t(".profile", default: "Mes livres") %>
-              <% end %>
-            </li>
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
                 <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Déconnexion") %>
