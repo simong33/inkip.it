@@ -19,8 +19,8 @@
       </div>
       <div class="modal-body">
         <%= simple_form_for [@book, @character] do |f| %>
-          <%= f.input :first_name, label: 'Prénom' %>
-          <%= f.input :last_name, label: 'Nom' %>
+          <%= f.input :first_name, label: 'Prénom', placeholder: "Hiro"  %>
+          <%= f.input :last_name, label: 'Nom', placeholder: "Protagonist" %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>

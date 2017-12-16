@@ -1,4 +1,5 @@
 <div class="navbar-book-dashboard">
+  <div class="navbar-book-title"><%= @book.title %></div>
   <div class="navbar-book-dashboard-content">
     <ul class="navbar-book-list">
     <li class="navbar-item <%= "navbar-item--active" if defined?(dashboard) %>"><a href="<%= book_path(@book) %>">Écrire</a></li>
