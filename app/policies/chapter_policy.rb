@@ -8,4 +8,8 @@ class ChapterPolicy < ApplicationPolicy
   def create?
     record.book.user == user
   end
+
+  def destroy?
+    record.book.user == user
+  end
 end

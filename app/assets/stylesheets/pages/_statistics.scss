@@ -107,10 +107,34 @@
 
 .wordcount-goal {
   margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #wordCountGoal {
   max-height: 280px;
+}
+
+.gif {
+  height: 300px;
+  width: 300px;
+  margin-bottom: 12px;
+}
+
+.gradient-congratulations-text {
+  font-size: 24px;
+  background: -webkit-linear-gradient($purple-light, $purple-strong);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  width: 300px;
+}
+
+.congratulations-modify-wordcount {
+  font-size: 12px;
 }
 
 .streaks {

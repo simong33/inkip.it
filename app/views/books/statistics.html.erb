@@ -12,7 +12,15 @@
     <div class="sidebar-block wordcount-goal">
       <h2><%= @book.wordcount %> mots</h2>
       <p>depuis le <%= @book.created_at.strftime('%d/%m/%Y') %></p>
-      <canvas id="wordCountGoal"></canvas>
+      <% unless @book.word_goal_ratio >= 1 %>
+        <canvas id="wordCountGoal"></canvas>
+      <% else %>
+        <h3 class="gradient-congratulations-text">Objectif atteint !</h3>
+        <%= image_tag 'mind_blown.gif', class: "gif" %>
+        <div class="underlined-anchor">
+          <a class="congratulations-modify-wordcount" href="<%= book_settings_path(@book) %>">Modifier votre objectif de mot ?</a>
+        </div>
+      <% end %>
     </div>
     <div class="sidebar-block">
       <div class="sidebar-block-data">

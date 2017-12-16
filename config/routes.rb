@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
 
   resources :books, only: [:show, :new, :create, :update, :destroy] do
-    resources :chapters, only: [:create, :show, :update], name_prefix: "book_"
+    resources :chapters, only: [:create, :show, :update, :destroy], name_prefix: "book_"
     resources :characters, only: [:create, :index, :show], name_prefix: "book_"
     resources :places, only: [:create, :index, :show], name_prefix: "book_"
   end

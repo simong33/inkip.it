@@ -1,8 +1,5 @@
 var ctxWordCounts = document.getElementById("wordCounts").getContext('2d');
 
-var ctxWordCountGoal = document.getElementById("wordCountGoal").getContext('2d');
-// var progress = document.getElementById('animationProgress');
-
 var wordCountsChart = new Chart(ctxWordCounts, {
     type: 'bar',
     data: {

@@ -37,6 +37,16 @@ class ChaptersController < ApplicationController
 
   end
 
+  def destroy
+    book = Book.find(params[:book_id])
+    @chapter = Chapter.find(params[:id])
+    authorize @chapter
+
+    @chapter.destroy
+
+    redirect_to book_path(book)
+  end
+
   def refresh_wordcount
     book = Book.find(params[:book_id])
     @word_goal_ratio = book.word_goal_ratio
