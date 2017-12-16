@@ -163,8 +163,10 @@ html, body {
 }
 
 .sidebar-item--active {
-  background-color: lightgrey;
-  color: white;
+  background: -webkit-linear-gradient($purple-light, lightgrey);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-color: white;
   box-shadow: 0 0 0;
   opacity: .9;
 
