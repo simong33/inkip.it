@@ -13,6 +13,8 @@ gem 'words_counted'
 gem 'gon'
 gem 'htmltoword'
 gem 'pundit'
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'

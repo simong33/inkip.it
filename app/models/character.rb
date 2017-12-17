@@ -5,6 +5,10 @@ class Character < ApplicationRecord
   has_many :places, through: :appearances
 
   def name
-    self.first_name + " " + self.last_name
+    unless self.last_name.nil?
+      self.first_name + " " + self.last_name
+    else
+      self.first_name
+    end
   end
 end
