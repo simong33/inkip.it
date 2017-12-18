@@ -78,6 +78,7 @@ GEM
       actionpack (>= 3.0)
       multi_json
       request_store (>= 1.0)
+    google-analytics-rails (1.1.1)
     htmltoword (0.7.0)
       actionpack
       nokogiri
@@ -212,6 +213,7 @@ DEPENDENCIES
   figaro
   font-awesome-sass
   gon
+  google-analytics-rails (= 1.1.1)
   htmltoword
   jbuilder (~> 2.0)
   jquery-rails
