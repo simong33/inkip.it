@@ -8,6 +8,10 @@ form {
     font-weight: 300;
   }
 
+  .boolean {
+    border: none;
+  }
+
   button {
     background-color: transparent;
     border: 1px solid lightgrey;
@@ -26,6 +30,11 @@ form {
       opacity: .8;
       border: none !important;
     }
+  }
+
+  .form-actions {
+    display: flex;
+    justify-content: center;
   }
 }
 
