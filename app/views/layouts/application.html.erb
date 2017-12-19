@@ -3,15 +3,13 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>inkipit</title>
+    <title>inkip.it</title>
     <%= Gon::Base.render_data %>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= favicon_link_tag 'open-book.svg' %>
     <script type="text/javascript" src="//d3js.org/d3.v3.min.js"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.min.js"></script>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.css" />
-    <%= analytics_init if GoogleAnalytics.valid_tracker? %>
   </head>
   <body>
     <% unless controller_name == "pages" %>
@@ -19,7 +17,18 @@
     <% end %>
     <%= render 'shared/flashes' %>
     <%= yield %>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.min.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.css" />
     <%= javascript_include_tag 'application' %>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56832869-8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-56832869-8');
+    </script>
     <%= yield(:after_js) %>
   </body>
 </html>
