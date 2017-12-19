@@ -18,6 +18,16 @@ class CharactersController < ApplicationController
     @places = @book.places
   end
 
+  def destroy
+    book = Book.find(params[:book_id])
+    @character = Character.find(params[:id])
+    authorize @character
+
+    @character.destroy
+
+    redirect_to book_characters_path(book)
+  end
+
   private
 
   def character_params
