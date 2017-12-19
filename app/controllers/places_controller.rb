@@ -18,6 +18,16 @@ class PlacesController < ApplicationController
     @chapters = @book.chapters
   end
 
+  def destroy
+    book = Book.find(params[:book_id])
+    @place = Place.find(params[:id])
+    authorize @place
+
+    @place.destroy
+
+    redirect_to book_places_path(book)
+  end
+
   private
 
   def place_params
