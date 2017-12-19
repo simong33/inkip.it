@@ -106,3 +106,17 @@
   opacity: .8;
   font-size: 16px;
 }
+
+.landing-footer {
+  height: 50px;
+  border-top: 1px solid $purple-light;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+
+  p {
+    margin-bottom: 0;
+  }
+
+}
