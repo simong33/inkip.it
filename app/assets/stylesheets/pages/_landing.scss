@@ -67,5 +67,42 @@
 }
 
 .landing-section {
+  height: 600px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.screenshot {
   height: 400px;
+  box-shadow: 2px 2px 2px lightgrey;
+  margin-left: 12%;
+}
+
+.screenshot--right {
+  margin-right: 12%;
+  margin-left: 8%;
+}
+
+.value-proposition-block {
+  margin-left: 8%;
+  padding-right: 12%;
+}
+
+.value-proposition-block--left {
+  margin-left: 0;
+  padding-right: 0;
+  padding-left: 12%;
+}
+
+.value-proposition-headline {
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+.value-proposition-text {
+  margin-bottom: 24px;
+  opacity: .8;
+  font-size: 16px;
 }

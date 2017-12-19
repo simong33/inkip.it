@@ -5,10 +5,39 @@
       <div class="landing-brand">inkipit.</div>
       <h1 class="landing-title">Racontez des histoires</h1>
       <div class="landing-subtitle">Finissez enfin votre roman.</div>
-      <a class="cta landing-cta" href="<%= new_user_registration_path %>">Commencer maintenant</a>
+      <a class="cta landing-cta" href="<%= new_user_registration_path %>">
+        Commencer maintenant
+      </a>
     </div>
   </div>
 </div>
-<div class="landing-section">hello1</div>
-<div class="landing-section">hello2</div>
-<div class="landing-section">hello3</div>
+<div class="landing-section">
+  <%= image_tag 'screenshot_writing.png', class: "screenshot" %>
+  <div class="value-proposition-block">
+    <h2 class="value-proposition-headline">Ecrivez sans distraction.</h2>
+    <p class="value-proposition-text">Assez de ces distractions inutiles qui polluent votre concentration ? Profitez d'une interface dégagée et claire qui vous suivra jusqu'à la dernière ligne de votre roman.</p>
+    <a class="cta landing-cta" href="<%= new_user_registration_path %>">
+      Commencer maintenant
+    </a>
+  </div>
+</div>
+<div class="landing-section">
+  <div class="value-proposition-block value-proposition-block--left">
+    <h2 class="value-proposition-headline">Fixez-vous des objectifs (et tenez-les).</h2>
+    <p class="value-proposition-text">Donnez-vous un objectif de mots à atteindre et incitez-vous à écrire chaque jour. Suivez vos performances au quotidien et comparez-vous aux autres auteurs.</p>
+    <a class="cta landing-cta" href="<%= new_user_registration_path %>">
+      Commencer maintenant
+    </a>
+  </div>
+  <%= image_tag 'screenshot_data.png', class: "screenshot screenshot--right" %>
+</div>
+<div class="landing-section">
+  <%= image_tag 'screenshot_organize', class: "screenshot" %>
+  <div class="value-proposition-block">
+    <h2 class="value-proposition-headline">Construisez votre univers</h2>
+    <p class="value-proposition-text">Organisez votre imaginaire avec des fiches détaillées sur les personnages et les lieux que vous utilisez pour votre récit.</p>
+    <a class="cta landing-cta" href="<%= new_user_registration_path %>">
+      Commencer maintenant
+    </a>
+  </div>
+</div>
