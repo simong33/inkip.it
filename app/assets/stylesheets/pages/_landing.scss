@@ -21,11 +21,20 @@
   justify-content: center;
   margin-right: 8%;
   margin-left: 55%;
+
+  @include mq($until: desktop) {
+    margin: 0;
+    align-items: center;
+  }
 }
 
 .landing-title-container {
   padding: 12px;
   text-align: left;
+
+  @include mq($until: desktop) {
+    text-align: center;
+  }
 
 }
 
@@ -67,22 +76,43 @@
 }
 
 .landing-section {
-  height: 600px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 96px;
+  padding-top: 48px;
+
+  @include mq($until: desktop) {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 48px;
+    font-size: 14px;
+  }
 }
 
 .screenshot {
   height: 400px;
-  box-shadow: 2px 2px 2px lightgrey;
-  margin-left: 12%;
+
+  @include mq($until: desktop) {
+    height: 200px;
+    margin-bottom: 20px;
+    margin-left: 0 !important;
+  }
+
+  @include mq($from: tablet) {
+    box-shadow: 2px 2px 2px lightgrey;
+    margin-left: 12%;
+  }
 }
 
 .screenshot--right {
-  margin-right: 12%;
-  margin-left: 8%;
+
+  @include mq($from: tablet) {
+    margin-right: 12%;
+    margin-left: 8%;
+  }
 }
 
 .value-proposition-block {
@@ -94,17 +124,29 @@
   margin-left: 0;
   padding-right: 0;
   padding-left: 12%;
+
+  @include mq($until: desktop) {
+    display: none;
+  }
 }
 
 .value-proposition-headline {
   margin-top: 0;
   margin-bottom: 24px;
+
+  @include mq($until: desktop) {
+    font-size: 24px;
+  }
 }
 
 .value-proposition-text {
   margin-bottom: 24px;
   opacity: .8;
   font-size: 16px;
+
+  @include mq($until: desktop) {
+    font-size: 14px;
+  }
 }
 
 .landing-footer {
