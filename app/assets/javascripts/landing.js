@@ -1,2 +1,6 @@
 window.sr = ScrollReveal({ reset: true });
-sr.reveal('.value-proposition-headline', {duration: 1000});
+sr.reveal('.value-proposition-block', {
+  duration: 1000,
+  origin: 'top',
+  reset: false,
+});

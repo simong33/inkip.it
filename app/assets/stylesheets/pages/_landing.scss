@@ -50,9 +50,21 @@
   font-size: 36px;
   letter-spacing: 12px;
   text-transform: uppercase;
-  color: white;
-  text-shadow: 2px 2px $purple-light;
   margin: 0 0 24px 0;
+  height: 100px;
+  width: 450px;
+  line-height: 150%;
+  color: $navy-blue;
+
+  span:first-child {
+    color: white;
+    text-shadow: 2px 2px $purple-light;
+  }
+
+  @include mq($until: desktop) {
+    font-size: 24px;
+    width: 80vw;
+  }
 }
 
 .landing-subtitle {
