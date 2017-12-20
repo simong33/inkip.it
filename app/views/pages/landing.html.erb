@@ -52,9 +52,12 @@
 </div>
 <div class="landing-footer underlined-anchor"><a href="http://simonguillor.it" target="_blank">simonguillor.it</a></div>
 
-<%= javascript_include_tag 'typer.js' %>
 
 <!-- https://github.com/jlmakes/scrollreveal -->
 
 <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
-<%= javascript_include_tag 'landing' %>
+
+<% content_for(:after_js) do %>
+  <%= javascript_include_tag 'typer.js' %>
+  <%= javascript_include_tag 'landing'%>
+<% end %>
