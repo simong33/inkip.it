@@ -109,7 +109,7 @@
 
 .screenshot--right {
 
-  @include mq($from: tablet) {
+  @include mq($from: desktop) {
     margin-right: 12%;
     margin-left: 8%;
   }
