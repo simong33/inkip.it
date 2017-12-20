@@ -14,7 +14,8 @@
       <div class="card__upper-content">
         <div class="card__title-section">
 
-          <h3 class="card__title"><%= chapter.title %></h3>
+          <h3 class="card__title"><%=
+truncate(chapter.title, length: 50, separator: ' ') %></h3>
         </div>
       </div>
       <div class="card__lower-content">

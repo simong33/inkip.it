@@ -12,7 +12,7 @@
       <%= link_to "", book_place_path(@book, place), method: :delete, class: "fa fa-trash", data: { confirm: "Etes-vous certain de vouloir effacer ce lieu ?" } %>
       <div class="card__upper-content">
         <div class="card__title-section">
-          <h3 class="card__title"><%= place.name %></h3>
+          <h3 class="card__title"><%= truncate(place.name, length: 50, separator: ' ')  %></h3>
         </div>
       </div>
       <div class="card__lower-content">

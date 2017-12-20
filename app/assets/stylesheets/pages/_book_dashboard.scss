@@ -16,6 +16,7 @@ html, body {
   justify-content: center;
   align-items: center;
   position: relative;
+  z-index: -1;
 }
 
 .navbar-book-title {
@@ -112,7 +113,7 @@ html, body {
 
 .sidebar {
   padding: 24px;
-  min-height: calc(100vh - 120px);
+  height: calc(100vh - 120px);
   flex: 0 0 320px;
   top: 0 !important;
   background-color: white;
@@ -218,4 +219,6 @@ html, body {
   flex-wrap: wrap;
   align-content: flex-start;
   background-color: #F1F1F1;
+  height: calc(100vh - 120px);
+  overflow-y: scroll;
 }
