@@ -52,7 +52,7 @@
   text-transform: uppercase;
   margin: 0 0 24px 0;
   height: 100px;
-  width: 450px;
+  width: 440px;
   line-height: 150%;
   color: $navy-blue;
 
@@ -61,9 +61,21 @@
     text-shadow: 2px 2px $purple-light;
   }
 
-  @include mq($until: desktop) {
+  span:last-child {
+    color: $purple-light;
+    font-size: 32px;
+  }
+
+  @include mq($until: tablet) {
     font-size: 24px;
     width: 80vw;
+    margin-bottom: 0;
+  }
+
+  @include mq($from: tablet, $until: desktop) {
+    font-size: 24px;
+    width: 80vw;
+    height: 50px;
   }
 }
 
@@ -183,4 +195,43 @@
   font-size: 16px;
   box-shadow: 1px 1px 1px lightgrey;
   padding: 3px 6px;
+}
+
+.landing-section--about {
+  background-image: url("https://images.unsplash.com/photo-1422112528461-3186878f87dc?auto=format&fit=crop&w=1934&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
+  background-attachment: fixed;
+  background-position: bottom center;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @include mq($until: desktop) {
+    padding: 12px;
+  }
+}
+
+.contact-us-block {
+  height: 25vh;
+  width: 32vw;
+  color: white;
+  text-align: center;
+
+  a {
+    color: white;
+  }
+
+  h2 {
+    margin-bottom: 24px;
+
+    @include mq($until: desktop) {
+      font-size: 24px;
+    }
+  }
+
+  @include mq($until: desktop) {
+    height: 100%;
+    width: 100%;
+  }
 }

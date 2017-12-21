@@ -5,4 +5,10 @@ $(document).ready(function(){
     origin: 'top',
     reset: false,
   });
+  sr.reveal('.screenshot', {
+    duration: 1000,
+    origin: 'top',
+    reset: false,
+  });
+
 });
