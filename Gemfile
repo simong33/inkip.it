@@ -16,7 +16,7 @@ gem 'htmltoword'
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
-
+gem 'omniauth-facebook'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
