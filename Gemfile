@@ -10,10 +10,12 @@ gem 'rails', '5.0.5'
 gem 'redis'
 # https://github.com/abitdodgy/words_counted
 gem 'words_counted'
+gem 'pundit'
 gem 'gon'
 gem 'htmltoword'
-gem 'pundit'
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+gem 'activeadmin', github: 'activeadmin/activeadmin'
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 
 
 gem 'autoprefixer-rails'
