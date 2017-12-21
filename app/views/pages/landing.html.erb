@@ -3,8 +3,7 @@
   <div class="content-banner-landing">
     <div class="landing-title-container">
       <div class="landing-brand">inkipit.</div>
-      <h1 class="landing-title">Racontez des
-        <span class="typer" id="main" data-words="histoires,aventures,épopées,péripéties,intrigues" data-colors="white" data-delay="100" data-deleteDelay="1000"></span><span class="cursor" data-owner="main" data-cursorDisplay="|"></span>
+      <h1 class="landing-title" id="typer">Racontez des
       </h1>
       <div class="landing-subtitle">Finissez enfin votre roman.</div>
       <a class="cta landing-cta" href="<%= new_user_registration_path %>">
@@ -68,6 +67,5 @@
 <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
 
 <% content_for(:after_js) do %>
-  <%= javascript_include_tag 'typer.js' %>
   <%= javascript_include_tag 'landing'%>
 <% end %>

@@ -13,6 +13,7 @@
     <% if params[:action] == "statistics" %>
       <script type="text/javascript" src="//d3js.org/d3.v3.min.js"></script>
     <% end %>
+    <link rel="stylesheet" href="https://unpkg.com/typer-js/typer.css">
   </head>
   <body>
     <% unless controller_name == "pages" %>
@@ -33,6 +34,10 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56832869-8"></script>
 
     <%= javascript_include_tag 'application' %>
+
+    <% if controller_name == "pages" %>
+      <script src="https://unpkg.com/typer-js"></script>
+    <% end %>
 
     <%= yield(:after_js) %>
   </body>

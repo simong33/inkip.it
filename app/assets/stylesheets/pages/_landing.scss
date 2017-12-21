@@ -61,11 +61,6 @@
     text-shadow: 2px 2px $purple-light;
   }
 
-  span:last-child {
-    color: $purple-light;
-    font-size: 32px;
-  }
-
   @include mq($until: tablet) {
     font-size: 24px;
     width: 80vw;
@@ -77,6 +72,11 @@
     width: 80vw;
     height: 50px;
   }
+}
+
+.typer:after {
+  bottom: 0.35em !important;
+  height: 0.9em !important;
 }
 
 .landing-subtitle {
