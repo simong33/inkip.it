@@ -20,7 +20,7 @@
 .container__signin {
   background-color: white;
   width: 500px;
-  height: 500px;
+  min-height: 700px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -29,5 +29,41 @@
 
   form {
     margin-bottom: 24px;
+
+    .checkbox {
+      position: static !important;
+      margin-right: 12px;
+    }
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  h2 {
+    margin-bottom: 24px;
+  }
+}
+
+.facebook-cta {
+  background-color: #4467B0;
+  color: white;
+  border-radius: 5px;
+  padding: 24px 24px;
+  font-size: 16px;
+  margin-bottom: 24px;
+  box-shadow: 0 3px 0 darkgrey;
+  transition: all .4s ease;
+
+  i {
+    margin-right: 12px;
+  }
+
+  &:hover {
+    text-decoration: none;
+    box-shadow: 0 0 0;
+    color: white;
+    transform: translateY(2px);
+    transition: all .2s ease;
   }
 }

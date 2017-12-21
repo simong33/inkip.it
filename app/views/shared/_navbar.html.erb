@@ -11,6 +11,15 @@
 
     <% if user_signed_in? %>
 
+    <% if current_user.admin %>
+
+      <div class="navbar-wagon-item underlined-anchor">
+        <%= link_to admin_root_path do %>
+           <%= t(".profile", default: "Admin") %>
+        <% end %>
+      </div>
+    <% end %>
+
     <div class="navbar-wagon-item underlined-anchor">
       <%= link_to user_books_path(current_user) do %>
          <%= t(".profile", default: "Mes livres", class: "hidden-xs") %>

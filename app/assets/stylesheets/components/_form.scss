@@ -10,6 +10,12 @@ form {
 
   .boolean {
     border: none;
+    font-size: 14px;
+
+    input {
+      position: static !important;
+      margin-right: 12px;
+    }
   }
 
   button {

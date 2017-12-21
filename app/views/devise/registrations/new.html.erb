@@ -3,6 +3,16 @@
 
     <h2>Inscription</h2>
 
+    <%- if devise_mapping.omniauthable? %>
+      <%- resource_class.omniauth_providers.each do |provider| %>
+        <%= link_to omniauth_authorize_path(resource_name, provider), class: "facebook-cta" do %>
+          <i class="fa fa-facebook" aria-hidden="true"></i><%= "Se connecter avec #{OmniAuth::Utils.camelize(provider)}" %>
+        <% end %>
+      <% end -%>
+    <% end -%>
+
+    <p>ou avec votre email</p>
+
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
 
