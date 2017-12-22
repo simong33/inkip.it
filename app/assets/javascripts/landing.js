@@ -15,10 +15,10 @@ $(document).ready(function(){
   // https://github.com/qodesmith/typer
 
   var words = [
-    "histoires",
     "épopées",
     "intrigues",
-    "aventures"
+    "aventures",
+    "histoires"
   ] ;
   typer('#typer', {min: 50, max: 350})
     .line(words[0])
