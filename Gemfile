@@ -17,6 +17,9 @@ gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'omniauth-facebook'
+gem 'postmark-rails'
+gem 'mail_interceptor', group: [:development, :staging]
+gem "letter_opener", group: :development
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
@@ -33,5 +36,4 @@ group :development, :test do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem "letter_opener"
 end
