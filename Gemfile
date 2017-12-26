@@ -20,6 +20,7 @@ gem 'omniauth-facebook'
 gem 'postmark-rails'
 gem 'mail_interceptor', group: [:development, :staging]
 gem "letter_opener", group: :development
+gem 'rubocop', group: :development
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
