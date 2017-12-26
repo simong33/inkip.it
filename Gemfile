@@ -21,6 +21,7 @@ gem 'postmark-rails'
 gem 'mail_interceptor', group: [:development, :staging]
 gem "letter_opener", group: :development
 gem 'rubocop', group: :development
+gem 'sitemap_generator'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
