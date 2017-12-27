@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :books, dependent: :destroy
 
+  validates :user_name, uniqueness: true
+
   after_create :send_welcome_email
 
   def self.find_for_facebook_oauth(auth)
@@ -31,6 +33,10 @@ class User < ApplicationRecord
 
   def send_welcome_email
     UserMailer.welcome(self).deliver_now
+  end
+
+  def registered_name
+    self.user_name.nil? ? self.first_name : self.user_name
   end
 
 end

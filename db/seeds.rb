@@ -36,52 +36,70 @@ end
 
 p "Let's the seeding begin..."
 
-p "Creating God"
-
-User.create!(
-  email: "god@god.com",
-  password:"123456"
-  )
-
-p "Creating 8 books"
-
-1.upto(8) do |n|
-  Book.create!(
-    title: Faker::Book.title,
-    genre: Faker::Book.genre,
-    user: User.all.last,
-    word_goal: rand(10000..100000),
-    created_at: generate_date_range("2017-01-01", "2017-12-15")
-    )
-end
-
-p "Creating 100 chapters"
+p "Creating people"
 
 1.upto(100) do |n|
-  Chapter.create!(
-    title: Faker::Fallout.quote,
-    content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. In distinctio harum, necessitatibus error alias. Ea quod mollitia fuga laborum nemo nisi quam reiciendis sapiente culpa quae vitae itaque, alias dolore.",
-    book: Book.all.last(8).sample
-    )
+  user = User.new
+  user.first_name = Faker::DragonBall.character + rand(0..999).to_s
+  user.last_name = "FAKE"
+  user.email = self.first_name + "@gmail.com",
+  user.password = "123456"
+  user.save
+
+  book = Book.new(user: user)
+  book.title = Faker::Book.title
+  book.wordcount = rand(50000..10000)
+  book.save
+
+  chapter = Chapter.new(book: book)
+
+  dwc_count = rand(60..120)
+
+  1.upto(dwc_count) do |n|
+    DailyWordCount.create!(book: book)
+  end
 end
 
-p "Creating 300 characters"
 
-1.upto(300) do |n|
-  Character.create!(
-    first_name: Faker::RickAndMorty.character,
-    book: Book.all.last(8).sample
-    )
-end
+# p "Creating 8 books"
 
-p "Creating 200 places"
+# 1.upto(8) do |n|
+#   Book.create!(
+#     title: Faker::Book.title,
+#     genre: Faker::Book.genre,
+#     user: User.all.last,
+#     word_goal: rand(10000..100000),
+#     created_at: generate_date_range("2017-01-01", "2017-12-15")
+#     )
+# end
 
-1.upto(200) do |n|
-  Place.create!(
-    name: Faker::Zelda.location,
-    book: Book.all.last(8).sample
-    )
-end
+# p "Creating 100 chapters"
+
+# 1.upto(100) do |n|
+#   Chapter.create!(
+#     title: Faker::Fallout.quote,
+#     content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. In distinctio harum, necessitatibus error alias. Ea quod mollitia fuga laborum nemo nisi quam reiciendis sapiente culpa quae vitae itaque, alias dolore.",
+#     book: Book.all.last(8).sample
+#     )
+# end
+
+# p "Creating 300 characters"
+
+# 1.upto(300) do |n|
+#   Character.create!(
+#     first_name: Faker::RickAndMorty.character,
+#     book: Book.all.last(8).sample
+#     )
+# end
+
+# p "Creating 200 places"
+
+# 1.upto(200) do |n|
+#   Place.create!(
+#     name: Faker::Zelda.location,
+#     book: Book.all.last(8).sample
+#     )
+# end
 
 # p "Creating 500 streaks"
 
