@@ -7,7 +7,7 @@ class Book < ApplicationRecord
   has_many :daily_word_counts, dependent: :destroy
 
   validate do |book|
-    book.errors.add(:base, "Ajoutez un titre à votre livre !") if book.title.blank?
+    book.errors.add(:base, "Ajoutez un titre à votre livre ! Vous pourrez le modifier par la suite.") if book.title.blank?
   end
 
   after_create :init
