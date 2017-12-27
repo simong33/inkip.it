@@ -1,10 +1,17 @@
 .banner-landing {
-  // https://unsplash.com/photos/1fyccRaS_u4
-  background-image: image-url("landing.jpeg");
-  height: 90vh;
-  background-position: bottom center;
+  // https://unsplash.com/photos/aGUndxz-VRw
+  background-image: image-url("landing2.jpeg");
+  height: 100vh;
+  background-position: bottom -64px center;
   background-size: cover;
   background-attachment: fixed;
+  margin-bottom: 48px;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 95%, 0 90%);
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 95%, 0 90%);
+
+  @include mq($until: desktop) {
+    margin-bottom: 0;
+  }
 }
 
 .navbar-wagon--landing {
@@ -17,10 +24,8 @@
   min-height: calc(90vh - 60px);
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
-  margin-right: 8%;
-  margin-left: 55%;
 
   @include mq($until: desktop) {
     margin: 0;
@@ -30,7 +35,7 @@
 
 .landing-title-container {
   padding: 12px;
-  text-align: left;
+  text-align: center;
 
   @include mq($until: desktop) {
     text-align: center;
@@ -47,24 +52,24 @@
 }
 
 .landing-title {
-  font-size: 36px;
+  font-size: 48px;
   letter-spacing: 12px;
   text-transform: uppercase;
   margin: 0 0 24px 0;
-  height: 100px;
-  width: 440px;
+  height: 144px;
   line-height: 150%;
-  color: $navy-blue;
+  color: white;
 
   span:first-child {
     color: white;
     text-shadow: 2px 2px $purple-light;
   }
 
-  @include mq($until: tablet) {
+  @include mq($until: desktop) {
     font-size: 24px;
     width: 80vw;
-    margin-bottom: 0;
+    margin-bottom: 12px;
+    height: 90px;
   }
 
   @include mq($from: tablet, $until: desktop) {
@@ -81,9 +86,13 @@
 
 .landing-subtitle {
   margin-bottom: 24px;
-  color: $blue-purple;
-  font-size: 18px;
+  color: $purple-light;
+  font-size: 24px;
   font-family: $body-font;
+
+  @include mq($until: desktop) {
+    font-size: 18px;
+  }
 }
 
 .cta {
@@ -112,7 +121,7 @@
     flex-wrap: wrap;
     justify-content: center;
     text-align: center;
-    margin-bottom: 48px;
+    margin-bottom: 0;
     font-size: 14px;
   }
 }
@@ -130,6 +139,58 @@
     box-shadow: 0 5px 10px 0px rgba(0,0,0,0.6);
     transform: translatey(0px);
   }
+}
+
+.landing-section--data {
+  position: relative;
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    border-bottom: 1px solid $purple-light;
+    width: 50%;
+    display: block;
+  }
+}
+
+.landing-data-section {
+  list-style-type: none;
+  margin: 0 0 48px 0;
+  padding: 24px 92px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+
+  i {
+    font-size: 36px;
+    color: $purple-light;
+  }
+
+  li {
+    padding: 12px;
+    max-width: 300px;
+    text-align: center;
+
+    @include mq($until: desktop) {
+      margin-bottom: 0;
+      padding-top: 0;
+    }
+  }
+
+  p {
+    opacity: .8;
+    font-size: 16px;
+  }
+}
+
+.data-landing {
+  font-size: 48px;
+  font-family: $headers-font;
 }
 
 .screenshot {
@@ -190,6 +251,20 @@
   }
 }
 
+.landing-testimonials {
+  position: relative;
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    border-top: 1px solid $purple-light;
+    width: 50%;
+    display: block;
+  }
+}
+
 .landing-footer {
   height: 50px;
   border-top: 1px solid $purple-light;
@@ -215,7 +290,7 @@
 }
 
 .landing-section--about {
-  background-image: url("https://images.unsplash.com/photo-1422112528461-3186878f87dc?auto=format&fit=crop&w=1934&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
+  background-image: image-url("landing2.jpeg");
   background-attachment: fixed;
   background-position: bottom center;
   margin-bottom: 0;
@@ -223,6 +298,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  -webkit-clip-path: polygon(0 0, 51% 10%, 100% 0, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, 51% 10%, 100% 0, 100% 100%, 0 100%);
 
   @include mq($until: desktop) {
     padding: 12px;

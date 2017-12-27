@@ -10,6 +10,11 @@ $(document).ready(function(){
     origin: 'top',
     reset: false,
   });
+  sr.reveal('li', {
+    duration: 1000,
+    origin: 'bottom',
+    reset: false,
+  });
 
   // TYPER
   // https://github.com/qodesmith/typer
