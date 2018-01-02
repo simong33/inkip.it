@@ -18,7 +18,7 @@ class CharactersController < ApplicationController
   def index
     @book = Book.find(params[:book_id])
     @character = Character.new(book: @book)
-    @characters = policy_scope(Character).where(book: @book)
+    @characters = policy_scope(Character).where(book: @book).order('created_at')
 
     @chapters = @book.chapters
     @places = @book.places
