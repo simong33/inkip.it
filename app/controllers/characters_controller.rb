@@ -9,6 +9,11 @@ class CharactersController < ApplicationController
     end
   end
 
+  def show
+    @character = Character.find(params[:id])
+    authorize @character
+  end
+
   def index
     @book = Book.find(params[:book_id])
     @character = Character.new(book: @book)

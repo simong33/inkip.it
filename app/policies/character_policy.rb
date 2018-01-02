@@ -9,6 +9,10 @@ class CharacterPolicy < ApplicationPolicy
     record.book.user == user
   end
 
+  def show?
+    record.book.user == user
+  end
+
   def destroy?
     record.book.user == user
   end
