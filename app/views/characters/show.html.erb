@@ -1,1 +1,70 @@
-Ceci est la show du character <%= @character.first_name %>
+<%= render 'shared/navbar_dashboard', dashboard: "dashboard" %>
+
+<div class="content-dashboard character-sheet-grid">
+  <div class="character-sheet-block character-sheet-block-1">
+    <p>Informations Générales</p>
+    <%= simple_form_for [@book, @character] do |f| %>
+      <%= f.input :first_name, label: "Prénom", placeholder: 'Albus' %>
+      <%= f.input :last_name, label: "Nom", placeholder: 'Dumbledore' %>
+      <%= f.input :age, label: "Age", placeholder: '74 ans' %>
+      <%= f.input :position, label: "Profession", placeholder: "Directeur d'école" %>
+    <p>Localisation</p>
+      <%= f.input :location, label: "Adresse", placeholder: "Poudlard" %>
+      <%= f.input :house_description, label: "Description de sa maison", placeholder: "Vieille batisse vétuste" %>
+      <%= f.input :bedroom_description, label: "Description de sa chambre", placeholder: "Vieille batisse vétuste" %>
+    <p>Relations avec les autres</p>
+      <%= f.input :family, label: "Famille", placeholder: "Marié, 3 soeurs, 1 fils, 3 beaux-frères..." %>
+      <%= f.input :other_people_opinion, label: "Ce que les autres pensent de lui", placeholder: "Admiré pour sa sagesse, craint par son chien..." %>
+      <%= f.input :pets, label: "Animaux de compagnie", placeholder: "une salamandre, trois chameaux..." %>
+      <%= f.button :submit, "Enregistrer", class: "btn btn-primary" %>
+      <% end %>
+  </div>
+  <div class="character-sheet-block character-sheet-block-2">
+    <p>Apparence</p>
+    <%= simple_form_for [@book, @character] do |f| %>
+      <%= f.input :height, label: "Taille (cm)", placeholder: "191" %>
+      <%= f.input :weight, label: "Poids (kg)", placeholder: "76" %>
+      <%= f.input :eye_color, label: "Couleur des yeux", placeholder: "Vert" %>
+      <%= f.input :physical_appearance, label: "Apparence physique", placeholder: "Grand, famélique, élancé..." %>
+      <%= f.input :unique_physical_attribute, label: "Traits physiques particuliers", placeholder: "Carte du métro de Londres tatoué sur la cuisse" %>
+      <%= f.input :clothing_style, label: "Style vestimentaire", placeholder: "Robe de sorcier" %>
+      <%= f.input :movements, label: "Manière de se déplacer", placeholder: "Lentement, le dos courbé, en crabe..." %>
+      <%= f.input :speaking_style, label: "Manière de s'exprimer", placeholder: "Voix grave, mots choisis avec soin..." %>
+      <%= f.input :physical_health, label: "Santé physique", placeholder: "Forme athlétique, diabétique, astigmatisme aigu..." %>
+      <%= f.button :submit, "Enregistrer", class: "btn btn-primary" %>
+      <% end %>
+  </div>
+  <div class="character-sheet-block character-sheet-block-3">
+    <p>Personnalité</p>
+    <%= simple_form_for [@book, @character] do |f| %>
+      <%= f.input :fondest_memory, label: "Souvenir favori", placeholder: "La fois où il a gagné au loto..." %>
+      <%= f.input :hobbies, label: "Hobbies", placeholder: "Yoga, Sortilèges..." %>
+      <%= f.input :special_skills, label: "Compétences spéciales", placeholder: "Téléportation, Arrêter le temps, Excellent cuisinier..." %>
+      <%= f.input :insecurities, label: "Angoisses", placeholder: "Timide en public" %>
+      <%= f.input :quirks, label: "Excentricités", placeholder: "Se lave les mains six fois par jour" %>
+      <%= f.input :temperament, label: "Tempérament", placeholder: "Nerveux, agité..." %>
+      <%= f.input :negative_traits, label: "Aspects négatifs de sa personnalité", placeholder: "Colérique, manipulateur..." %>
+      <%= f.input :happy_with, label: "Ce qui le rend heureux", placeholder: "L'odeur du rôti dans le four, les crédits d'impôt..." %>
+      <%= f.input :upset_by, label: "Ce qui l'énerve", placeholder: "Les trains en retard, les gens qui disent 'Noyeux Joël'..." %>
+      <%= f.input :embarrassed_by, label: "Ce qui le rend mal à l'aise", placeholder: "Aller chez le médecin, être serré dans le métro..." %>
+      <%= f.input :phobias, label: "Phobies", placeholder: "Peur du vide, phobie administrative..." %>
+      <%= f.input :dogma, label: "Dogmes", placeholder: "Croit que la Terre est plate" %>
+      <%= f.input :deepest_secret, label: "Plus grand secret", placeholder: "Est persuadé que le Père Noël n'existe pas" %>
+      <%= f.input :favorite_music, label: "Musique préférée", placeholder: "Mozart, NTM, Opéra japonais..." %>
+      <%= f.input :favorite_movies, label: "Films préférés", placeholder: "Il était une fois dans l'Ouest, A l'Est d'Eden..." %>
+      <%= f.input :favorite_tv_shows, label: "Séries télé préférées", placeholder: "La Quatrième Dimension, Inspecteur Gadget..." %>
+      <%= f.input :favorite_books, label: "Livres préférés", placeholder: "A la recherche du thon perdu" %>
+      <%= f.input :favorite_food, label: "Plat favori / Boisson de prédilection", placeholder: "Travers de porc sel poivre, ouiche lorraine..." %>
+      <%= f.input :favorite_sport, label: "Sport favori / équipe favorite", placeholder: "Curling sur gazon" %>
+      <%= f.input :political_views, label: "Opinions politiques", placeholder: "Boulangiste, bonapartiste, monarchiste..." %>
+      <%= f.input :religion, label: "Religion / Philisophie de vie", placeholder: "Partisan de l'église adventiste du 7e jour" %>
+      <%= f.input :superstitions, label: "Superstitions", placeholder: "Ne passe jamais sous une échelle" %>
+    <p>Autres</p>
+      <%= f.input :best_thing_that_happened, label: "La meilleure chose qui lui soit arrivée", placeholder: "Avoir fini deuxième au concours régional du meilleur pâté de tête" %>
+      <%= f.input :worst_thing_that_happened, label: "La pire chose qui lui soit arrivée", placeholder: "Avoir mangé du rat" %>
+      <%= f.input :three_words, label: "Trois mots pour le décrire", placeholder: "Reporter, Belge, Houpette" %>
+      <%= f.input :song_played, label: "Si une musique jouait lorsqu'il arriverait dans un pièce, ce serait...", placeholder: "La musique de Benny Hill" %>
+      <%= f.button :submit, "Enregistrer", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

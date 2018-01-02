@@ -5,12 +5,13 @@ class CharactersController < ApplicationController
     authorize @character
 
     if @character.save
-      redirect_to book_characters_path(@character.book), alert: "Vous avez ajouté un nouveau personnage!"
+      redirect_to book_characters_path(@character.book), alert: "Vous avez ajouté un nouveau personnage !"
     end
   end
 
   def show
     @character = Character.find(params[:id])
+    @book = @character.book
     authorize @character
   end
 
@@ -21,6 +22,15 @@ class CharactersController < ApplicationController
 
     @chapters = @book.chapters
     @places = @book.places
+  end
+
+  def update
+    @character = Character.find(params[:id])
+    authorize @character
+
+    if @character.update(character_all_params)
+      redirect_to book_character_path(@character.book, @character), alert: "Votre fiche personnage a bien été sauvegardée !"
+    end
   end
 
   def destroy
@@ -37,5 +47,9 @@ class CharactersController < ApplicationController
 
   def character_params
     params.require(:character).permit(:first_name, :last_name)
+  end
+
+  def character_all_params
+    params.require(:character).permit!
   end
 end
