@@ -1,0 +1,46 @@
+class AddAttributesToCharacters < ActiveRecord::Migration[5.0]
+  def change
+    add_column :characters, :height, :integer
+    add_column :characters, :weight, :integer
+    add_column :characters, :eye_color, :string
+    add_column :characters, :physical_appearance, :text
+    add_column :characters, :unique_physical_attribute, :text
+    add_column :characters, :clothing_style, :string
+    add_column :characters, :location, :string
+    add_column :characters, :movements, :text
+    add_column :characters, :speaking_style, :text
+    add_column :characters, :pet_peeves, :string
+    add_column :characters, :fondest_memory, :text
+    add_column :characters, :hobbies, :text
+    add_column :characters, :special_skills, :text
+    add_column :characters, :insecurities, :string
+    add_column :characters, :quirks, :string
+    add_column :characters, :temperament, :string
+    add_column :characters, :negative_traits, :text
+    add_column :characters, :upset_by, :text
+    add_column :characters, :embarrassed_by, :text
+    add_column :characters, :dogma, :text
+    add_column :characters, :phobias, :text
+    add_column :characters, :happy_with, :text
+    add_column :characters, :family, :text
+    add_column :characters, :deepest_secret, :text
+    add_column :characters, :other_people_opinion, :text
+    add_column :characters, :favorite_music, :string
+    add_column :characters, :favorite_movies, :string
+    add_column :characters, :favorite_tv_shows, :string
+    add_column :characters, :favorite_books, :string
+    add_column :characters, :favorite_food, :string
+    add_column :characters, :favorite_sport, :string
+    add_column :characters, :political_views, :text
+    add_column :characters, :religion, :string
+    add_column :characters, :physical_health, :string
+    add_column :characters, :house_description, :text
+    add_column :characters, :bedroom_description, :text
+    add_column :characters, :pets, :string
+    add_column :characters, :best_thing_that_happened, :text
+    add_column :characters, :worst_thing_that_happened, :text
+    add_column :characters, :superstitions, :string
+    add_column :characters, :three_words, :string
+    add_column :characters, :song_played, :string
+  end
+end

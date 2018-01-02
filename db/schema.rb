@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171227165925) do
+ActiveRecord::Schema.define(version: 20180102113716) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,8 +71,50 @@ ActiveRecord::Schema.define(version: 20171227165925) do
     t.string   "position"
     t.text     "comments"
     t.integer  "book_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "height"
+    t.integer  "weight"
+    t.string   "eye_color"
+    t.text     "physical_appearance"
+    t.text     "unique_physical_attribute"
+    t.string   "clothing_style"
+    t.string   "location"
+    t.text     "movements"
+    t.text     "speaking_style"
+    t.string   "pet_peeves"
+    t.text     "fondest_memory"
+    t.text     "hobbies"
+    t.text     "special_skills"
+    t.string   "insecurities"
+    t.string   "quirks"
+    t.string   "temperament"
+    t.text     "negative_traits"
+    t.text     "upset_by"
+    t.text     "embarrassed_by"
+    t.text     "dogma"
+    t.text     "phobias"
+    t.text     "happy_with"
+    t.text     "family"
+    t.text     "deepest_secret"
+    t.text     "other_people_opinion"
+    t.string   "favorite_music"
+    t.string   "favorite_movies"
+    t.string   "favorite_tv_shows"
+    t.string   "favorite_books"
+    t.string   "favorite_food"
+    t.string   "favorite_sport"
+    t.text     "political_views"
+    t.string   "religion"
+    t.string   "physical_health"
+    t.text     "house_description"
+    t.text     "bedroom_description"
+    t.string   "pets"
+    t.text     "best_thing_that_happened"
+    t.text     "worst_thing_that_happened"
+    t.string   "superstitions"
+    t.string   "three_words"
+    t.string   "song_played"
     t.index ["book_id"], name: "index_characters_on_book_id", using: :btree
   end
 
