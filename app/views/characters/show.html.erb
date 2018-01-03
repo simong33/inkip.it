@@ -1,27 +1,24 @@
 <%= render 'shared/navbar_dashboard', dashboard: "dashboard", character_sheet: "character_sheet" %>
 
-<div class="content-dashboard character-sheet-grid">
-  <div class="character-sheet-block character-sheet-block-1">
-    <p>Informations Générales</p>
+<div class="content-dashboard content-dashboard--character-sheet">
+  <div class="character-sheet-container">
+
+    <h4 class="character-sheet-subtitle">Informations Générales</h4>
     <%= simple_form_for [@book, @character] do |f| %>
       <%= f.input :first_name, label: "Prénom", placeholder: 'Albus' %>
       <%= f.input :last_name, label: "Nom", placeholder: 'Dumbledore' %>
       <%= f.input :age, label: "Age", placeholder: '74 ans' %>
       <%= f.input :position, label: "Profession", placeholder: "Directeur d'école" %>
-    <p>Localisation</p>
+    <h4 class="character-sheet-subtitle">Localisation</h4>
       <%= f.input :location, label: "Adresse", placeholder: "Poudlard" %>
       <%= f.input :house_description, label: "Description de sa maison", placeholder: "Vieille batisse vétuste" %>
       <%= f.input :bedroom_description, label: "Description de sa chambre", placeholder: "Vieille batisse vétuste" %>
-    <p>Relations avec les autres</p>
+    <h4 class="character-sheet-subtitle">Relations avec les autres</h4>
       <%= f.input :family, label: "Famille", placeholder: "Marié, 3 soeurs, 1 fils, 3 beaux-frères..." %>
       <%= f.input :other_people_opinion, label: "Ce que les autres pensent de lui", placeholder: "Admiré pour sa sagesse, craint par son chien..." %>
       <%= f.input :pets, label: "Animaux de compagnie", placeholder: "une salamandre, trois chameaux..." %>
-      <%= f.button :submit, "Enregistrer", class: "btn btn-primary" %>
-      <% end %>
-  </div>
-  <div class="character-sheet-block character-sheet-block-2">
-    <p>Apparence</p>
-    <%= simple_form_for [@book, @character] do |f| %>
+
+    <h4 class="character-sheet-subtitle">Apparence</h4>
       <%= f.input :height, label: "Taille (cm)", placeholder: "191" %>
       <%= f.input :weight, label: "Poids (kg)", placeholder: "76" %>
       <%= f.input :eye_color, label: "Couleur des yeux", placeholder: "Vert" %>
@@ -31,12 +28,8 @@
       <%= f.input :movements, label: "Manière de se déplacer", placeholder: "Lentement, le dos courbé, en crabe..." %>
       <%= f.input :speaking_style, label: "Manière de s'exprimer", placeholder: "Voix grave, mots choisis avec soin..." %>
       <%= f.input :physical_health, label: "Santé physique", placeholder: "Forme athlétique, diabétique, astigmatisme aigu..." %>
-      <%= f.button :submit, "Enregistrer", class: "btn btn-primary" %>
-      <% end %>
-  </div>
-  <div class="character-sheet-block character-sheet-block-3">
-    <p>Personnalité</p>
-    <%= simple_form_for [@book, @character] do |f| %>
+
+    <h4 class="character-sheet-subtitle">Personnalité</h4>
       <%= f.input :fondest_memory, label: "Souvenir favori", placeholder: "La fois où il a gagné au loto..." %>
       <%= f.input :hobbies, label: "Hobbies", placeholder: "Yoga, Sortilèges..." %>
       <%= f.input :special_skills, label: "Compétences spéciales", placeholder: "Téléportation, Arrêter le temps, Excellent cuisinier..." %>
@@ -59,12 +52,13 @@
       <%= f.input :political_views, label: "Opinions politiques", placeholder: "Boulangiste, bonapartiste, monarchiste..." %>
       <%= f.input :religion, label: "Religion / Philisophie de vie", placeholder: "Partisan de l'église adventiste du 7e jour" %>
       <%= f.input :superstitions, label: "Superstitions", placeholder: "Ne passe jamais sous une échelle" %>
-    <p>Autres</p>
+    <h4 class="character-sheet-subtitle">Autres</h4>
       <%= f.input :best_thing_that_happened, label: "La meilleure chose qui lui soit arrivée", placeholder: "Avoir fini deuxième au concours régional du meilleur pâté de tête" %>
       <%= f.input :worst_thing_that_happened, label: "La pire chose qui lui soit arrivée", placeholder: "Avoir mangé du rat" %>
       <%= f.input :three_words, label: "Trois mots pour le décrire", placeholder: "Reporter, Belge, Houpette" %>
-      <%= f.input :song_played, label: "Si une musique jouait lorsqu'il arriverait dans un pièce, ce serait...", placeholder: "La musique de Benny Hill" %>
+      <%= f.input :song_played, label: "Si une musique jouait lorsqu'il arrive dans un pièce, ce serait...", placeholder: "La musique de Benny Hill" %>
       <%= f.button :submit, "Enregistrer", class: "btn btn-primary" %>
     <% end %>
+  </div>
   </div>
 </div>
