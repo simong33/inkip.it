@@ -5,7 +5,7 @@ class CharactersController < ApplicationController
     authorize @character
 
     if @character.save
-      redirect_to book_characters_path(@character.book), alert: "Vous avez ajouté un nouveau personnage !"
+      redirect_to book_character_path(@character.book, @character), alert: "Vous avez ajouté un nouveau personnage !"
     end
   end
 

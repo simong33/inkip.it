@@ -12,7 +12,7 @@
     <h4 class="character-sheet-subtitle">Localisation</h4>
       <%= f.input :location, label: "Adresse", placeholder: "Poudlard" %>
       <%= f.input :house_description, label: "Description de sa maison", placeholder: "Vieille batisse vétuste" %>
-      <%= f.input :bedroom_description, label: "Description de sa chambre", placeholder: "Vieille batisse vétuste" %>
+      <%= f.input :bedroom_description, label: "Description de sa chambre", placeholder: "Chambre spartiate" %>
     <h4 class="character-sheet-subtitle">Relations avec les autres</h4>
       <%= f.input :family, label: "Famille", placeholder: "Marié, 3 soeurs, 1 fils, 3 beaux-frères..." %>
       <%= f.input :other_people_opinion, label: "Ce que les autres pensent de lui", placeholder: "Admiré pour sa sagesse, craint par son chien..." %>
@@ -57,6 +57,7 @@
       <%= f.input :worst_thing_that_happened, label: "La pire chose qui lui soit arrivée", placeholder: "Avoir mangé du rat" %>
       <%= f.input :three_words, label: "Trois mots pour le décrire", placeholder: "Reporter, Belge, Houpette" %>
       <%= f.input :song_played, label: "Si une musique jouait lorsqu'il arrive dans un pièce, ce serait...", placeholder: "La musique de Benny Hill" %>
+      <%= f.input :comments, label: "Autres commentaires" %>
       <%= f.button :submit, "Enregistrer", class: "btn btn-primary" %>
     <% end %>
   </div>
