@@ -37,7 +37,14 @@ class User < ApplicationRecord
   end
 
   def registered_name
-    self.user_name.nil? ? self.first_name : self.user_name
+    registered_name = ""
+    if self.user_name.nil? && self.provider.nil?
+      registered_name = self.first_name
+    elsif self.provider == "facebook"
+      registered_name = self.first_name + " " + self.last_name[0]
+    else
+      registered_name = self.user_name
+    end
   end
 
   def self.best_authors_max
@@ -66,6 +73,12 @@ class User < ApplicationRecord
     end
 
     best_authors_mean.take(10)
+  end
+
+  private
+
+  def anonymise_name
+
   end
 
 end
