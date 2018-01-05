@@ -69,7 +69,6 @@
               <% end %>
             </li>
           <% end %>
-        <% end %>
         <li>
           <%= link_to user_books_path(current_user) do %>
              <%= t(".profile", default: "Mes livres") %>
@@ -80,6 +79,7 @@
             <%= t(".sign_out", default: "Déconnexion") %>
           <% end %>
         </li>
+        <% end %>
       </ul>
     </div>
   </div>
