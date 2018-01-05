@@ -40,4 +40,10 @@ class User < ApplicationRecord
     self.user_name.nil? ? self.first_name : self.user_name
   end
 
+  private
+
+  def anonymised_name
+
+  end
+
 end
