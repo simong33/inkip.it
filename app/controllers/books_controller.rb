@@ -130,7 +130,7 @@ class BooksController < ApplicationController
       all_dwc_size += dwc.wordcount unless dwc.wordcount.nil?
     end
 
-    @global_words_per_session = all_dwc_size / all_dwc.count + 500 unless all_dwc.count == 0
+    @global_words_per_session = all_dwc_size / all_dwc.count unless all_dwc.count == 0
 
     # WORDS PER CHAPTER
 
