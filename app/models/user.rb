@@ -41,7 +41,7 @@ class User < ApplicationRecord
     if self.user_name.nil? && self.provider.nil?
       registered_name = self.first_name
     elsif self.provider == "facebook"
-      registered_name = self.first_name + " " + self.last_name[0]
+      registered_name = self.first_name + " " + self.last_name[0] + "."
     else
       registered_name = self.user_name
     end
