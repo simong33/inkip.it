@@ -1,18 +1,19 @@
 <%= render 'shared/navbar' %>
 
+<div class="content-dashboard content-dashboard--rankings">
+  <div class="container container--blank">
+    <h3 class="rank-title">Records de mots écrits par session</h3>
 
-Les 10 records de mots écrits par session
+    <ul class="ranking-list">
+      <% @best_authors_max.each_with_index do |author, i| %>
+        <li class="ranking-item">
+          <div class="rank"><%= i + 1 %></div>
+          <div class="ranking-name"><%= "Jean-Michel" %></div>
+          <div class="ranking-data"><%= author[1] %> mots</div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 
-<ul>
-  <% @best_authors_max.each do |author| %>
-    <li><%= author[0].registered_name %> : <%= author[1] %> mots</li>
-  <% end %>
-</ul>
+</div>
 
-<!-- Les 10 meilleures moyennes de mots par session
-
-<ul>
-  <% @best_authors_mean.each do |author| %>
-    <li><%= author[0].registered_name %> : <%= author[1] %> mots</li>
-  <% end %>
-</ul> -->
