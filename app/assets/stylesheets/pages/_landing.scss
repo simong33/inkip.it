@@ -335,8 +335,25 @@
     }
   }
 
+  p {
+    margin-bottom: 24px;
+  }
+
   @include mq($until: desktop) {
     height: 100%;
     width: 100%;
+  }
+}
+
+.social-buttons {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 81px;
+
+  a {
+    font-size: 32px;
   }
 }
