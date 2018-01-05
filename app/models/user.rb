@@ -42,9 +42,13 @@ class User < ApplicationRecord
 
   def self.best_authors_max
     best_authors_max = []
+    authors = []
 
     Book.most_written_books.each do |book|
-      best_authors_max << [book.user, book.max_daily_wordcount]
+      unless authors.include?(book.user)
+        authors << book.user
+        best_authors_max << [book.user, book.max_daily_wordcount]
+      end
     end
 
     best_authors_max
