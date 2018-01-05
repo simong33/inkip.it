@@ -25,6 +25,13 @@
          <%= t(".profile", default: "Mes livres", class: "hidden-xs") %>
       <% end %>
     </div>
+
+    <div class="navbar-wagon-item underlined-anchor">
+      <%= link_to rankings_path do %>
+         <span class="new-badge">New</span> <%= t(".profile", default: "Classement", class: "hidden-xs") %>
+      <% end %>
+    </div>
+
     <div class="navbar-wagon-item underlined-anchor">
       <%= link_to destroy_user_session_path, method: :delete do %>
         <%= t(".sign_out", default: "Déconnexion") %>
@@ -72,6 +79,11 @@
           <li>
             <%= link_to user_books_path(current_user) do %>
                <%= t(".profile", default: "Mes livres") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to rankings_path do %>
+               <span class="new-badge">New</span> <%= t(".profile", default: "Classement") %>
             <% end %>
           </li>
           <li>

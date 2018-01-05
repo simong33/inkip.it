@@ -156,3 +156,12 @@
   box-shadow: 1px 1px 1px $purple-strong;
   text-shadow: 1px 1px 1px $purple-strong;
 }
+
+.new-badge {
+  color: white;
+  background-color: $purple-light;
+  border-radius: 5px;
+  letter-spacing: .9;
+  padding: 0 1px;
+  text-transform: uppercase;
+}
