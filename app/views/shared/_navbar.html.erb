@@ -58,6 +58,11 @@
         </div>
       </div>-->
     <% else %>
+    <div class="navbar-wagon-item underlined-anchor">
+      <%= link_to rankings_path do %>
+         <span class="new-badge">New</span> <%= t(".profile", default: "Classement", class: "hidden-xs") %>
+      <% end %>
+    </div>
       <!-- Login link (when logged out) -->
       <%= link_to t(".sign_in", default: "Se connecter"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
@@ -92,6 +97,11 @@
             <% end %>
           </li>
         <% else %>
+          <li>
+            <%= link_to rankings_path do %>
+               <span class="new-badge">New</span> <%= t(".profile", default: "Classement") %>
+            <% end %>
+          </li>
           <li>
             <%= link_to t(".sign_in", default: "Se connecter"), new_user_session_path %>
           </li>

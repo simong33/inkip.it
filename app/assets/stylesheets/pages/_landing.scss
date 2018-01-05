@@ -2,9 +2,10 @@
   // https://unsplash.com/photos/aGUndxz-VRw
   background-image: image-url("landing2.jpeg");
   height: 100vh;
-  background-position: bottom -64px center;
+  background-position: center center;
   background-size: cover;
   background-attachment: fixed;
+  background-repeat: no-repeat;
   margin-bottom: 48px;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 95%, 0 90%);
   clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 95%, 0 90%);
