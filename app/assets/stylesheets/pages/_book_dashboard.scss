@@ -116,6 +116,7 @@ html, body {
 
   @include mq($until: desktop) {
     flex-direction: column;
+    height: 100%;
   }
 
 }
@@ -137,13 +138,15 @@ html, body {
 
   @include mq($until: desktop) {
     flex: none;
-    height: 300px;
+    height: 25vh;
     padding: 12px;
     min-height: 100px;
     overflow: hidden;
     width: 100%;
     border-right: none;
     position: static;
+    justify-content: space-around;
+    background-color: #F1F1F1;
   }
 }
 
@@ -174,6 +177,10 @@ html, body {
   text-transform: uppercase;
   transition: all .4s ease;
 
+  &:last-child {
+    margin-bottom: 0;
+  }
+
 
   &:hover {
     text-decoration: none;
@@ -181,6 +188,12 @@ html, body {
     color: #39434F;
     transform: translateY(2px);
     transition: all .2s ease;
+  }
+
+  @include mq($until: desktop) {
+    width: 80%;
+    background-color: white;
+    font-size: 4vw;
   }
 
 }
@@ -192,6 +205,10 @@ html, body {
   background-color: white;
   box-shadow: 0 0 0;
   opacity: .9;
+
+  @include mq($until: desktop) {
+    background-color: white;
+  }
 
   &:hover{
     transform: none;
@@ -246,9 +263,7 @@ html, body {
 
   @include mq($until: tablet) {
     padding: 12px 12px;
-    justify-content: center;
     overflow-y: visible;
-    height: 100%;
   }
 }
 

@@ -153,6 +153,10 @@
     width: 50%;
     display: block;
   }
+
+  @include mq($until: desktop) {
+    padding-top: 0;
+  }
 }
 
 .landing-data-section {
@@ -177,8 +181,14 @@
     text-align: center;
 
     @include mq($until: desktop) {
-      margin-bottom: 0;
+      margin-bottom: 24px;
       padding-top: 0;
+    }
+
+    &:last-child {
+      @include mq($until: desktop) {
+        margin-bottom: 0;
+      }
     }
   }
 

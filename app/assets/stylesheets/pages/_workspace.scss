@@ -9,6 +9,10 @@
   min-height: calc(100vh - 60px);
   display: flex;
   justify-content: center;
+
+  @include mq($until: tablet) {
+    height: 100%;
+  }
 }
 
 .container__books {
@@ -20,5 +24,9 @@
 
   @include mq($from: tablet, $until: wide) {
     width: 90%;
+  }
+
+  @include mq($until: desktop) {
+    height: 100%;
   }
 }
