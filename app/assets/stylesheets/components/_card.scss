@@ -40,6 +40,10 @@
       transform-origin:0 50%;
     }
   }
+
+  @include mq($until: desktop) {
+    margin-right: 6px;
+  }
 }
 
 .card .fa {

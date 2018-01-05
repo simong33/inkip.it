@@ -110,6 +110,10 @@ html, body {
 .wrapper {
   display: flex;
 
+  @include mq($until: desktop) {
+    flex-direction: column;
+  }
+
 }
 
 // SIDEBAR
@@ -126,6 +130,16 @@ html, body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @include mq($until: desktop) {
+    flex: none;
+    height: 300px;
+    padding: 12px;
+    min-height: 100px;
+    overflow: hidden;
+    width: 100%;
+    border-right: none;
+  }
 }
 
 .sidebar-buttons {
@@ -224,6 +238,11 @@ html, body {
   background-color: #F1F1F1;
   height: calc(100vh - 120px);
   overflow-y: scroll;
+
+  @include mq($until: tablet) {
+    padding: 12px 12px;
+    justify-content: center;
+  }
 }
 
 .disclaimer {

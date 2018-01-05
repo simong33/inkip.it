@@ -1,7 +1,11 @@
 .statistics-grid {
   display: grid;
   grid-template-columns: 400px 1fr 1fr 1fr;
-  grid-template-rows: 70% 30%
+  grid-template-rows: 70% 30%;
+
+  @include mq($until: desktop) {
+    display: flex;
+  }
 }
 
 .content-dashboard--statistics {
@@ -9,6 +13,11 @@
   width: 100%;
   padding: 24px;
   overflow: hidden;
+
+  @include mq($until: desktop) {
+    padding: 12px 6px;
+    height: auto;
+  }
 }
 
 .content-chart {
@@ -20,12 +29,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @include mq($until: desktop) {
+    margin-bottom: 12px;
+  }
 }
 
 .content-chart--up {
   grid-row: 1 / span 1;
   grid-column: 2 / span 3;
   margin-bottom: 12px;
+
+  @include mq($until: desktop) {
+    height: 400px;
+  }
 }
 
 .content-chart--down {
@@ -33,6 +50,10 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+
+  @include mq($until: desktop) {
+    width: 100%;
+  }
 }
 
 .content-chart--down-1 {
@@ -42,6 +63,10 @@
 
   .icon-circle {
     margin-right: 6px;
+  }
+
+  @include mq($until: desktop) {
+    margin: 0 0 12px 0;
   }
 }
 
@@ -59,12 +84,21 @@
   .content-chart-label:last-child {
     font-size: 14px;
   }
+
+  @include mq($until: desktop) {
+    margin: 0 0 12px 0;
+  }
 }
 
 .content-chart--down-3 {
   margin-left: 6px;
   grid-row: 2 / span 1;
   grid-column: 4 / span 1;
+
+  @include mq($until: desktop) {
+    margin: 0 0 12px 0;
+  }
+
 }
 
 .sidebar--statistics {
@@ -85,6 +119,12 @@
   p {
     font-size: 12px;
     opacity: .8;
+  }
+
+  @include mq($until: desktop) {
+    height: auto;
+    width: 100%;
+    margin: 0 0 12px 0;
   }
 }
 
