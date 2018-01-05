@@ -1,15 +1,14 @@
 <%= render 'shared/navbar' %>
 
 <div class="content-dashboard content-dashboard--rankings">
-  <div class="container container--blank">
     <h3 class="rank-title">Records de mots écrits par session</h3>
-
+  <div class="container container--blank">
     <ul class="ranking-list">
       <% @best_authors_max.each_with_index do |author, i| %>
         <li class="ranking-item">
           <div class="rank"><%= i + 1 %></div>
-          <div class="ranking-name"><%= author[0].registered_name %></div>
-          <div class="ranking-data"><%= author[1] %> mots</div>
+          <div class="ranking-name"><%= author[0].registered_name%></div>
+          <div class="ranking-data"><%= author[1] %></div>
         </li>
       <% end %>
     </ul>
