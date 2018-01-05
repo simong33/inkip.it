@@ -50,4 +50,31 @@ class Book < ApplicationRecord
     ((Time.current - self.created_at) / (60*60*24)).floor
   end
 
+  def words_per_session
+    chapters = self.chapters
+    dwc_all = self.daily_word_counts
+
+    unless chapters.empty? || dwc_all.empty?
+      words_per_session = self.wordcount / dwc_all.count
+    else
+      words_per_session = 0
+    end
+  end
+
+  def self.most_written_books
+    Book.where('max_daily_wordcount > 0').order(max_daily_wordcount: :desc).limit(10)
+  end
+
+  def self.best_average_dwc
+    books_average_dwc = []
+
+    Book.all.each do |book|
+      books_average_dwc << [book, book.words_per_session]
+    end
+
+    books_average_dwc_sorted = books_average_dwc.sort {|a, b| b[1] <=> a[1]}
+
+    books_average_dwc = books_average_dwc_sorted.take(10)
+  end
+
 end

@@ -40,10 +40,24 @@ class User < ApplicationRecord
     self.user_name.nil? ? self.first_name : self.user_name
   end
 
-  private
+  def self.best_authors_max
+    best_authors_max = []
 
-  def anonymised_name
+    Book.most_written_books.each do |book|
+      best_authors_max << [book.user, book.max_daily_wordcount]
+    end
 
+    best_authors_max
+  end
+
+  def self.best_authors_mean
+    best_authors_mean = []
+
+    Book.best_average_dwc.each do |array|
+      best_authors_mean << [array[0].user, array[1]]
+    end
+
+    best_authors_mean
   end
 
 end

@@ -114,11 +114,7 @@ class BooksController < ApplicationController
 
     # WORDS PER SESSION
 
-    unless chapters.empty? || dwc_all.empty?
-      @words_per_session = @book.wordcount / dwc_all.count
-    else
-      @words_per_session = 0
-    end
+    @words_per_session = @book.words_per_session
 
     # GLOBAL WORDS PER SESSION MEAN
 
