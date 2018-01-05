@@ -68,13 +68,13 @@ class Book < ApplicationRecord
   def self.best_average_dwc
     books_average_dwc = []
 
-    Book.all.each do |book|
+    Book.where('max_streaks > 1').each do |book|
       books_average_dwc << [book, book.words_per_session]
     end
 
     books_average_dwc_sorted = books_average_dwc.sort {|a, b| b[1] <=> a[1]}
 
-    books_average_dwc = books_average_dwc_sorted.take(10)
+    books_average_dwc = books_average_dwc_sorted
   end
 
 end

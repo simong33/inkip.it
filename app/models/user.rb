@@ -52,12 +52,16 @@ class User < ApplicationRecord
 
   def self.best_authors_mean
     best_authors_mean = []
+    authors = []
 
     Book.best_average_dwc.each do |array|
-      best_authors_mean << [array[0].user, array[1]]
+      unless authors.include?(array[0].user)
+        authors << array[0].user
+        best_authors_mean << [array[0].user, array[1]]
+      end
     end
 
-    best_authors_mean
+    best_authors_mean.take(10)
   end
 
 end
