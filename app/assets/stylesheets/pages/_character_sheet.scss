@@ -9,6 +9,10 @@
   background-color: white;
   overflow-y: scroll;
   width: 40%;
+
+  @include mq($until: desktop) {
+    width: 90vw;
+  }
 }
 
 .character-sheet-subtitle {

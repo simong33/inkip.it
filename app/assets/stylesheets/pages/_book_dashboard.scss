@@ -20,6 +20,10 @@ html, body {
   a {
     color: white;
   }
+
+  @include mq($until: desktop) {
+    position: static;
+  }
 }
 
 .navbar-book-title {
@@ -139,6 +143,7 @@ html, body {
     overflow: hidden;
     width: 100%;
     border-right: none;
+    position: static;
   }
 }
 
@@ -242,6 +247,8 @@ html, body {
   @include mq($until: tablet) {
     padding: 12px 12px;
     justify-content: center;
+    overflow-y: visible;
+    height: 100%;
   }
 }
 

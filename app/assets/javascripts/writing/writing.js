@@ -54,7 +54,7 @@ var $save = $('.saving-status');
 //on keyup, start the countdown
 $form.on('keyup', function () {
   $save.removeClass("saving-status--saved");
-  $save.html("En train de sauvegarder...");
+  $save.html("Sauvegarde...");
   clearTimeout(typingTimer);
   typingTimer = setTimeout(doneTyping, doneTypingInterval);
 });

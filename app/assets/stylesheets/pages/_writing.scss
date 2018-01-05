@@ -9,12 +9,20 @@ body {
 .content-writing {
   margin: 0 auto;
   width: 725px;
+
+  @include mq($until: desktop) {
+    width: 100vw;
+  }
 }
 
 .content-writing-title {
+  font-family: $headers-font;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: $navy-blue;
   font-size: 36px;
   text-align: center;
-  margin-bottom: 24px;
+  margin: 24px 0;
   border: none;
   box-shadow: none;
   border-bottom: solid 1px lightgray;
@@ -24,6 +32,10 @@ body {
   &:focus {
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
     border-bottom: solid 1px lightgray;
+  }
+
+  @include mq($until: desktop) {
+    font-size: 6vw;
   }
 
 }
@@ -184,6 +196,12 @@ body {
   transition: .5s ease;
   width: 100%;
   border-top: 1px solid lightgray;
+}
+
+.bottom-bar__go-back {
+  @include mq($until: desktop) {
+    width: 75vw;
+  }
 }
 
 .bottom-bar__back-to-book {
