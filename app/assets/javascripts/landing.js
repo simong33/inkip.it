@@ -10,7 +10,7 @@ $(document).ready(function(){
     origin: 'top',
     reset: false,
   });
-  sr.reveal('li', {
+  sr.reveal('.revealed-data', {
     duration: 1000,
     origin: 'bottom',
     reset: false,

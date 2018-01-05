@@ -69,16 +69,20 @@
               <% end %>
             </li>
           <% end %>
-        <li>
-          <%= link_to user_books_path(current_user) do %>
-             <%= t(".profile", default: "Mes livres") %>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to destroy_user_session_path, method: :delete do %>
-            <%= t(".sign_out", default: "Déconnexion") %>
-          <% end %>
-        </li>
+          <li>
+            <%= link_to user_books_path(current_user) do %>
+               <%= t(".profile", default: "Mes livres") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              <%= t(".sign_out", default: "Déconnexion") %>
+            <% end %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to t(".sign_in", default: "Se connecter"), new_user_session_path %>
+          </li>
         <% end %>
       </ul>
     </div>
