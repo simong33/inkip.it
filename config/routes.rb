@@ -32,6 +32,8 @@ Rails.application.routes.draw do
 
   get "books/:book_id/download" => "books#download", as: :download_book, format: 'docx'
 
+  get "/rankings" => "pages#rankings", as: :rankings
+
   get "/privacy" => "pages#privacy_policy"
 
   get "/tos" => "pages#tos"

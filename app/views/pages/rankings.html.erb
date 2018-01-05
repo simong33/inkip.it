@@ -1,0 +1,10 @@
+<%= render 'shared/navbar' %>
+
+
+Les 10 records de mots par session
+
+<ul>
+  <% @best_authors.each do |author| %>
+    <li><%= author[0].registered_name %> : <%= author[1] %> mots par session</li>
+  <% end %>
+</ul>
