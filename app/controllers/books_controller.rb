@@ -120,6 +120,18 @@ class BooksController < ApplicationController
       @words_per_session = 0
     end
 
+    # GLOBAL WORDS PER SESSION MEAN
+
+    all_dwc = DailyWordCount.all
+
+    all_dwc_size = 0
+
+    all_dwc.each do |dwc|
+      all_dwc_size += dwc.wordcount unless dwc.wordcount.nil?
+    end
+
+    @global_words_per_session = all_dwc_size / all_dwc.count + 500 unless all_dwc.count == 0
+
     # WORDS PER CHAPTER
 
     unless chapters.empty?
@@ -127,6 +139,7 @@ class BooksController < ApplicationController
     else
       @words_per_chapter = 0
     end
+
   end
 
   def settings
