@@ -5,11 +5,12 @@
   opacity: .9;
   transition: all 0.3s ease;
   height: 60px;
-  padding: 0 50px;
+  padding: 0 24px;
   position: relative;
   display:flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 
   @include mq($until: desktop) {
     padding: 0 24px;
@@ -45,8 +46,6 @@
 
 /* Right section */
 .navbar-wagon-right {
-  position: absolute;
-  right: 0;
   display:flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -72,6 +71,10 @@
     }
   }
 
+}
+
+.navbar-wagon-burger {
+  color: white;
 }
 
 .underlined-anchor > a {

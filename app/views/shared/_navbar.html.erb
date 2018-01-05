@@ -7,7 +7,7 @@
   <% end %>
 
   <!-- Right Navigation -->
-  <div class="navbar-wagon-right">
+  <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <% if user_signed_in? %>
 
@@ -57,15 +57,31 @@
   </div>
 
   <!-- Dropdown list appearing on mobile only -->
-  <!-- <div class="navbar-wagon-item hidden-md hidden-lg">
+  <div class="navbar-wagon-burger hidden-md hidden-lg">
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
+        <% if user_signed_in? %>
+          <% if current_user.admin %>
+            <li>
+              <%= link_to admin_root_path do %>
+                 <%= t(".profile", default: "Admin") %>
+              <% end %>
+            </li>
+          <% end %>
+        <% end %>
+        <li>
+          <%= link_to user_books_path(current_user) do %>
+             <%= t(".profile", default: "Mes livres") %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+            <%= t(".sign_out", default: "Déconnexion") %>
+          <% end %>
+        </li>
       </ul>
     </div>
-  </div> -->
+  </div>
 </div>
 
