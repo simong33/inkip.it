@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   validates :user_name, uniqueness: true
 
-  after_create :send_welcome_email
+  # after_create :send_welcome_email
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
@@ -36,14 +36,25 @@ class User < ApplicationRecord
     UserMailer.welcome(self).deliver_now
   end
 
-  def registered_name
-    registered_name = ""
-    if self.user_name.nil? && self.provider.nil?
-      registered_name = self.first_name
-    elsif self.provider == "facebook"
-      registered_name = self.first_name + " " + self.last_name[0] + "."
+  def short_name
+    if self.provider.nil?
+      self.user_name
     else
-      registered_name = self.user_name
+      self.first_name
+    end
+  end
+
+  def anonymise_name
+    self.first_name + " " + self.last_name[0] + "."
+  end
+
+  def registered_name
+    if self.user_name.nil? && self.provider.nil?
+      self.first_name
+    elsif self.provider == "facebook"
+      self.anonymise_name
+    else
+      self.user_name
     end
   end
 
@@ -73,12 +84,6 @@ class User < ApplicationRecord
     end
 
     best_authors_mean.take(10)
-  end
-
-  private
-
-  def anonymise_name
-
   end
 
 end

@@ -77,4 +77,8 @@ class Book < ApplicationRecord
     books_average_dwc = books_average_dwc_sorted
   end
 
+  def self.best_maximum_streaks
+    Book.where.not(max_streaks: nil).order(max_streaks: :desc)
+  end
+
 end
