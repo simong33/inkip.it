@@ -243,7 +243,7 @@ b10.max_streaks = 12
 b10.max_daily_wordcount = 1987
 b10.save
 
-content = "je suis " * 2075
+content = "je suis " * rand(1700..2456)
 
 1.upto(100) do |n|
   Chapter.create!(

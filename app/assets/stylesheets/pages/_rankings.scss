@@ -1,3 +1,37 @@
+.sidebar--rankings {
+  height: calc(100vh - 60px);
+  padding: 12px;
+
+  @include mq($until: desktop) {
+    flex: none;
+    height: 25vh;
+    padding: 12px;
+    min-height: 100px;
+    overflow: hidden;
+    width: 100%;
+    border-right: none;
+    position: static;
+    justify-content: space-around;
+    background-color: #F1F1F1;
+  }
+}
+
+.sidebar-item--rankings {
+  font-size: 3vw;
+
+  @include mq($from: tablet, $until: desktop) {
+    font-size: 2vw;
+  }
+
+    @include mq($from: desktop, $until: wide) {
+    font-size: 1vw;
+  }
+
+    @include mq($from: wide) {
+    font-size: .7vw;
+  }
+}
+
 .content-dashboard--rankings {
   height: calc(100vh - 60px);
   flex-direction: column;
@@ -52,7 +86,7 @@
 }
 
 .ranking-item {
-  font-size: 4vw;
+  font-size: 3vw;
   background-color: white;
   width: 100%;
   margin-bottom: 12px;
@@ -77,15 +111,15 @@
   }
 
   @include mq($from: tablet, $until: desktop) {
-    font-size: 3vw;
+    font-size: 2vw;
   }
 
-  @include mq($from: desktop) {
-    font-size: 1.5vw;
+  @include mq($from: desktop, $until: wide) {
+    font-size: 1.4vw;
   }
 
   @include mq($from: wide) {
-    font-size: 1vw;
+    font-size: .9vw;
   }
 }
 

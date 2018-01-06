@@ -205,13 +205,13 @@ html, body {
   background-color: white;
   box-shadow: 0 0 0;
   opacity: .9;
+  transform: translateY(2px);
 
   @include mq($until: desktop) {
     background-color: white;
   }
 
   &:hover{
-    transform: none;
     color: white;
   }
 }

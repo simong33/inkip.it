@@ -20,3 +20,5 @@ Rails.application.config.assets.precompile += %w( statistics_manifest.js )
 Rails.application.config.assets.precompile += %w( landing.js )
 
 Rails.application.config.assets.precompile += %w( typer.js )
+
+Rails.application.config.assets.precompile += %w( rankings.js )

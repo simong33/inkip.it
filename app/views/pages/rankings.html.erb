@@ -1,18 +1,40 @@
 <%= render 'shared/navbar' %>
 
-<div class="content-dashboard content-dashboard--rankings">
-    <h3 class="rank-title">Records de mots écrits par session</h3>
-  <div class="container container--blank">
-    <ul class="ranking-list">
-      <% @best_authors_max.each_with_index do |author, i| %>
-        <li class="ranking-item">
-          <div class="rank"><%= i + 1 %></div>
-          <div class="ranking-name"><%= author[0].registered_name%></div>
-          <div class="ranking-data"><%= author[1] %></div>
-        </li>
-      <% end %>
-    </ul>
+<div class="wrapper">
+  <div class="sidebar sidebar--rankings">
+    <div class="sidebar-buttons">
+      <a href="" class="sidebar-item sidebar-item--rankings sidebar-item--authors_max sidebar-item--active">MAX. MOTS PAR SESSION</a>
+      <a href="" class="sidebar-item sidebar-item--rankings sidebar-item--authors_mean">MOYENNE MOTS PAR SESSION</a>
+    </div>
   </div>
-
+  <div class="content-dashboard content-dashboard--rankings">
+    <div class="container container--blank container--authors_max visible">
+      <ul class="ranking-list">
+        <% @best_authors_max.each_with_index do |author, i| %>
+          <li class="ranking-item">
+            <div class="rank"><%= i + 1 %></div>
+            <div class="ranking-name"><%= author[0].registered_name%></div>
+            <div class="ranking-data"><%= author[1] %></div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="content-dashboard content-dashboard--rankings hidden">
+    <div class="container container--blank container--authors_mean">
+      <ul class="ranking-list">
+        <% @best_authors_mean.each_with_index do |author, i| %>
+          <li class="ranking-item">
+            <div class="rank"><%= i + 1 %></div>
+            <div class="ranking-name"><%= author[0].registered_name%></div>
+            <div class="ranking-data"><%= author[1] %></div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 </div>
 
+<% content_for(:after_js) do %>
+  <%= javascript_include_tag 'rankings'%>
+<% end %>
