@@ -4,7 +4,7 @@
 
   @include mq($until: desktop) {
     flex: none;
-    height: 25vh;
+    height: 35vh;
     padding: 12px;
     min-height: 100px;
     overflow: hidden;
@@ -14,6 +14,13 @@
     justify-content: space-around;
     background-color: #F1F1F1;
   }
+}
+
+.sidebar-title {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: $navy-blue;
+  margin-bottom: 24px;
 }
 
 .sidebar-item--rankings {
