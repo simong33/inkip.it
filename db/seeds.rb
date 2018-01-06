@@ -242,3 +242,19 @@ b10.title = "Domino et ses frères"
 b10.max_streaks = 12
 b10.max_daily_wordcount = 1987
 b10.save
+
+content = "je suis " * 2075
+
+1.upto(100) do |n|
+  Chapter.create!(
+    book: Book.all.last(10).sample,
+    content: content
+    )
+end
+
+1.upto(500) do |n|
+  DailyWordCount.create!(
+    book: Book.all.last(10).sample,
+    wordcount: rand(100..5000),
+    )
+end

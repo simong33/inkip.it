@@ -86,4 +86,18 @@ class User < ApplicationRecord
     best_authors_mean.take(10)
   end
 
+  def self.most_consistent_authors
+    most_consistent_authors = []
+    authors = []
+
+    Book.best_maximum_streaks.each do |book|
+      unless authors.include?(book.user)
+        authors << book.user
+        most_consistent_authors << [book.user, book]
+      end
+    end
+
+    most_consistent_authors.take(10)
+  end
+
 end
