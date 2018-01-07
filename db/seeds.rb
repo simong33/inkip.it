@@ -186,7 +186,6 @@ p "Create their books"
 b1 = Book.new(user: sango)
 b1.title = "Les Hautes Montagnes"
 b1.max_streaks = 33
-b1.max_daily_wordcount = 7788
 b1.save
 
 b2 = Book.new(user: thomasb)
@@ -258,6 +257,28 @@ p "Create 500 DWC"
 1.upto(500) do |n|
   DailyWordCount.create!(
     book: Book.all.last(10).sample,
-    wordcount: rand(100..5000),
+    wordcount: rand(100..2000),
     )
 end
+
+b1.max_daily_wordcount = rand(2500..6000)
+b2.max_daily_wordcount = rand(2500..6000)
+b3.max_daily_wordcount = rand(2500..6000)
+b4.max_daily_wordcount = rand(2500..6000)
+b5.max_daily_wordcount = rand(2500..6000)
+b6.max_daily_wordcount = rand(2500..6000)
+b7.max_daily_wordcount = rand(2500..6000)
+b8.max_daily_wordcount = rand(2500..6000)
+b9.max_daily_wordcount = rand(2500..6000)
+b10.max_daily_wordcount = rand(2500..6000)
+
+b1.save
+b2.save
+b3.save
+b4.save
+b5.save
+b6.save
+b7.save
+b8.save
+b9.save
+b10.save

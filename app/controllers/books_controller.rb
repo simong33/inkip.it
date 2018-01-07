@@ -118,7 +118,7 @@ class BooksController < ApplicationController
 
     # GLOBAL WORDS PER SESSION MEAN
 
-    all_dwc = DailyWordCount.all
+    all_dwc = DailyWordCount.where('wordcount < 10000')
 
     all_dwc_size = 0
 
@@ -126,7 +126,7 @@ class BooksController < ApplicationController
       all_dwc_size += dwc.wordcount unless dwc.wordcount.nil? || dwc.wordcount > 10000
     end
 
-    @global_words_per_session = all_dwc_size / all_dwc.count unless all_dwc.count == 0
+    @global_words_per_session = (all_dwc_size / all_dwc.count) unless all_dwc.count == 0
 
     # WORDS PER CHAPTER
 
