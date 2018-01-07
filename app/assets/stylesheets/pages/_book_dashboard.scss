@@ -264,7 +264,6 @@ html, body {
   @include mq($until: tablet) {
     padding: 12px 12px;
     overflow-y: visible;
-    height: 100%;
   }
 }
 
