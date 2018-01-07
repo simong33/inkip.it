@@ -1,5 +1,9 @@
 body {
   height: auto;
+
+  @include mq($until: desktop) {
+    height: 100%;
+  }
 }
 
 .content-dashboard--writing {
