@@ -62,14 +62,14 @@ class User < ApplicationRecord
     best_authors_max = []
     authors = []
 
-    Book.most_written_books.each do |book|
-      unless authors.include?(book.user)
-        authors << book.user
-        best_authors_max << [book.user, book.max_daily_wordcount]
+    Book.best_max_dwc.each do |array|
+      unless authors.include?(array[0].user)
+        authors << array[0].user
+        best_authors_max << [array[0].user, array[1]]
       end
     end
 
-    best_authors_max
+    best_authors_max.take(10)
   end
 
   def self.best_authors_mean

@@ -243,14 +243,17 @@ b10.max_streaks = 12
 b10.max_daily_wordcount = 1987
 b10.save
 
-content = "je suis " * rand(1700..2456)
+p "Create 100 chapters"
 
 1.upto(100) do |n|
+  content = "je suis " * rand(1700..2456)
   Chapter.create!(
     book: Book.all.last(10).sample,
     content: content
     )
 end
+
+p "Create 500 DWC"
 
 1.upto(500) do |n|
   DailyWordCount.create!(

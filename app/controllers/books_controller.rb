@@ -123,7 +123,7 @@ class BooksController < ApplicationController
     all_dwc_size = 0
 
     all_dwc.each do |dwc|
-      all_dwc_size += dwc.wordcount unless dwc.wordcount.nil?
+      all_dwc_size += dwc.wordcount unless dwc.wordcount.nil? || dwc.wordcount > 10000
     end
 
     @global_words_per_session = all_dwc_size / all_dwc.count unless all_dwc.count == 0

@@ -51,18 +51,33 @@ class Book < ApplicationRecord
   end
 
   def words_per_session
-    chapters = self.chapters
     dwc_all = self.daily_word_counts
+    dwc_wordcount = 0
+
+    dwc_all.each do |dwc|
+      dwc_wordcount += dwc.wordcount
+    end
 
     unless chapters.empty? || dwc_all.empty?
-      words_per_session = self.wordcount / dwc_all.count
+      words_per_session = dwc_wordcount / dwc_all.count
     else
       words_per_session = 0
     end
   end
 
-  def self.most_written_books
-    Book.where('max_daily_wordcount > 0').order(max_daily_wordcount: :desc).limit(10)
+  def self.best_max_dwc
+    books_max_dwc = []
+
+    Book.where('max_streaks > 1').each do |book|
+      unless book.daily_word_counts.sort_by { |obj| obj.wordcount }.reverse!.second.nil?
+        max_wordcount = book.daily_word_counts.sort_by { |obj| obj.wordcount }.reverse!.second.wordcount
+      else
+        max_wordcount = 0
+      end
+      books_max_dwc << [book, max_wordcount]
+    end
+
+    books_max_dwc_sorted = books_max_dwc.sort {|a, b| b[1] <=> a[1]}
   end
 
   def self.best_average_dwc
@@ -73,8 +88,6 @@ class Book < ApplicationRecord
     end
 
     books_average_dwc_sorted = books_average_dwc.sort {|a, b| b[1] <=> a[1]}
-
-    books_average_dwc = books_average_dwc_sorted
   end
 
   def self.best_maximum_streaks

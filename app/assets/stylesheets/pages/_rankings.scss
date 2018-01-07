@@ -128,6 +128,11 @@
   @include mq($from: wide) {
     font-size: .9vw;
   }
+
+  span {
+    background-color: red;
+    width: 6px;
+  }
 }
 
 .ranking-name {
@@ -141,6 +146,6 @@
 }
 
 .ranking-data {
-  white-space: no-wrap;
+  white-space: nowrap;
   margin-left: 12px;
 }
