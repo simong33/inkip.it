@@ -11,7 +11,7 @@
   <div class="sidebar--statistics">
     <div class="sidebar-block wordcount-goal">
       <h2><%= number_with_delimiter(@book.wordcount, delimiter: ' ') %> mots</h2>
-      <p>ou <%= number_with_delimiter(@book.signs, delimiter: ' ') %> caractères</p>
+      <p>soit <%= number_with_delimiter(@book.signs, delimiter: ' ') %> caractères</p>
       <p>depuis le <%= @book.created_at.strftime('%d/%m/%Y') %></p>
       <% unless @book.word_goal_ratio >= 1 %>
         <canvas id="wordCountGoal"></canvas>
