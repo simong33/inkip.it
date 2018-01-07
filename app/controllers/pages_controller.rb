@@ -7,6 +7,7 @@ class PagesController < ApplicationController
   def rankings
     @best_authors_max = User.best_authors_max
     @best_authors_mean = User.best_authors_mean
+    @most_consistent_authors = User.most_consistent_authors
   end
 
   def privacy_policy
