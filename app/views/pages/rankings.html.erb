@@ -6,14 +6,15 @@
       <h2 class="sidebar-title">Records</h2>
       <a href="" class="sidebar-item sidebar-item--rankings sidebar-item--authors_max sidebar-item--active">MAX. MOTS PAR SESSION</a>
       <a href="" class="sidebar-item sidebar-item--rankings sidebar-item--authors_mean">MOYENNE MOTS PAR SESSION</a>
-      <a href="" class="sidebar-item sidebar-item--rankings sidebar-item--consistent_authors">jours d"écriture consécutifs</a>
+      <a href="" class="sidebar-item sidebar-item--rankings sidebar-item--consistent_authors">max. jours d'écriture consécutifs</a>
     </div>
   </div>
   <div class="content-dashboard content-dashboard--rankings" id="ranking-max">
     <div class="container container--blank">
       <ul class="ranking-list">
         <% @best_authors_max.each_with_index do |author, i| %>
-          <li class="ranking-item">
+          <li class="ranking-item
+          <%= "ranking-item--current-user" if author[0] == current_user %>">
             <div class="rank"><%= i + 1 %></div>
             <div class="ranking-name"><%= author[0].registered_name%></div>
             <div class="ranking-data"><%= author[1] %> mots</div>
@@ -26,7 +27,8 @@
     <div class="container container--blank">
       <ul class="ranking-list">
         <% @best_authors_mean.each_with_index do |author, i| %>
-          <li class="ranking-item">
+          <li class="ranking-item
+          <%= "ranking-item--current-user" if author[0] == current_user %>">
             <span class="rank"><%= i + 1 %></span>
             <div class="ranking-name"><%= author[0].registered_name%></div>
             <div class="ranking-data"><%= author[1] %> mots</div>
@@ -39,7 +41,8 @@
     <div class="container container--blank">
       <ul class="ranking-list">
         <% @most_consistent_authors.each_with_index do |author, i| %>
-          <li class="ranking-item">
+          <li class="ranking-item
+          <%= "ranking-item--current-user" if author[0] == current_user %>">
             <div class="rank"><%= i + 1 %></div>
             <div class="ranking-name"><%= author[0].registered_name%></div>
             <div class="ranking-data"><%= author[1].max_streaks %> jours</div>

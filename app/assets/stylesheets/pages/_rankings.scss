@@ -4,7 +4,7 @@
 
   @include mq($until: desktop) {
     flex: none;
-    height: 35vh;
+    height: 48vh;
     padding: 12px;
     min-height: 100px;
     overflow: hidden;
@@ -133,6 +133,11 @@
     background-color: red;
     width: 6px;
   }
+}
+
+.ranking-item--current-user {
+  color: $navy-blue;
+  font-weight: bold;
 }
 
 .ranking-name {
