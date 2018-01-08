@@ -15,7 +15,7 @@
         <% @best_authors_max.each_with_index do |author, i| %>
           <li class="ranking-item
           <%= "ranking-item--current-user" if author[0] == current_user %>">
-            <div class="rank"><%= i + 1 %></div>
+            <div class="rank"><%= i + 1 %>.</div>
             <div class="ranking-name"><%= author[0].registered_name%></div>
             <div class="ranking-data"><%= author[1] %> mots</div>
           </li>
@@ -29,7 +29,7 @@
         <% @best_authors_mean.each_with_index do |author, i| %>
           <li class="ranking-item
           <%= "ranking-item--current-user" if author[0] == current_user %>">
-            <span class="rank"><%= i + 1 %></span>
+            <div class="rank"><%= i + 1 %>.</div>
             <div class="ranking-name"><%= author[0].registered_name%></div>
             <div class="ranking-data"><%= author[1] %> mots</div>
           </li>
@@ -43,7 +43,7 @@
         <% @most_consistent_authors.each_with_index do |author, i| %>
           <li class="ranking-item
           <%= "ranking-item--current-user" if author[0] == current_user %>">
-            <div class="rank"><%= i + 1 %></div>
+            <div class="rank"><%= i + 1 %>.</div>
             <div class="ranking-name"><%= author[0].registered_name%></div>
             <div class="ranking-data"><%= author[1].max_streaks %> jours</div>
           </li>

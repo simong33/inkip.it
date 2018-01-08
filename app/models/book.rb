@@ -69,7 +69,6 @@ class Book < ApplicationRecord
 
   def self.best_max_dwc
     Book.where('max_streaks > 1 & max_daily_wordcount IS NOT NULL').order(max_daily_wordcount: :desc)
-
   end
 
   def self.best_average_dwc
