@@ -36,6 +36,10 @@ Rails.application.routes.draw do
 
   get "/privacy" => "pages#privacy_policy"
 
+  get "/cgu" => "pages#cgu"
+
+  get "/mentions_legales" => "pages#mentions_legales"
+
   get "/tos" => "pages#tos"
 
 end
