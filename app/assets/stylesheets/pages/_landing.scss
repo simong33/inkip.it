@@ -336,6 +336,10 @@
 
   a {
     color: white;
+
+    &:hover {
+      color: $purple-light;
+    }
   }
 
   h2 {
@@ -366,5 +370,9 @@
 
   a {
     font-size: 32px;
+
+    &:hover {
+      color: $purple-light;
+    }
   }
 }
