@@ -8,8 +8,7 @@ gem 'pg'
 gem 'puma'
 gem 'rails', '5.0.5'
 gem 'redis'
-# https://github.com/abitdodgy/words_counted
-gem 'words_counted'
+gem 'words_counted' # https://github.com/abitdodgy/words_counted
 gem 'pundit'
 gem 'gon'
 gem 'htmltoword'
@@ -17,7 +16,7 @@ gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'omniauth-facebook'
-gem 'postmark-rails'
+gem 'mailjet'
 gem 'mail_interceptor', group: [:development, :staging]
 gem "letter_opener", group: :development
 gem 'rubocop', group: :development
