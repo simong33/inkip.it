@@ -63,8 +63,10 @@
          <%= t(".profile", default: "Classement", class: "hidden-xs") %>
       <% end %>
     </div>
+    <div class="navbar-wagon-item underlined-anchor">
       <!-- Login link (when logged out) -->
       <%= link_to t(".sign_in", default: "Se connecter"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    </div>
     <% end %>
   </div>
 
