@@ -14,13 +14,7 @@ Rails.application.routes.draw do
     resources :places, only: [:create, :index, :show, :destroy], name_prefix: "book_"
   end
 
-    # resources :books, only: [:index, :show, :new, :create] do
-    #   resources :chapters, only: [:create, :show, :update] do
-    #     resources :appearances, only: [:create, :update]
-    #   end
-    #   resources :characters, only: [:create, :index, :show]
-    #   resources :places, only: [:create, :index, :show]
-    # end
+  resources :users, only: :show
 
   get "books" => "books#index",  as: :user_root_path
 
