@@ -1,5 +1,9 @@
 <div class="navbar-wagon
-  <%= "navbar-wagon--landing" if defined?(landing) %>
+  <% if defined?(landing) %>
+    <%= "navbar-wagon--landing" %>
+  <% else %>
+    <%= "navbar-wagon--profile" %>
+  <% end %>
 ">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
@@ -22,7 +26,13 @@
 
     <div class="navbar-wagon-item underlined-anchor">
       <%= link_to user_books_path(current_user) do %>
-         <%= t(".profile", default: "Mes livres", class: "hidden-xs") %>
+         <%= t(".profile", default: "Mes Livres", class: "hidden-xs") %>
+      <% end %>
+    </div>
+
+    <div class="navbar-wagon-item underlined-anchor">
+      <%= link_to user_path(current_user) do %>
+         <%= t(".profile", default: "Mon Profil", class: "hidden-xs") %>
       <% end %>
     </div>
 

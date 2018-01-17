@@ -1,2 +1,8 @@
-<h1>Profile</h1>
-<p>This is the page of <%= @user.user_name %></p>
+<%= render 'shared/navbar', profile: 'profile' %>
+
+<div class="profile-head-block">
+  <div class="profile-head-info">
+    <div class="profile-picture" style="background-image: url(https://img3.closermag.fr/var/closermag/storage/images/media/images-des-contenus/actu-people/people-francais/2014-09-08-dave-revient-sur-son-terrible-clash-avec-christophe-hondelatte/portrait-du-chanteur-dave-2014/3315894-1-fre-FR/Portrait-du-chanteur-Dave-2014_exact1024x768_l.jpg)"></div>
+    <div class="profile-username"><%= @user.user_name %></div>
+  </div>
+</div>
