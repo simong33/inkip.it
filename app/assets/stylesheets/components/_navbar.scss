@@ -84,7 +84,11 @@
 }
 
 .navbar-wagon-burger {
+  height: 100%;
   color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .underlined-anchor > a {
@@ -121,6 +125,12 @@
 }
 
 /* Dropdown menu */
+
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .navbar-wagon-dropdown-menu {
   margin-top: 15px;
   box-shadow: 1px 1px 4px #E6E6E6;
@@ -174,3 +184,28 @@
   padding: 0 1px;
   text-transform: uppercase;
 }
+
+.hamburger {
+  padding: 0;
+  height: 100%;
+}
+
+.hamburger-box {
+  position: static;
+}
+
+.hamburger-inner, .hamburger-inner:before, .hamburger-inner:after {
+  background-color: white;
+  width: 28px;
+  height: 2px;
+  right: 0;
+}
+
+.hamburger-inner:before {
+  top: -8px;
+}
+
+.hamburger-inner:after {
+  bottom: -8px;
+}
+

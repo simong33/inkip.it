@@ -121,6 +121,7 @@ GEM
       actionpack (>= 3.0)
       multi_json
       request_store (>= 1.0)
+    hamburgers (0.9.3)
     has_scope (0.7.1)
       actionpack (>= 4.1, < 5.2)
       activesupport (>= 4.1, < 5.2)
@@ -341,6 +342,7 @@ DEPENDENCIES
   figaro
   font-awesome-sass
   gon
+  hamburgers
   htmltoword
   inherited_resources!
   jbuilder (~> 2.0)
