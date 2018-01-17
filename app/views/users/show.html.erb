@@ -1,8 +1,23 @@
 <%= render 'shared/navbar', profile: 'profile' %>
 
 <div class="profile-head-block">
+  <% if @user = current_user %>
+    <div id="edit-profile">
+      <i class="fa fa-pencil" aria-hidden="true"></i>
+    </div>
+  <% end %>
+
   <div class="profile-head-info">
     <div class="profile-picture" style="background-image: url(https://img3.closermag.fr/var/closermag/storage/images/media/images-des-contenus/actu-people/people-francais/2014-09-08-dave-revient-sur-son-terrible-clash-avec-christophe-hondelatte/portrait-du-chanteur-dave-2014/3315894-1-fre-FR/Portrait-du-chanteur-Dave-2014_exact1024x768_l.jpg)"></div>
-    <div class="profile-username"><%= @user.user_name %></div>
+    <h1 class="profile-username"><%= @user.user_name %></h1>
+  </div>
+  <div class="progress-bar-block">
+    <div id="progress-bar-profile"></div>
+    <div class="progress-bar-data"><%= number_with_delimiter(@book.wordcount, delimiter: ' ')%> / <%= number_with_delimiter(@book.word_goal, delimiter: ' ') %> mots</div>
   </div>
 </div>
+
+<% content_for(:after_js) do %>
+  <%= javascript_include_tag 'progressbar' %>
+  <%= javascript_include_tag 'profile_page'%>
+<% end %>

@@ -22,3 +22,7 @@ Rails.application.config.assets.precompile += %w( landing.js )
 Rails.application.config.assets.precompile += %w( typer.js )
 
 Rails.application.config.assets.precompile += %w( rankings.js )
+
+Rails.application.config.assets.precompile += %w( profile_page.js )
+
+Rails.application.config.assets.precompile += %w( progressbar.js )

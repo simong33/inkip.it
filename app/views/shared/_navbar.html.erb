@@ -1,7 +1,7 @@
 <div class="navbar-wagon
   <% if defined?(landing) %>
     <%= "navbar-wagon--landing" %>
-  <% else %>
+  <% elsif defined?(profile) %>
     <%= "navbar-wagon--profile" %>
   <% end %>
 ">
@@ -96,6 +96,11 @@
           <li>
             <%= link_to user_books_path(current_user) do %>
                <%= t(".profile", default: "Mes livres") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to user_path(current_user) do %>
+              <%= t(".profile", default: "Profil") %>
             <% end %>
           </li>
           <li>

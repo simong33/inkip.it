@@ -32,7 +32,7 @@
     <!-- End Facebook Pixel Code -->
   </head>
   <body>
-    <% unless controller_name == "pages" || "user" %>
+    <% unless controller_name == "pages" || controller_name == "users" %>
       <%= render 'shared/navbar' %>
     <% end %>
 

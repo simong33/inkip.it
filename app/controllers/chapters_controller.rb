@@ -28,6 +28,8 @@ class ChaptersController < ApplicationController
 
   def update
     @chapter = Chapter.find(params[:id])
+    authorize @chapter
+
     @chapter.update(chapter_params)
 
     respond_to do |format|
