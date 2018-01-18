@@ -12,6 +12,11 @@
   border-radius: 0 0 5px 5px;
   margin-bottom: 12vw;
   position: relative;
+
+  form {
+    position: absolute;
+    bottom: -5vh;
+  }
 }
 
 #edit-profile {
@@ -101,13 +106,12 @@
   justify-content: center;
   align-items: center;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-  position: absolute;
-  bottom: -5vh;
+  border: none;
+}
 
-  .fa {
-    font-size: 4vh;
-    font-weight: lighter;
-  }
+#fa-plus-follow {
+  font-size: 4vh;
+  font-weight: lighter;
 }
 
 .profile-statistics {

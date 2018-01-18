@@ -18,11 +18,11 @@
     <% end %>
     <div class="profile-following-data">
       <div class="profile-stats-item">
-        <div class="profile-stats-data profile-following-figures"><%= @user.followers.count %></div>
+        <div id="followers-count" class="profile-stats-data profile-following-figures"><%= @user.followers.count %></div>
         <div class="profile-stats-label">Abonnés</div>
       </div>
       <div class="profile-stats-item">
-        <div class="profile-stats-data profile-following-figures"><%= @user.following.count %></div>
+        <div id="followings-count" class="profile-stats-data profile-following-figures"><%= @user.following.count %></div>
         <div class="profile-stats-label">Abonnements</div>
       </div>
     </div>
@@ -31,9 +31,16 @@
     <div id="progress-bar-profile"></div>
     <div class="progress-bar-data"><%= number_with_delimiter(@book.wordcount, delimiter: ' ')%> / <%= number_with_delimiter(@book.word_goal, delimiter: ' ') %> mots</div>
   </div>
-  <a class="profile-follow-button" href="#">
-    <i class="fa fa-plus" aria-hidden="true"></i>
-  </a>
+
+  <% unless @user == current_user %>
+    <%= form_for(current_user.active_relationships.build, remote: true) do |f| %>
+      <div><%= hidden_field_tag :followed_id, @user.id %></div>
+      <%= button_tag(type: 'submit', class: "profile-follow-button") do %>
+        <i id="fa-plus-follow" class="fa fa-plus" aria-hidden="true"></i>
+      <% end %>
+    <% end %>
+  <% end %>
+
 </div>
 
 <div class="profile-statistics">

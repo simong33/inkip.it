@@ -6,6 +6,7 @@ tmp/*
 .DS_Store
 public/assets
 test/*
+tep
 
 # Ignore application configuration
 /config/application.yml
