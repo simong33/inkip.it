@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
+  authenticated :user do
+    root 'books#index', as: :authenticated_root
+  end
+
   root to: 'pages#landing'
 
   resources :users, only: [:show, :update] do
