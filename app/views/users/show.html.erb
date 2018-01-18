@@ -10,6 +10,12 @@
   <div class="profile-head-info">
     <div class="profile-picture" style="background-image: url(<%= @user.profile_picture_url %>)"></div>
     <h1 class="profile-username"><%= @user.user_name %></h1>
+    <% if @user.location %>
+      <div class="profile-location">
+        <i class="fa fa-location-arrow" aria-hidden="true"></i>
+        <p><%= @user.location %></p>
+      </div>
+    <% end %>
   </div>
   <div class="progress-bar-block">
     <div id="progress-bar-profile"></div>
@@ -33,9 +39,14 @@
 
 <%= simple_form_for(@user) do |f| %>
   <%= f.input :user_name %>
+  <%= f.input :location, input_html: { id: 'user-location-input' } %>
   <%= f.input :profile_picture, as: :attachinary %>
   <%= f.submit %>
 <% end %>
+
+<script type="text/javascript"
+  src="https://maps.googleapis.com/maps/api/js?libraries=places&key=<%= ENV['GOOGLE_MAPS'] %>">
+</script>
 
 <% content_for(:after_js) do %>
   <%= javascript_include_tag 'progressbar' %>

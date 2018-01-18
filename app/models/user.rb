@@ -103,8 +103,16 @@ class User < ApplicationRecord
   end
 
   def profile_picture_url
-    pp = self.profile_picture
-    "http://res.cloudinary.com/inkip-it/image/upload/v1516284170/" + pp.public_id + "."+  pp.format
+
+    if self.profile_picture
+      pp = self.profile_picture
+      "http://res.cloudinary.com/inkip-it/image/upload/v1516284170/" + pp.public_id + "."+  pp.format
+    elsif self.facebook_picture_url
+      self.facebook_picture_url
+    else
+      "https://www.teamrubiconcan.org/wp-content/themes/TeamRubicon/assets/img/blank.png"
+    end
+
   end
 
 end
