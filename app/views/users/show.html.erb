@@ -16,6 +16,16 @@
         <p><%= @user.location %></p>
       </div>
     <% end %>
+    <div class="profile-following-data">
+      <div class="profile-stats-item">
+        <div class="profile-stats-data profile-following-figures"><%= @user.followers.count %></div>
+        <div class="profile-stats-label">Abonnés</div>
+      </div>
+      <div class="profile-stats-item">
+        <div class="profile-stats-data profile-following-figures"><%= @user.following.count %></div>
+        <div class="profile-stats-label">Abonnements</div>
+      </div>
+    </div>
   </div>
   <div class="progress-bar-block">
     <div id="progress-bar-profile"></div>

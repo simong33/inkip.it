@@ -64,6 +64,7 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  margin: 0 0 5vh 0;
 
   .fa {
     margin-right: 2vw;
@@ -73,6 +74,11 @@
     margin: 0;
     opacity: .8;
   }
+}
+
+.profile-following-data {
+  display: flex;
+  justify-content: space-around;
 }
 
 #progress-bar-profile {
@@ -106,6 +112,7 @@
 
 .profile-statistics {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   padding: 0 12vw;
 }
@@ -118,6 +125,10 @@
   font-size: 3.5vh;
   color: $purple-strong;
   text-align: center;
+}
+
+.profile-following-figures {
+  color: white;
 }
 
 .profile-stats-label {
