@@ -19,6 +19,12 @@
 
 }
 
+.navbar-wagon--landing {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
 .navbar-wagon--profile {
   box-shadow: none;
   background: linear-gradient(to right, $purple-light, $purple-strong);

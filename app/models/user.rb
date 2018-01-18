@@ -10,6 +10,8 @@ class User < ApplicationRecord
 
   after_create :send_welcome_email
 
+  has_attachment :profile_picture, accept: [:jpg, :png, :gif]
+
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
     user_params.merge! auth.info.slice(:email, :first_name, :last_name)
@@ -98,6 +100,11 @@ class User < ApplicationRecord
     end
 
     most_consistent_authors.take(10)
+  end
+
+  def profile_picture_url
+    pp = self.profile_picture
+    "http://res.cloudinary.com/inkip-it/image/upload/v1516284170/" + pp.public_id + "."+  pp.format
   end
 
 end

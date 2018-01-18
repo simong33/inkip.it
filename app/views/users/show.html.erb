@@ -8,16 +8,16 @@
   <% end %>
 
   <div class="profile-head-info">
-    <div class="profile-picture" style="background-image: url(https://img3.closermag.fr/var/closermag/storage/images/media/images-des-contenus/actu-people/people-francais/2014-09-08-dave-revient-sur-son-terrible-clash-avec-christophe-hondelatte/portrait-du-chanteur-dave-2014/3315894-1-fre-FR/Portrait-du-chanteur-Dave-2014_exact1024x768_l.jpg)"></div>
+    <div class="profile-picture" style="background-image: url(<%= @user.profile_picture_url %>)"></div>
     <h1 class="profile-username"><%= @user.user_name %></h1>
   </div>
   <div class="progress-bar-block">
     <div id="progress-bar-profile"></div>
     <div class="progress-bar-data"><%= number_with_delimiter(@book.wordcount, delimiter: ' ')%> / <%= number_with_delimiter(@book.word_goal, delimiter: ' ') %> mots</div>
   </div>
-  <div class="profile-follow-button">
+  <a class="profile-follow-button" href="#">
     <i class="fa fa-plus" aria-hidden="true"></i>
-  </div>
+  </a>
 </div>
 
 <div class="profile-statistics">
@@ -30,6 +30,12 @@
     <div class="profile-stats-label">Moyenne mots par session</div>
   </div>
 </div>
+
+<%= simple_form_for(@user) do |f| %>
+  <%= f.input :user_name %>
+  <%= f.input :profile_picture, as: :attachinary %>
+  <%= f.submit %>
+<% end %>
 
 <% content_for(:after_js) do %>
   <%= javascript_include_tag 'progressbar' %>

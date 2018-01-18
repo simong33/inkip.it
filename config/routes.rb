@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root to: 'pages#landing'
 
-  resources :users, only: [:show] do
+  resources :users, only: [:show, :update] do
     resources :books, only: [:index], name_prefix: "user_"
   end
 
@@ -35,5 +35,7 @@ Rails.application.routes.draw do
   get "/mentions_legales" => "pages#mentions_legales"
 
   get "/tos" => "pages#tos"
+
+  mount Attachinary::Engine => "/attachinary"
 
 end

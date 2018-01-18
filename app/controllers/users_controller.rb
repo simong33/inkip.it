@@ -8,4 +8,19 @@ class UsersController < ApplicationController
 
     gon.wordcount_ratio = @book.wordcount.to_f / (@book.word_goal.to_f)
   end
+
+  def update
+    @user = User.find(params[:id])
+    authorize @user
+
+    if @user.update(user_params)
+      redirect_to user_path(@user), alert: "Vous avez modifié votre profil !"
+    end
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:user_name, :profile_picture)
+  end
 end
