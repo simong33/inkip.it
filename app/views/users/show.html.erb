@@ -2,9 +2,9 @@
 
 <div class="profile-head-block">
   <% if @user = current_user %>
-    <div id="edit-profile">
+    <a id="edit-profile" data-toggle="modal" data-target="#editProfile">
       <i class="fa fa-pencil" aria-hidden="true"></i>
-    </div>
+    </a>
   <% end %>
 
   <div class="profile-head-info">
@@ -37,12 +37,31 @@
   </div>
 </div>
 
-<%= simple_form_for(@user) do |f| %>
-  <%= f.input :user_name %>
-  <%= f.input :location, input_html: { id: 'user-location-input' } %>
-  <%= f.input :profile_picture, as: :attachinary %>
-  <%= f.submit %>
-<% end %>
+<!-- Modal -->
+<div class="modal fade" id="editProfile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modifier votre profil</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for (@user) do |f| %>
+          <%= f.input :user_name, label: "Nom d'utilisateur" %>
+          <%= f.input :location, input_html: { id: 'user-location-input' }, label: "Ville" %>
+          <%= f.input :profile_picture, as: :attachinary %>
+      </div>
+      <div class="error" id="user-errors"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+        <%= f.button :submit, "Modifier", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script type="text/javascript"
   src="https://maps.googleapis.com/maps/api/js?libraries=places&key=<%= ENV['GOOGLE_MAPS'] %>">
