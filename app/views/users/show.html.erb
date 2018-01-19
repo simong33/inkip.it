@@ -1,7 +1,8 @@
 <%= render 'shared/navbar', profile: 'profile' %>
 
+
 <div class="profile-head-block">
-  <% if @user = current_user %>
+  <% if @user == current_user %>
     <a id="edit-profile" data-toggle="modal" data-target="#editProfile">
       <i class="fa fa-pencil" aria-hidden="true"></i>
     </a>
@@ -28,17 +29,19 @@
     </div>
   </div>
   <div class="progress-bar-block">
+    <h3 class="progress-bar-label">Objectif</h3>
     <div id="progress-bar-profile"></div>
     <div class="progress-bar-data"><%= number_with_delimiter(@book.wordcount, delimiter: ' ')%> / <%= number_with_delimiter(@book.word_goal, delimiter: ' ') %> mots</div>
   </div>
 
   <% unless @user == current_user %>
-    <%= form_for(current_user.active_relationships.build, remote: true) do |f| %>
-      <div><%= hidden_field_tag :followed_id, @user.id %></div>
-      <%= button_tag(type: 'submit', class: "profile-follow-button") do %>
-        <i id="fa-plus-follow" class="fa fa-plus" aria-hidden="true"></i>
-      <% end %>
+  <div id="follow-form">
+    <% if current_user.following?(@user) %>
+      <%= render 'users/unfollow' %>
+    <% else %>
+      <%= render 'users/follow' %>
     <% end %>
+  </div>
   <% end %>
 
 </div>
@@ -68,7 +71,7 @@
         <%= simple_form_for (@user) do |f| %>
           <%= f.input :user_name, label: "Nom d'utilisateur" %>
           <%= f.input :location, input_html: { id: 'user-location-input' }, label: "Ville" %>
-          <%= f.input :profile_picture, as: :attachinary %>
+          <%= f.input :profile_picture, as: :attachinary, label: "Photo de profil" %>
       </div>
       <div class="error" id="user-errors"></div>
       <div class="modal-footer">
