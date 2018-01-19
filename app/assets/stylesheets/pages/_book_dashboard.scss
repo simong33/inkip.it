@@ -144,7 +144,7 @@ html, body {
 
   @include mq($until: desktop) {
     flex: none;
-    height: 25vh;
+    height: 30vh;
     padding: 12px;
     min-height: 100px;
     overflow: hidden;
@@ -153,6 +153,8 @@ html, body {
     position: static;
     justify-content: space-around;
     background-color: #F1F1F1;
+    display: flex;
+    flex-direction: row;
   }
 }
 
@@ -161,6 +163,14 @@ html, body {
   flex-direction: column;
   text-align: center;
   position: relative;
+
+  @include mq($until: tablet) {
+    width: 100%;
+  }
+
+  @include mq($from: tablet, $until: desktop) {
+    width: 75%;
+  }
 
 }
 
@@ -196,25 +206,27 @@ html, body {
     transition: all .2s ease;
   }
 
-  @include mq($until: desktop) {
+  @include mq($from: mobile, $until: tablet) {
+    font-size: 4vw;
+  }
+
+  @include mq($from: tablet, $until: desktop) {
     width: 80%;
     background-color: white;
-    font-size: 4vw;
+    font-size: 3vw;
   }
 
 }
 
 .sidebar-item--active {
-  background: -webkit-linear-gradient($purple-light, lightgrey);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-color: white;
+  color: white;
+  background-color: $blue-purple;
   box-shadow: 0 0 0;
   opacity: .9;
   transform: translateY(2px);
 
   @include mq($until: desktop) {
-    background-color: white;
+    background-color: $blue-purple;
   }
 
   &:hover{
@@ -267,10 +279,11 @@ html, body {
   height: calc(100vh - 120px);
   overflow-y: scroll;
 
-  @include mq($until: tablet) {
+  @include mq($until: desktop) {
     padding: 12px 12px;
     overflow-y: visible;
     height: 100%;
+    justify-content: center;
   }
 }
 
