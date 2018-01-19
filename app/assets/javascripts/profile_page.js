@@ -1,3 +1,5 @@
+// PROGRESS BAR
+
 $(document).ready(function(){
   if ($('#progress-bar-profile').length) {
     var bar = new ProgressBar.Line('#progress-bar-profile', {
@@ -17,6 +19,8 @@ $(document).ready(function(){
   }
 });
 
+
+// ADDRESS AUTOCOMPLETE
 
 function initializeAutocomplete(id) {
   var element = document.getElementById(id);

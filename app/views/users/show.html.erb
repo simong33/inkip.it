@@ -1,61 +1,61 @@
 <%= render 'shared/navbar', profile: 'profile' %>
 
-
-<div class="profile-head-block">
-  <% if @user == current_user %>
-    <a id="edit-profile" data-toggle="modal" data-target="#editProfile">
-      <i class="fa fa-pencil" aria-hidden="true"></i>
-    </a>
-  <% end %>
-
-  <div class="profile-head-info">
-    <div class="profile-picture" style="background-image: url(<%= @user.profile_picture_url %>)"></div>
-    <h1 class="profile-username"><%= @user.user_name %></h1>
-    <% if @user.location %>
-      <div class="profile-location">
-        <i class="fa fa-location-arrow" aria-hidden="true"></i>
-        <p><%= @user.location %></p>
-      </div>
+<div class="profile-wrapper">
+  <div class="profile-head-block">
+    <% if @user == current_user %>
+      <a id="edit-profile" data-toggle="modal" data-target="#editProfile">
+        <i class="fa fa-pencil" aria-hidden="true"></i>
+      </a>
     <% end %>
-    <div class="profile-following-data">
-      <div class="profile-stats-item">
-        <div id="followers-count" class="profile-stats-data profile-following-figures"><%= @user.followers.count %></div>
-        <div class="profile-stats-label">Abonnés</div>
-      </div>
-      <div class="profile-stats-item">
-        <div id="followings-count" class="profile-stats-data profile-following-figures"><%= @user.following.count %></div>
-        <div class="profile-stats-label">Abonnements</div>
+
+    <div class="profile-head-info">
+      <div class="profile-picture" style="background-image: url(<%= @user.profile_picture_url %>)"></div>
+      <h1 class="profile-username"><%= @user.user_name %></h1>
+      <% if @user.location %>
+        <div class="profile-location">
+          <i class="fa fa-location-arrow" aria-hidden="true"></i>
+          <p><%= @user.location %></p>
+        </div>
+      <% end %>
+      <div class="profile-following-data">
+        <div class="profile-stats-item">
+          <div id="followers-count" class="profile-stats-data profile-following-figures"><%= @user.followers.count %></div>
+          <div class="profile-stats-label">Abonnés</div>
+        </div>
+        <div class="profile-stats-item">
+          <div id="followings-count" class="profile-stats-data profile-following-figures"><%= @user.following.count %></div>
+          <div class="profile-stats-label">Abonnements</div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="progress-bar-block">
-    <h3 class="progress-bar-label">Objectif</h3>
-    <div id="progress-bar-profile"></div>
-    <div class="progress-bar-data"><%= number_with_delimiter(@book.wordcount, delimiter: ' ')%> / <%= number_with_delimiter(@book.word_goal, delimiter: ' ') %> mots</div>
-  </div>
+    <div class="progress-bar-block">
+      <h3 class="progress-bar-label">Objectif</h3>
+      <div id="progress-bar-profile"></div>
+      <div class="progress-bar-data"><%= number_with_delimiter(@book.wordcount, delimiter: ' ')%> / <%= number_with_delimiter(@book.word_goal, delimiter: ' ') %> mots</div>
+    </div>
 
-  <% unless @user == current_user %>
-  <div id="follow-form">
-    <% if current_user.following?(@user) %>
-      <%= render 'users/unfollow' %>
-    <% else %>
-      <%= render 'users/follow' %>
+    <% unless @user == current_user %>
+    <div id="follow-form">
+      <% if current_user.following?(@user) %>
+        <%= render 'users/unfollow' %>
+      <% else %>
+        <%= render 'users/follow' %>
+      <% end %>
+    </div>
     <% end %>
-  </div>
-  <% end %>
 
+  </div>
+  <div id="profile-statistics-sm-up">
+    <%= render 'users/statistics' %>
+  </div>
 </div>
 
-<div class="profile-statistics">
-  <div class="profile-stats-item">
-    <div class="profile-stats-data"><%= @book.max_streaks %></div>
-    <div class="profile-stats-label">Jours d'écriture consécutifs max.</div>
-  </div>
-  <div class="profile-stats-item">
-    <div class="profile-stats-data"><%= @book.words_per_session %></div>
-    <div class="profile-stats-label">Moyenne mots par session</div>
-  </div>
+<div id="profile-statistics-sm-down">
+  <%= render 'users/statistics' %>
 </div>
+
+
+
 
 <!-- Modal -->
 <div class="modal fade" id="editProfile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

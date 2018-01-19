@@ -1,3 +1,17 @@
+.profile-wrapper {
+  background-color: rgba(0, 0, 0, .01);
+  background-color: green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 60px);
+
+  @include mq($until: desktop) {
+    visibility: hidden;
+    display: inline;
+  }
+}
+
 .profile-head-block {
   background: linear-gradient(to right, $purple-light, $purple-strong);
   height: 70vh;
@@ -12,6 +26,17 @@
   border-radius: 0 0 5px 5px;
   margin-bottom: 12vw;
   position: relative;
+  visibility: visible;
+
+  @include mq($until: desktop) {
+    width: 100%;
+  }
+
+  @include mq($from: desktop) {
+    height: 30vh;
+    width: 33%;
+    margin-bottom: 0;
+  }
 }
 
 #edit-profile {
@@ -31,7 +56,6 @@
 }
 
 .profile-head-info {
-  width: 60vw;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -130,6 +154,28 @@
   flex-direction: row;
   justify-content: space-between;
   padding: 0 12vw;
+
+  @include mq($from: desktop) {
+    flex-direction: column;
+  }
+}
+
+#profile-statistics-sm-up {
+
+  display: none;
+
+  @include mq($from: desktop) {
+    display: inline;
+  }
+}
+
+#profile-statistics-sm-down {
+
+  display: none;
+
+  @include mq($until: desktop) {
+    display: inline;
+  }
 }
 
 .profile-stats-item {
