@@ -5,6 +5,8 @@ class UsersController < ApplicationController
     authorize @user
 
     @book = @user.books.last
+    @books = @user.books
+    @chapters = @user.chapters
 
     gon.wordcount_ratio = @book.wordcount.to_f / (@book.word_goal.to_f)
   end

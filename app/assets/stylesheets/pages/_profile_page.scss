@@ -1,6 +1,5 @@
 .profile-wrapper {
-  background-color: rgba(0, 0, 0, .01);
-  background-color: green;
+  background-color: rgba(0, 0, 0, .03);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,6 +13,9 @@
 
 .profile-head-block {
   background: linear-gradient(to right, $purple-light, $purple-strong);
+  background-position: center top;
+  background-repeat: non-repeat;
+  background-size: cover;
   height: 70vh;
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   color: white;
@@ -24,7 +26,6 @@
   padding: 4vh;
   position: relative;
   border-radius: 0 0 5px 5px;
-  margin-bottom: 12vw;
   position: relative;
   visibility: visible;
 
@@ -33,9 +34,10 @@
   }
 
   @include mq($from: desktop) {
-    height: 30vh;
-    width: 33%;
-    margin-bottom: 0;
+    height: 50vh;
+    width: 56vh;
+    border-radius: 5px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   }
 }
 
@@ -53,6 +55,28 @@
   justify-content: center;
   align-items: center;
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
+  transition: all .5s ease;
+
+  &:hover {
+    text-decoration: none;
+    cursor: pointer;
+    width: 10vh;
+    border-radius: 16px;
+
+    &:after {
+      content: "Editer";
+      font-size: 1.5vh;
+    }
+
+    .fa-pencil {
+      display: none;
+    }
+  }
+
+  @include mq($from: desktop) {
+    right: 2vh;
+    top: 2vh;
+  }
 }
 
 .profile-head-info {
@@ -60,6 +84,10 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
+
+  @include mq($from: desktop) {
+    width: 100%;
+  }
 }
 
 .profile-picture {
@@ -70,7 +98,13 @@
   background-size: cover;
   background-repeat: no-repeat;
   margin: 0 0 4vh 0;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
+  @include mq($from: desktop) {
+    height: 15vh;
+    width: 15vh;
+    margin: 0 0 2vh 0;
+  }
 }
 
 .profile-username {
@@ -80,6 +114,10 @@
   font-weight: 600;
   letter-spacing: 1vh;
   margin: 0 0 2vh 0;
+
+  @include mq($from: desktop) {
+    font-size: 2vh;
+  }
 }
 
 .profile-location {
@@ -98,11 +136,25 @@
     margin: 0;
     opacity: .8;
   }
+
+  @include mq($from: desktop) {
+    font-size: 1.5vh;
+    margin: 0 0 2.5vh 0;
+    justify-content: flex-start;
+
+    .fa {
+      margin-right: 1vw;
+    }
+  }
 }
 
 .profile-following-data {
   display: flex;
   justify-content: space-around;
+
+  @include mq($from: desktop) {
+    width: 100%;
+  }
 }
 
 .progress-bar-label {
@@ -110,6 +162,12 @@
   font-size: 2.2vh;
   text-transform: uppercase;
   letter-spacing: .8vh;
+
+  @include mq($from: desktop) {
+    font-size: 1.6vh;
+    margin-bottom: 1.6vh;
+  }
+
 }
 
 #progress-bar-profile {
@@ -120,11 +178,20 @@
 .progress-bar-data {
   text-align: center;
   font-size: 1.6vh;
+  opacity: .8;
+
+  @include mq($from: desktop) {
+    font-size: 1.4vh;
+  }
 }
 
 #follow-form {
   position: absolute;
   bottom: -5vh;
+
+  @include mq($from: desktop) {
+    bottom: -3vh;
+  }
 }
 
 .profile-follow-button {
@@ -138,11 +205,60 @@
   align-items: center;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   border: none;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+
+  @include mq($from: desktop) {
+    height: 6vh;
+    width: 6vh;
+  }
+
+  &:hover {
+    width: 15vh;
+    border-radius: 5px;
+    opacity: 1;
+
+    &:after {
+      content: "Suivre"
+    }
+
+    .fa-plus {
+      display: none;
+    }
+  }
+
+}
+
+.profile-follow-button--unfollow {
+
+  &:hover {
+
+    &:after {
+      content: "Se Désabonner"
+    }
+
+    .fa-minus {
+      display: none;
+    }
+  }
 }
 
 #fa-plus-follow {
   font-size: 4vh;
   font-weight: lighter;
+
+  @include mq($from: desktop) {
+    font-size: 2.5vh;
+  }
+}
+
+#fa-minus-unfollow {
+  font-size: 4vh;
+  font-weight: lighter;
+
+  @include mq($from: desktop) {
+    font-size: 2.5vh;
+  }
 }
 
 .profile-follow-button--unfollow {
@@ -157,6 +273,7 @@
 
   @include mq($from: desktop) {
     flex-direction: column;
+    padding: 0;
   }
 }
 
@@ -165,7 +282,19 @@
   display: none;
 
   @include mq($from: desktop) {
-    display: inline;
+    width: 27vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: white;
+    height: 49vh;
+    border-radius: 0 5px 5px 0;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    padding: 4vh;
+
+    .profile-statistics {
+      height: 100%;
+    }
   }
 }
 
@@ -173,19 +302,35 @@
 
   display: none;
 
+  .profile-statistics {
+    flex-wrap: wrap;
+    align-items: center;
+    height: 100%;
+  }
+
   @include mq($until: desktop) {
-    display: inline;
+    display: inline-block;
+    width: 100vw;
+    height: calc(30vh - 60px);
   }
 }
 
 .profile-stats-item {
   width: 32vw;
+
+  @include mq($from: desktop) {
+    width: 100%;
+  }
 }
 
 .profile-stats-data {
   font-size: 3.5vh;
   color: $purple-strong;
   text-align: center;
+
+  @include mq($from: desktop) {
+    font-size: 3vh;
+  }
 }
 
 .profile-following-figures {
@@ -195,4 +340,8 @@
 .profile-stats-label {
   font-size: 1.6vh;
   text-align: center;
+
+  @include mq($from: desktop) {
+    font-size: 1.4vh;
+  }
 }

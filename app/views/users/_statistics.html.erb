@@ -1,5 +1,13 @@
 <div class="profile-statistics">
   <div class="profile-stats-item">
+    <div class="profile-stats-data"><%= @books.count %></div>
+    <div class="profile-stats-label">Livres</div>
+  </div>
+  <div class="profile-stats-item">
+    <div class="profile-stats-data"><%= @chapters.count %></div>
+    <div class="profile-stats-label">Chapitres</div>
+  </div>
+  <div class="profile-stats-item">
     <div class="profile-stats-data"><%= @book.max_streaks %></div>
     <div class="profile-stats-label">Jours d'écriture consécutifs max.</div>
   </div>
