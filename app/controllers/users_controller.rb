@@ -8,6 +8,9 @@ class UsersController < ApplicationController
     @books = @user.books
     @chapters = @user.chapters
 
+    @followers = @user.followers
+    @followings = @user.following
+
     gon.wordcount_ratio = @book.wordcount.to_f / (@book.word_goal.to_f)
   end
 

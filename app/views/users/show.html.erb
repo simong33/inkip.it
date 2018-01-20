@@ -18,14 +18,14 @@
         </div>
       <% end %>
       <div class="profile-following-data">
-        <div class="profile-stats-item">
+        <a class="profile-stats-item" data-toggle="modal" data-target="#followersModal">
           <div id="followers-count" class="profile-stats-data profile-following-figures"><%= @user.followers.count %></div>
           <div class="profile-stats-label">Abonnés</div>
-        </div>
-        <div class="profile-stats-item">
+        </a>
+        <a class="profile-stats-item" data-toggle="modal" data-target="#followingsModal">
           <div id="followings-count" class="profile-stats-data profile-following-figures"><%= @user.following.count %></div>
           <div class="profile-stats-label">Abonnements</div>
-        </div>
+        </a>
       </div>
     </div>
     <% if @book.word_goal %>
@@ -56,32 +56,17 @@
   <%= render 'users/statistics' %>
 </div>
 
+<!-- Modals -->
 
-<!-- Modal -->
-<div class="modal fade" id="editProfile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modifier votre profil</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <%= simple_form_for (@user) do |f| %>
-          <%= f.input :user_name, label: "Nom d'utilisateur" %>
-          <%= f.input :location, input_html: { id: 'user-location-input' }, label: "Ville" %>
-          <%= f.input :profile_picture, as: :attachinary, label: "Photo de profil" %>
-      </div>
-      <div class="error" id="user-errors"></div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-        <%= f.button :submit, "Modifier", class: "btn btn-primary" %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
+<%= render 'users/modal_edit_profile' %>
+
+<% unless @followers.empty? %>
+  <%= render 'users/modal_followers' %>
+<% end %>
+
+<% unless @followings.empty? %>
+  <%= render 'users/modal_followings' %>
+<% end %>
 
 <script type="text/javascript"
   src="https://maps.googleapis.com/maps/api/js?libraries=places&key=<%= ENV['GOOGLE_MAPS'] %>">

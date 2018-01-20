@@ -153,7 +153,7 @@
   justify-content: space-around;
 
   @include mq($from: desktop) {
-    width: 100%;
+    width: 86%;
   }
 }
 
@@ -295,6 +295,10 @@
     .profile-statistics {
       height: 100%;
     }
+
+    .profile-stats-label {
+      color: black;
+    }
   }
 }
 
@@ -308,6 +312,10 @@
     height: 100%;
   }
 
+  .profile-stats-label {
+    color: black;
+  }
+
   @include mq($until: desktop) {
     display: inline-block;
     width: 100vw;
@@ -319,7 +327,12 @@
   width: 32vw;
 
   @include mq($from: desktop) {
-    width: 100%;
+    width: auto;
+  }
+
+  &:hover {
+    text-decoration: none;
+    cursor: pointer;
   }
 }
 
@@ -340,8 +353,38 @@
 .profile-stats-label {
   font-size: 1.6vh;
   text-align: center;
+  color: white;
 
   @include mq($from: desktop) {
     font-size: 1.4vh;
   }
+}
+
+.follower-stripe {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 2vh;
+  border: 1px solid rgba(0, 0, 0, .05);
+  background-color: rgba(0, 0, 0, .05);
+  padding: 2vh;
+  border-radius: 5px;
+  color: rgba(0, 0, 0, .5);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  transition: all .5s ease;
+
+  &:hover {
+    color: $purple-light;
+    text-decoration: none;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px $purple-light;
+
+    .small-avatar {
+      border-color: $purple-light;
+    }
+  }
+}
+
+.follower-stripe-avatar {
+  margin-right: 2vw;
 }
