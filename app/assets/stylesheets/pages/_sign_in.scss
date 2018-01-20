@@ -20,6 +20,7 @@
 .container__signin {
   background-color: white;
   width: 500px;
+  height: 550px;
   min-height: 800px;
   display: flex;
   flex-direction: column;
@@ -43,6 +44,16 @@
   h2 {
     margin-bottom: 24px;
   }
+
+  @include mq($until: desktop) {
+    h2 {
+      margin-top: 0;
+    }
+
+    label {
+      font-size: 2.5vh;
+    }
+  }
 }
 
 .facebook-cta {
@@ -65,5 +76,10 @@
     color: white;
     transform: translateY(2px);
     transition: all .2s ease;
+  }
+
+  @include mq($until: desktop) {
+    width: 100%;
+    font-size: 2.2vh;
   }
 }
