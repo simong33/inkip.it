@@ -93,9 +93,11 @@
 .cta {
   color: white;
   background-color: $purple-light;
+  background: linear-gradient(to right, $purple-light, $navy-blue);
   padding: 16px;
   display: inline-block;
   transition: opacity .5s ease;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 
   &:hover {
     text-decoration: none;
@@ -118,6 +120,10 @@
     text-align: center;
     margin-bottom: 0;
     font-size: 14px;
+
+    &:last-child {
+      margin-bottom: 24px;
+    }
   }
 }
 
@@ -225,6 +231,15 @@
 .value-proposition-block {
   margin-left: 8%;
   padding-right: 12%;
+
+  @include mq($until: desktop) {
+    padding: 0 12%;
+    margin: 0 auto;
+
+    &:last-child {
+      margin-bottom: 24px;
+    }
+  }
 }
 
 .value-proposition-block--left {
@@ -285,6 +300,7 @@
     width: 564px;
     display: flex;
     justify-content: space-around;
+    width: 400px;
   }
 
   p {
@@ -295,6 +311,7 @@
     display: inline-block;
     white-space: nowrap;
     text-align: center;
+    width: 133px;
 
     @include mq($until: tablet) {
       font-size: 12px;

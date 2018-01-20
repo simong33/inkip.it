@@ -28,11 +28,13 @@
         </div>
       </div>
     </div>
-    <div class="progress-bar-block">
-      <h3 class="progress-bar-label">Objectif</h3>
-      <div id="progress-bar-profile"></div>
-      <div class="progress-bar-data"><%= number_with_delimiter(@book.wordcount, delimiter: ' ')%> / <%= number_with_delimiter(@book.word_goal, delimiter: ' ') %> mots</div>
-    </div>
+    <% if @book.word_goal %>
+      <div class="progress-bar-block">
+        <h3 class="progress-bar-label">Objectif</h3>
+        <div id="progress-bar-profile"></div>
+        <div class="progress-bar-data"><%= number_with_delimiter(@book.wordcount, delimiter: ' ')%> / <%= number_with_delimiter(@book.word_goal, delimiter: ' ') %> mots</div>
+      </div>
+    <% end %>
 
     <% unless @user == current_user %>
     <div id="follow-form">
