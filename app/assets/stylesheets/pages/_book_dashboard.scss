@@ -200,6 +200,7 @@ html, body {
     width: 80%;
     background-color: white;
     font-size: 4vw;
+    padding: 0 2vw;
   }
 
 }
@@ -277,6 +278,7 @@ html, body {
 .content-dashboard--full {
   @include mq($until: desktop) {
     height: 100%;
+    justify-content: center;
   }
 }
 
