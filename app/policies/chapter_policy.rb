@@ -5,6 +5,10 @@ class ChapterPolicy < ApplicationPolicy
     end
   end
 
+  def show?
+    record.user == user || record.published
+  end
+
   def create?
     record.book.user == user
   end

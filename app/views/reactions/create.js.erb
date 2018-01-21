@@ -1,0 +1,4 @@
+console.log("helloooo")
+$("#reaction-form").html(<%= escape_javascript(render('reactions/update')) %>)
+$("#ink-total-count").html(<%= @chapter.inks %>)
+console.log(<%= @chapter.inks %>)

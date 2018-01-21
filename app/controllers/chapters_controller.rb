@@ -2,9 +2,16 @@ class ChaptersController < ApplicationController
 
   def show
     @chapter = Chapter.find(params[:id])
+    authorize @chapter
+
     @book = @chapter.book
     @user = @book.user
-    authorize @book
+
+    unless current_user.reacted_at?(@chapter)
+      @reaction = Reaction.new
+    else
+      @reaction = Reaction.find_by("user_id = ? AND chapter_id = ?", current_user.id, @chapter.id)
+    end
 
     @appearance = Appearance.new
     @characters_left = @chapter.book.characters - @chapter.characters
@@ -13,6 +20,9 @@ class ChaptersController < ApplicationController
     gon.wordcount = @book.wordcount.to_s + ' / ' + @book.word_goal.to_s + ' mots'
     gon.word_goal_ratio = @book.word_goal_ratio
     gon.fetch_refresh_wordcount_url = "/books/" + @book.id.to_s + "/chapters/" + @chapter.id.to_s + "/refresh_wordcount"
+
+    gon.inks = @chapter.inks
+    gon.user_inks = @chapter.inks_by(current_user)
 
   end
 

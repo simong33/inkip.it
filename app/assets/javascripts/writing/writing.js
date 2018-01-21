@@ -85,12 +85,12 @@ const inkdrop = document.getElementById('inkdrop')
 const inkIcon = document.getElementById('inkdrop-icon')
 const inkCount = document.getElementById('ink-count')
 const inkTotalCount = document.getElementById('ink-total-count')
-const initialNumberOfInks = 12;
+const initialNumberOfInks = gon.inks;
 const tlDuration = 300
-let numberOfInks = 0
+let numberOfInks = gon.user_inks
 let inkHold;
 
-inkTotalCount.innerHTML = 12
+inkTotalCount.innerHTML = gon.inks
 
 const triangleBurst = new mojs.Burst({
   parent: inkdrop,
@@ -189,5 +189,5 @@ function repeatInking() {
 function updateNumberOfInks() {
   numberOfInks < 50 ? numberOfInks++ : null
   inkCount.innerHTML = "+" + numberOfInks
-  inkTotalCount.innerHTML = initialNumberOfInks + numberOfInks
+  inkTotalCount.innerHTML = gon.inks
 }

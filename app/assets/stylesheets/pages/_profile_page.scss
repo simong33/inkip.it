@@ -185,7 +185,7 @@
   }
 }
 
-#follow-form {
+.follow-form {
   position: absolute;
   bottom: -5vh;
 
@@ -211,19 +211,19 @@
   @include mq($from: desktop) {
     height: 6vh;
     width: 6vh;
-  }
 
-  &:hover {
-    width: 15vh;
-    border-radius: 5px;
-    opacity: 1;
+    &:hover {
+      width: 15vh;
+      border-radius: 5px;
+      opacity: 1;
 
-    &:after {
-      content: "Suivre"
-    }
+      &:after {
+        content: "Suivre"
+      }
 
-    .fa-plus {
-      display: none;
+      .fa-plus {
+        display: none;
+      }
     }
   }
 
@@ -231,14 +231,17 @@
 
 .profile-follow-button--unfollow {
 
-  &:hover {
+  @include mq($from: desktop) {
 
-    &:after {
-      content: "Se Désabonner"
-    }
+    &:hover {
 
-    .fa-minus {
-      display: none;
+      &:after {
+        content: "Se Désabonner"
+      }
+
+      .fa-minus {
+        display: none;
+      }
     }
   }
 }

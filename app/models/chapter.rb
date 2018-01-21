@@ -3,6 +3,9 @@ class Chapter < ApplicationRecord
   has_many :appearances
   has_many :characters, through: :appearances
   has_many :places, through: :appearances
+  has_many :reactions, dependent: :destroy
+
+  delegate :user, :to => :book, :allow_nil => true
 
   after_save :create_streak, :count_current_streak, :count_today_wordcount, :set_max_dwc
 
@@ -85,6 +88,14 @@ class Chapter < ApplicationRecord
       book.save
     end
 
+  end
+
+  def inks
+    reactions.sum(&:value)
+  end
+
+  def inks_by(user)
+    reactions.find_by(user: user).nil? ? 0 : reactions.find_by(user: user).value
   end
 
   private

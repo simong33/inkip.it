@@ -5,9 +5,11 @@
       <a class="profile-banner-user-name" href="<%= user_path(@user) %>"><%= @user.user_name %></a>
     </div>
   </div>
-  <% if current_user.following?(@user) %>
-    <%= render "users/unfollow" %>
-  <% else %>
-    <%= render "users/follow" %>
-  <% end %>
+  <div id="follow-form">
+    <% if current_user.following?(@user) %>
+      <%= render "users/unfollow" %>
+    <% else %>
+      <%= render "users/follow" %>
+    <% end %>
+  </div>
 </div>

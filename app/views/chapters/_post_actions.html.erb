@@ -3,10 +3,12 @@
     En donnant plus ou moins d'<span>inks</span> à l'auteur, vous lui montrez votre soutien.
   </div>
   <div class="inkdrops-block">
-    <a class="inkdrops" id="inkdrop">
-      <%= render "svg/inkdrop" %>
-      <span class="ink-count" id="ink-count"></span>
-      <div class="inkdrops-value" id="ink-total-count"></div>
-    </a>
+    <div id="reaction-form">
+      <% unless current_user.reacted_at?(@chapter) %>
+        <%= render "reactions/create" %>
+      <% else %>
+        <%= render "reactions/update" %>
+      <% end %>
+    </div>
   </div>
 </div>
