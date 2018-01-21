@@ -1,0 +1,6 @@
+  <%= simple_form_for [@chapter.book, @chapter], remote: true, html: { class: "form-writing", id: "form"} do |f| %>
+    <%= f.input :title, label: false, input_html: { class: 'content-writing-title', type: "text-area" }, placeholder: 'Titre du chapitre' %>
+<div class="content-writing-text">
+    <%= f.input :content, label: false, input_html: { class: 'content-writing-text-field editable' } %>
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <% end %>

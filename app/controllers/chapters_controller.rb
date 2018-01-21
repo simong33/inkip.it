@@ -3,6 +3,7 @@ class ChaptersController < ApplicationController
   def show
     @chapter = Chapter.find(params[:id])
     @book = @chapter.book
+    @user = @book.user
     authorize @book
 
     @appearance = Appearance.new

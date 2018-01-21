@@ -1,0 +1,13 @@
+<div class="profile-banner">
+  <div class="profile-banner-info">
+    <a class="avatar small-avatar profile-banner-avatar" href="<%= user_path(@user) %>" style="background-image: url(<%= @user.profile_picture_url %>)"></a>
+    <div class="underlined-anchor">
+      <a class="profile-banner-user-name" href="<%= user_path(@user) %>"><%= @user.user_name %></a>
+    </div>
+  </div>
+  <% if current_user.following?(@user) %>
+    <%= render "users/unfollow" %>
+  <% else %>
+    <%= render "users/follow" %>
+  <% end %>
+</div>
