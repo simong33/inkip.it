@@ -138,7 +138,7 @@ class User < ApplicationRecord
   end
 
   def reacted_at?(chapter)
-    reactions.any?{ |reaction| reaction.chapter = chapter }
+    reactions.any?{ |reaction| reaction.chapter == chapter }
   end
 
 end

@@ -1,4 +1,4 @@
-console.log("helloooo")
-$("#reaction-form").html(<%= escape_javascript(render('reactions/update')) %>)
-$("#ink-total-count").html(<%= @chapter.inks %>)
-console.log(<%= @chapter.inks %>)
+console.log("create.js loaded");
+
+$("#ink-total-count").html("<%= @total_inks %>");
+$("#ink-count").html("<%= @user_inks %>")

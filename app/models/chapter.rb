@@ -91,11 +91,11 @@ class Chapter < ApplicationRecord
   end
 
   def inks
-    reactions.sum(&:value)
+    reactions.sum(&:inks)
   end
 
   def inks_by(user)
-    reactions.find_by(user: user).nil? ? 0 : reactions.find_by(user: user).value
+    reactions.find_by(user: user).nil? ? 0 : reactions.find_by(user: user).inks
   end
 
   private

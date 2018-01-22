@@ -3,10 +3,23 @@ class ReactionsController < ApplicationController
   skip_after_action :verify_authorized
 
   def create
-    user = current_user
     @chapter = Chapter.find(params[:chapter])
-    ink = Reaction.new(user: user, chapter: @chapter, value: 1)
-    ink.save
+
+    if current_user.reacted_at?(@chapter)
+      reaction = Reaction.find_by("user_id = ? AND chapter_id = ?", current_user.id, @chapter.id)
+      reaction.inks += 1
+      reaction.save
+    else
+      reaction = Reaction.new(user: current_user, chapter_id: @chapter.id, inks: 1)
+      reaction.chapter = @chapter
+      reaction.save
+    end
+
+      @total_inks = @chapter.inks
+
+      @user_inks = "+" + @chapter.inks_by(current_user).to_s
+      gon.user_inks = @user_inks
+
 
     respond_to do |format|
       format.html { redirect_to @chapter }
@@ -18,9 +31,13 @@ class ReactionsController < ApplicationController
 
     @chapter = Chapter.find(params[:chapter])
 
-    ink = Reaction.find(params[:id])
-    ink.value += 1
-    ink.save
+    reaction = Reaction.find(params[:id])
+    reaction.inks += 1
+    reaction.save
+
+    @total_inks = @chapter.inks
+
+    @user_inks = "+" + @chapter.inks_by(current_user).to_s
 
     respond_to do |format|
       format.html { redirect_to @chapter }

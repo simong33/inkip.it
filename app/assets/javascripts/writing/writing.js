@@ -85,9 +85,10 @@ const inkdrop = document.getElementById('inkdrop')
 const inkIcon = document.getElementById('inkdrop-icon')
 const inkCount = document.getElementById('ink-count')
 const inkTotalCount = document.getElementById('ink-total-count')
-const initialNumberOfInks = gon.inks;
+// const initialNumberOfInks = gon.inks;
 const tlDuration = 300
-let numberOfInks = gon.user_inks
+let numberOfClicks = 0
+// let numberOfInks = gon.user_inks
 let inkHold;
 
 inkTotalCount.innerHTML = gon.inks
@@ -171,9 +172,9 @@ inkdrop.addEventListener('click', function() {
 })
 
 inkdrop.addEventListener('mousedown', function() {
-   inkHold = setInterval(function() {
-   repeatInking();
-   }, 400)
+  inkHold = setInterval(function() {
+  repeatInking();
+  }, 400);
 })
 
 inkdrop.addEventListener('mouseup', function() {
@@ -181,13 +182,14 @@ inkdrop.addEventListener('mouseup', function() {
 })
 
 function repeatInking() {
-  updateNumberOfInks()
   animationTimeline.replay()
   inkIcon.classList.add('checked')
 }
 
-function updateNumberOfInks() {
-  numberOfInks < 50 ? numberOfInks++ : null
-  inkCount.innerHTML = "+" + numberOfInks
-  inkTotalCount.innerHTML = gon.inks
-}
+// function updateNumberOfInks() {
+//   numberOfInks = gon.user_inks
+//   inkCount.innerHTML = "+" + numberOfInks
+//   inkTotalCount.innerHTML = gon.inks
+// }
+
+// $("#ink-count").html("+" + numberOfInks)

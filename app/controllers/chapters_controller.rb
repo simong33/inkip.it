@@ -7,11 +7,8 @@ class ChaptersController < ApplicationController
     @book = @chapter.book
     @user = @book.user
 
-    unless current_user.reacted_at?(@chapter)
-      @reaction = Reaction.new
-    else
-      @reaction = Reaction.find_by("user_id = ? AND chapter_id = ?", current_user.id, @chapter.id)
-    end
+    @reaction = Reaction.new
+
 
     @appearance = Appearance.new
     @characters_left = @chapter.book.characters - @chapter.characters
@@ -22,7 +19,7 @@ class ChaptersController < ApplicationController
     gon.fetch_refresh_wordcount_url = "/books/" + @book.id.to_s + "/chapters/" + @chapter.id.to_s + "/refresh_wordcount"
 
     gon.inks = @chapter.inks
-    gon.user_inks = @chapter.inks_by(current_user)
+    gon.user_inks = @chapter.inks_by(current_user) + 1
 
   end
 

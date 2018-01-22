@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180121165643) do
+ActiveRecord::Schema.define(version: 20180122104237) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -158,7 +158,7 @@ ActiveRecord::Schema.define(version: 20180121165643) do
   create_table "reactions", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "chapter_id"
-    t.integer  "value"
+    t.integer  "inks"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["chapter_id"], name: "index_reactions_on_chapter_id", using: :btree

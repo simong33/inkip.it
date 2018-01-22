@@ -1,14 +1,11 @@
 <div class="post-actions">
   <div class="inkdrops-guide">
-    En donnant plus ou moins d'<span>inks</span> à l'auteur, vous lui montrez votre soutien.
+    En donnant plus ou moins d'<span>inks</span> à l'auteur (50 max.), vous lui montrez votre soutien.
   </div>
   <div class="inkdrops-block">
     <div id="reaction-form">
-      <% unless current_user.reacted_at?(@chapter) %>
-        <%= render "reactions/create" %>
-      <% else %>
-        <%= render "reactions/update" %>
-      <% end %>
+      <%= render "reactions/create" %>
     </div>
+      <%= render "reactions/inks_count" %>
   </div>
 </div>
