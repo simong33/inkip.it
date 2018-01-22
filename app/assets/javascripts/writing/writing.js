@@ -185,11 +185,3 @@ function repeatInking() {
   animationTimeline.replay()
   inkIcon.classList.add('checked')
 }
-
-// function updateNumberOfInks() {
-//   numberOfInks = gon.user_inks
-//   inkCount.innerHTML = "+" + numberOfInks
-//   inkTotalCount.innerHTML = gon.inks
-// }
-
-// $("#ink-count").html("+" + numberOfInks)

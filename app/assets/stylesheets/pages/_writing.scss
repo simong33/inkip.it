@@ -427,6 +427,12 @@ body {
   font-weight: bold;
   position: absolute;
   right: -6vh;
+  bottom: 3vh;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: none;
+  }
 
   @include mq($from: desktop) {
     font-size: 2vh;
@@ -454,6 +460,7 @@ body {
   @include mq($from: desktop) {
     font-size: 1.5vh;
     width: 70%;
+    margin-bottom: 0;
   }
 }
 

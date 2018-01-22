@@ -2,5 +2,5 @@
   <%= @chapter.title %>
 </div>
 <div class="content-writing-text content-writint-text--reader">
-  <%= strip_tags(@chapter.content) %>
+  <%= @chapter.content.html_safe %>
 </div>

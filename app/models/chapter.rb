@@ -98,6 +98,10 @@ class Chapter < ApplicationRecord
     reactions.find_by(user: user).nil? ? 0 : reactions.find_by(user: user).inks
   end
 
+  def inkers
+    reactions.map(&:user)
+  end
+
   private
 
   # https://github.com/garrettqmartin8/has_streak/blob/master/lib/has_streak/streak.rb
