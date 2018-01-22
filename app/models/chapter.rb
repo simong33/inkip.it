@@ -9,6 +9,8 @@ class Chapter < ApplicationRecord
 
   after_save :create_streak, :count_current_streak, :count_today_wordcount, :set_max_dwc
 
+  before_update :edit_publication_date
+
   def signs
     !self.content.nil? ? WordsCounted.count(self.strip_tags).char_count : 0
   end
@@ -88,6 +90,14 @@ class Chapter < ApplicationRecord
       book.save
     end
 
+  end
+
+  def edit_publication_date
+    if published && published_at.nil?
+      published_at = Time.current
+    elsif published && !published_at.nil?
+      edited_at = Time.current
+    end
   end
 
   def inks

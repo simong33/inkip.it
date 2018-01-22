@@ -1,0 +1,6 @@
+  <%= form_for [@chapter.book, @chapter] do |f| %>
+    <%= f.hidden_field :published, value: false %>
+    <%= button_tag(type: 'submit', class: "publish-button btn-unpublish") do %>
+      Retirer
+    <% end %>
+  <% end %>

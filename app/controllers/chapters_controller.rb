@@ -31,7 +31,7 @@ class ChaptersController < ApplicationController
     authorize @chapter
 
     if @chapter.save
-      redirect_to book_chapter_path(book, @chapter), alert: "Vous avez ajouté un nouveau chapitre!"
+      redirect_to book_chapter_path(book, @chapter), alert: "Vous avez ajouté un nouveau chapitre !"
     end
   end
 
@@ -43,7 +43,7 @@ class ChaptersController < ApplicationController
 
     respond_to do |format|
       format.js
-      format.html
+      format.html { redirect_to action: "show", alert: "Votre chapitre a bien été mis à jour !" }
     end
 
   end
@@ -68,6 +68,6 @@ class ChaptersController < ApplicationController
   private
 
   def chapter_params
-    params.require(:chapter).permit(:title, :content)
+    params.require(:chapter).permit(:title, :content, :published)
   end
 end

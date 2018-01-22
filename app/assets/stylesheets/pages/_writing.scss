@@ -222,7 +222,7 @@ body {
 
 .bottom-bar__go-back {
   @include mq($until: desktop) {
-    width: 75vw;
+    // width: 75vw;
   }
 }
 
@@ -243,6 +243,13 @@ body {
 .bottom-bar__save-status {
   width: 250px;
   text-align: right;
+  display: flex;
+  justify-content: space-around;
+
+  @include mq($until: desktop) {
+    justify-content: space-between;
+    width: 100%;
+  }
 }
 
 .saving-status {
@@ -255,6 +262,18 @@ body {
 
 .saving-status--saved {
   background-color: #45A597;
+}
+
+.publish-button {
+  background-color: $purple-light;
+  border-radius: 5px;
+  color: white;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.btn-unpublish {
+  background-color: $blue-purple;
 }
 
 #progress-bar-book {
