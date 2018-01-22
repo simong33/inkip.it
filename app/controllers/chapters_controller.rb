@@ -24,6 +24,10 @@ class ChaptersController < ApplicationController
 
   end
 
+  def index
+
+  end
+
   def create
     @chapter = Chapter.new(chapter_params)
     book = Book.find(params[:book_id])

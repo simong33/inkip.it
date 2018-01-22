@@ -18,6 +18,8 @@ Rails.application.routes.draw do
     resources :places, only: [:create, :index, :show, :destroy], name_prefix: "book_"
   end
 
+  resources :chapters, only: :index
+
   resources :users, only: :show
 
   resources :relationships, only: [:create, :destroy]

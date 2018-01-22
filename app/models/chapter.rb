@@ -92,6 +92,10 @@ class Chapter < ApplicationRecord
 
   end
 
+  def self.published
+    self.where(published: true)
+  end
+
   def edit_publication_date
     if published && published_at.nil?
       published_at = Time.current

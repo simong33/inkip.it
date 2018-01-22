@@ -20,4 +20,5 @@ class ChapterPolicy < ApplicationPolicy
   def destroy?
     record.book.user == user
   end
+
 end
