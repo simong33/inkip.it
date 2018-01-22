@@ -4,8 +4,8 @@
     <div class="profile-stats-label">Livres</div>
   </div>
   <div class="profile-stats-item">
-    <div class="profile-stats-data"><%= @chapters.count %></div>
-    <div class="profile-stats-label">Chapitres</div>
+    <div class="profile-stats-data"><%= @user.published_chapters.count %></div>
+    <div class="profile-stats-label">Chapitres Publiés</div>
   </div>
   <div class="profile-stats-item">
     <div class="profile-stats-data"><%= @book.max_streaks %></div>

@@ -141,4 +141,8 @@ class User < ApplicationRecord
     reactions.any?{ |reaction| reaction.chapter == chapter }
   end
 
+  def published_chapters
+    chapters.where(published: true)
+  end
+
 end
