@@ -4,9 +4,8 @@
   </div>
   <div class="navbar-book-dashboard-content">
     <ul class="navbar-book-list">
-    <li class="navbar-item ">Écrire</a></li>
-    <li class="navbar-item ">Analyser</a></li>
-    <li class="navbar-item ">Configurer</a></li>
+    <li class="navbar-item <%= "navbar-item--active" if current_page?(:controller => 'books', :action => 'index') %>"><a href="<%= user_books_path(current_user) %>">Vos Livres</a></li>
+    <li class="navbar-item <%= "navbar-item--active" unless current_page?(:controller => 'books', :action => 'index') %>"><a href="<%= user_path(current_user) %>">Profil</a></li>
     </ul>
   </div>
 </div>

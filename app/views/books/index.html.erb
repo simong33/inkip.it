@@ -14,16 +14,20 @@
     </div>
 
     <div class="content-dashboard content-dashboard--full" id="your-books">
-      <%= render "shared/cards", add_book: "add_book", books: @books %>
+      <%= render "shared/cards" %>
     </div>
 
     <div class="content-dashboard content-dashboard--full hidden" id="your-published-books">
-      <%= render "shared/cards", books: @books_published %>
+      <%= render "books/card_published_books" %>
+      <% @user.published_books.each do |book| %>
+        <%= render "chapters/modal_published_chapters", book: book %>
+      <% end %>
     </div>
 
   </div>
 
 <% else %>
+  <!-- Community books -->
   yolo
 <% end %>
 

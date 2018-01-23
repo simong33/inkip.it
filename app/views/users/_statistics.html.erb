@@ -1,7 +1,7 @@
 <div class="profile-statistics">
   <div class="profile-stats-item">
-    <div class="profile-stats-data"><%= @books.count %></div>
-    <div class="profile-stats-label">Livres</div>
+    <div class="profile-stats-data"><%= @user.published_books.count %></div>
+    <div class="profile-stats-label">Livres Publiés</div>
   </div>
   <div class="profile-stats-item">
     <div class="profile-stats-data"><%= @user.published_chapters.count %></div>

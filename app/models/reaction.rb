@@ -1,6 +1,9 @@
 class Reaction < ApplicationRecord
   belongs_to :user
   belongs_to :chapter
+
+  delegate :book, :to => :chapter, :allow_nil => true
+
   validates :user, presence: true
   validates :chapter, presence: true
 

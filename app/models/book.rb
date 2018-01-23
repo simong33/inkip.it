@@ -5,6 +5,7 @@ class Book < ApplicationRecord
   has_many :places, dependent: :destroy
   has_many :streaks, dependent: :destroy
   has_many :daily_word_counts, dependent: :destroy
+  has_many :reactions, through: :chapters
 
   validate do |book|
     book.errors.add(:base, "Ajoutez un titre à votre livre ! Vous pourrez le modifier par la suite.") if book.title.blank?
@@ -93,6 +94,14 @@ class Book < ApplicationRecord
 
   def published?
     chapters.any? {|chapter| chapter.published == true}
+  end
+
+  def published_chapters
+    chapters.where(published: true)
+  end
+
+  def inks
+    reactions.sum(&:inks)
   end
 
 end

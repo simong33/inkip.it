@@ -1,5 +1,7 @@
 <%= render 'shared/navbar', profile: 'profile' %>
 
+<%= render "books/navbar_dashboard_profile" %>
+
 <div class="profile-wrapper" style="background-image: url(<%= image_url("profile_page_pattern.svg") %>)">
   <div class="profile-head-block" style="background-image: url(<%= image_url("profile_page_pattern_mini.svg") %>)">
     <% if @user == current_user %>

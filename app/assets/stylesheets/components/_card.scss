@@ -96,6 +96,15 @@
   bottom: 0;
 }
 
+.card__book-chapters {
+  margin-bottom: 2px;
+}
+
+.card__inks {
+  height: 2px;
+  width: 2px;
+}
+
 .card__title {
   font-size: 16px;
   text-transform: uppercase;
@@ -148,4 +157,8 @@
   color: white;
   bottom: 0;
   position: absolute;
+}
+
+.card--published-book {
+  cursor: pointer;
 }

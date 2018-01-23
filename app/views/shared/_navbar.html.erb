@@ -26,13 +26,7 @@
 
     <div class="navbar-wagon-item underlined-anchor">
       <%= link_to user_books_path(current_user), user: true do %>
-         <%= t(".profile", default: "Mes Livres", class: "hidden-xs") %>
-      <% end %>
-    </div>
-
-    <div class="navbar-wagon-item underlined-anchor">
-      <%= link_to user_path(current_user) do %>
-         <%= t(".profile", default: "Mon Profil", class: "hidden-xs") %>
+         <%= t(".profile", default: "Dashboard", class: "hidden-xs") %>
       <% end %>
     </div>
 
@@ -99,12 +93,7 @@
           <% end %>
           <li>
             <%= link_to user_books_path(current_user) do %>
-               <%= t(".profile", default: "Mes livres") %>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to user_path(current_user) do %>
-              <%= t(".profile", default: "Profil") %>
+               <%= t(".profile", default: "Dashboard") %>
             <% end %>
           </li>
           <li>
