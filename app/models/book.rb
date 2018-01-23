@@ -97,7 +97,7 @@ class Book < ApplicationRecord
   end
 
   def published_chapters
-    chapters.where(published: true)
+    chapters.where(published: true).order(:created_at)
   end
 
   def inks
