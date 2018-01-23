@@ -156,6 +156,16 @@ html, body {
   }
 }
 
+.sidebar--dashboard {
+  @include mq($until: desktop) {
+    height: 40vh;
+  }
+
+  .sidebar-item {
+    font-size: 4vw;
+  }
+}
+
 .sidebar-buttons {
   display: flex;
   flex-direction: column;

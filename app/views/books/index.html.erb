@@ -1,9 +1,32 @@
+<% if @user_library %>
+  <!-- User own space -->
 
-<div class="content-dashboard content-dashboard__workspace" style="height: 100%">
-    <div class="container__books">
-      <%= render "shared/cards" %>
+  <%= render "books/navbar_dashboard_profile" %>
+
+  <div class="wrapper">
+
+    <div class="sidebar sidebar--dashboard">
+      <div class="sidebar-buttons">
+        <h2 class="sidebar-title">Vos livres</h2>
+        <a href="" class="sidebar-item sidebar-item--rankings sidebar-item--your-books sidebar-item--active">Tous vos livres</a>
+        <a href="" class="sidebar-item sidebar-item--rankings sidebar-item--your-published-books">Livres publiés</a>
+      </div>
     </div>
-</div>
+
+    <div class="content-dashboard content-dashboard--full" id="your-books">
+      <%= render "shared/cards", add_book: "add_book", books: @books %>
+    </div>
+
+    <div class="content-dashboard content-dashboard--full hidden" id="your-published-books">
+      <%= render "shared/cards", books: @books_published %>
+    </div>
+
+  </div>
+
+<% else %>
+  yolo
+<% end %>
+
 
 
 <!-- Modal -->

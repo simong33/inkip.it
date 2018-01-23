@@ -1,12 +1,16 @@
 class ChapterPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope
+      scope.where(:published => true)
     end
   end
 
   def show?
     record.user == user || record.published
+  end
+
+  def index?
+    skip_authorization
   end
 
   def create?

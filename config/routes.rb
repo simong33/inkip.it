@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   authenticated :user do
-    root 'books#index', as: :authenticated_root
+    root 'books#index', as: :authenticated_root, user: true
   end
 
   root to: 'pages#landing'
@@ -18,9 +18,9 @@ Rails.application.routes.draw do
     resources :places, only: [:create, :index, :show, :destroy], name_prefix: "book_"
   end
 
-  resources :chapters, only: :index
-
   resources :users, only: :show
+
+  resources :books, only: :index
 
   resources :relationships, only: [:create, :destroy]
 

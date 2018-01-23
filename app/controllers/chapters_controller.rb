@@ -1,5 +1,7 @@
 class ChaptersController < ApplicationController
 
+  after_filter :verify_policy_scoped, only: :index
+
   def show
     @chapter = Chapter.find(params[:id])
     authorize @chapter
@@ -24,10 +26,6 @@ class ChaptersController < ApplicationController
 
   end
 
-  def index
-
-  end
-
   def create
     @chapter = Chapter.new(chapter_params)
     book = Book.find(params[:book_id])
@@ -47,7 +45,7 @@ class ChaptersController < ApplicationController
 
     respond_to do |format|
       format.js
-      format.html { redirect_to action: "show", alert: "Votre chapitre a bien été mis à jour !" }
+      format.html { redirect_to action: "show" }
     end
 
   end

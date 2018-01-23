@@ -145,4 +145,8 @@ class User < ApplicationRecord
     chapters.where(published: true)
   end
 
+  def published_books
+    books.select {|book| book.published? == true}
+  end
+
 end

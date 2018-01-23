@@ -85,4 +85,14 @@ class Book < ApplicationRecord
     Book.where.not(max_streaks: nil).order(max_streaks: :desc)
   end
 
+  def self.published
+    chapters = Chapter.published
+    books_ids = chapters.map(&:book_id)
+    Book.find(books_ids)
+  end
+
+  def published?
+    chapters.any? {|chapter| chapter.published == true}
+  end
+
 end

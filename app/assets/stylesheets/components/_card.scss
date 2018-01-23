@@ -46,12 +46,6 @@
   }
 }
 
-.card--book {
-  @include mq($until: desktop) {
-    width: auto;
-  }
-}
-
 .card .fa {
   position: absolute;
   top: 0;

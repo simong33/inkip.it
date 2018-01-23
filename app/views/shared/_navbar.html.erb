@@ -25,7 +25,7 @@
     <% end %>
 
     <div class="navbar-wagon-item underlined-anchor">
-      <%= link_to user_books_path(current_user) do %>
+      <%= link_to user_books_path(current_user), user: true do %>
          <%= t(".profile", default: "Mes Livres", class: "hidden-xs") %>
       <% end %>
     </div>
