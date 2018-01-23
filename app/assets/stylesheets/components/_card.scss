@@ -162,3 +162,17 @@
 .card--published-book {
   cursor: pointer;
 }
+
+.card__published-label {
+  padding: 2px 4px;
+  background-color: $purple-light;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 12px;
+  color: white;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50px;
+}
