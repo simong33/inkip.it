@@ -19,7 +19,7 @@
 
     <div class="content-dashboard content-dashboard--full hidden" id="your-published-books">
       <%= render "books/card_published_books", books: @books_published %>
-      <% @user.published_books.each do |book| %>
+      <% @books_published.each do |book| %>
         <%= render "chapters/modal_published_chapters", book: book %>
       <% end %>
     </div>
@@ -42,6 +42,9 @@
 
     <div class="content-dashboard content-dashboard--full" id="all-published-books">
       <%= render "books/card_published_books", books: @books %>
+      <% @books.each do |book| %>
+        <%= render "chapters/modal_published_chapters", book: book %>
+      <% end %>
     </div>
 
 <% end %>
