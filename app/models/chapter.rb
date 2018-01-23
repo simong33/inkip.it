@@ -23,6 +23,10 @@ class Chapter < ApplicationRecord
     self.signs > 0 ? WordsCounted.count(self.strip_tags).token_count : 0
   end
 
+  def reading_time
+    (wordcount / 3) / 60
+  end
+
   def create_streak
     book = self.book
 

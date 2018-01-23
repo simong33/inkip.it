@@ -2,9 +2,11 @@
 
   <div class="content-dashboard content-dashboard--writing">
     <div class="content-writing">
-      <% if current_user == @user %>
+      <% if current_user == @user && @chapter.published %>
         <%= render "users/profile_banner" %>
         <%= render "reactions/inks_banner" %>
+        <%= render "chapters/writing_form" %>
+      <% elsif current_user == @user && !@chapter.published %>
         <%= render "chapters/writing_form" %>
       <% else %>
         <%= render "chapters/content" %>
@@ -17,8 +19,8 @@
 <% if current_user == @user %>
   <%= render "chapters/bottom_bar" %>
   <%= render "chapters/publish_modal" %>
-  <%= render "chapters/post_actions" %>
 <% else %>
+  <%= render "chapters/post_actions" %>
   <%= render "users/profile_banner" %>
 <% end %>
 

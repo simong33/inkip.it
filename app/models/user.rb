@@ -149,4 +149,8 @@ class User < ApplicationRecord
     books.select {|book| book.published? == true}
   end
 
+  def has_published?
+    books.any? {|book| book.published? == true}
+  end
+
 end
