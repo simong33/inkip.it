@@ -18,7 +18,7 @@
     </div>
 
     <div class="content-dashboard content-dashboard--full hidden" id="your-published-books">
-      <%= render "books/card_published_books" %>
+      <%= render "books/card_published_books", books: @books_published %>
       <% @user.published_books.each do |book| %>
         <%= render "chapters/modal_published_chapters", book: book %>
       <% end %>
@@ -28,7 +28,19 @@
 
 <% else %>
   <!-- Community books -->
-  yolo
+  <div class="wrapper">
+
+    <div class="sidebar sidebar--dashboard">
+      <div class="sidebar-buttons">
+        <h2 class="sidebar-title">Communauté</h2>
+        <a href="" class="sidebar-item sidebar-item--rankings sidebar-item--your-books sidebar-item--active">Dernières publications</a>
+      </div>
+    </div>
+
+    <div class="content-dashboard content-dashboard--full" id="all-published-books">
+      <%= render "books/card_published_books", books: @books %>
+    </div>
+
 <% end %>
 
 

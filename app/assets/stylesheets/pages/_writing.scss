@@ -241,10 +241,11 @@ body {
 }
 
 .bottom-bar__save-status {
-  width: 250px;
+  width: 320px;
   text-align: right;
   display: flex;
   justify-content: space-around;
+  align-items: center;
 
   @include mq($until: desktop) {
     justify-content: space-between;
@@ -274,6 +275,11 @@ body {
 
 .btn-unpublish {
   background-color: $blue-purple;
+}
+
+.label-published {
+  display: inline-block;
+  font-weight: bold;
 }
 
 #progress-bar-book {

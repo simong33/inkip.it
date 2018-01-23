@@ -10,6 +10,7 @@
         <% unless @chapter.published %>
           <div class="publish-button" data-toggle="modal" data-target="#publishChapterModal">Publier</div>
         <% else %>
+          <span class="label-published">Publié</span>
           <%= render "chapters/unpublish" %>
         <% end %>
       </div>
