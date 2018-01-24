@@ -3,12 +3,14 @@
   <div class="content-dashboard content-dashboard--writing">
     <div class="content-writing">
       <% if current_user == @user && @chapter.published %>
+        <%= render "chapters/edited_at" %>
         <%= render "users/profile_banner" %>
         <%= render "reactions/inks_banner" %>
         <%= render "chapters/writing_form" %>
       <% elsif current_user == @user && !@chapter.published %>
         <%= render "chapters/writing_form" %>
       <% else %>
+        <%= render "chapters/edited_at" %>
         <%= render "chapters/content" %>
       <% end %>
       </div>
