@@ -278,6 +278,47 @@ html, body {
   }
 }
 
+.sidebar--rankings {
+  height: calc(100vh - 120px);
+  padding: 12px;
+
+  @include mq($until: desktop) {
+    flex: none;
+    height: 48vh;
+    padding: 12px;
+    min-height: 100px;
+    overflow: hidden;
+    width: 100%;
+    border-right: none;
+    position: static;
+    justify-content: space-around;
+    background-color: #F1F1F1;
+  }
+}
+
+.sidebar-title {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: $navy-blue;
+  margin-bottom: 24px;
+}
+
+.sidebar-item--rankings {
+  font-size: 3vw;
+
+  @include mq($from: tablet, $until: desktop) {
+    font-size: 2vw;
+  }
+
+    @include mq($from: desktop, $until: wide) {
+    font-size: 1vw;
+  }
+
+    @include mq($from: wide) {
+    font-size: .7vw;
+  }
+}
+
 .content-dashboard {
   padding: 24px 0 0 24px;
   width: 100%;

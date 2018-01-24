@@ -102,7 +102,7 @@ class Book < ApplicationRecord
   end
 
   def inks
-    reactions.sum(&:inks)
+    published_chapters.sum(&:inks)
   end
 
   def self.published_popular
