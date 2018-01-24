@@ -250,8 +250,9 @@ html, body {
     background-color: $blue-purple;
   }
 
-  &:hover{
+  &:hover, &:active, &:focus, &:visited {
     color: white;
+    text-decoration: none;
   }
 }
 
