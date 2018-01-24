@@ -85,11 +85,9 @@ const inkdrop = document.getElementById('inkdrop')
 const inkIcon = document.getElementById('inkdrop-icon')
 const inkCount = document.getElementById('ink-count')
 const inkTotalCount = document.getElementById('ink-total-count')
-// const initialNumberOfInks = gon.inks;
 const tlDuration = 300
-let numberOfClicks = 0
-// let numberOfInks = gon.user_inks
-let inkHold;
+var numberOfClicks = 0
+var inkHold;
 
 inkTotalCount.innerHTML = gon.inks
 
