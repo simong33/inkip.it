@@ -12,9 +12,13 @@
     </div>
 
     <div class="content-dashboard content-dashboard--full hidden" id="your-published-books">
-      <%= render "books/card_published_books", books: @books_published %>
-      <% @books_published.each do |book| %>
-        <%= render "chapters/modal_published_chapters", book: book %>
+      <% if @user.has_published? %>
+        <%= render "books/card_published_books", books: @books_published %>
+        <% @books_published.each do |book| %>
+          <%= render "chapters/modal_published_chapters", book: book %>
+        <% end %>
+      <% else %>
+        <p style="text-align: justify">Pour publier un livre, allez dans le chapitre que vous désirez publier et cliquez sur "Publier" (vous devez d'abord créer un livre). </p>
       <% end %>
     </div>
 
@@ -29,12 +33,18 @@
 
     <%= render "books/sidebar_community" %>
 
-    <div class="content-dashboard content-dashboard--full" id="all-published-books">
-      <%= render "books/card_published_books", books: @books %>
-      <% @books.each do |book| %>
-        <%= render "chapters/modal_published_chapters", book: book %>
-      <% end %>
-    </div>
+    <% if @books %>
+
+      <div class="content-dashboard content-dashboard--full" id="all-published-books">
+        <%= render "books/card_published_books", books: @books %>
+        <% @books.each do |book| %>
+          <%= render "chapters/modal_published_chapters", book: book %>
+        <% end %>
+      </div>
+
+    <% else %>
+      <p class="no-book-disclaimer">Pas de livre pour le moment...</p>
+    <% end %>
 
 <% end %>
 

@@ -5,13 +5,21 @@ class UsersController < ApplicationController
     authorize @user
 
     @book = @user.books.last
-    @books = @user.books
-    @chapters = @user.chapters
+
 
     @followers = @user.followers
     @followings = @user.following
 
-    gon.wordcount_ratio = @book.wordcount.to_f / (@book.word_goal.to_f)
+    if @user.has_written?
+      gon.wordcount_ratio = @book.wordcount.to_f / (@book.word_goal.to_f)
+      @books = @user.books
+      @chapters = @user.chapters
+      @max_streaks = @book.max_streaks
+      @words_per_session = @book.words_per_session
+    else
+      @max_streaks = 0
+      @words_per_session = 0
+    end
   end
 
   def update

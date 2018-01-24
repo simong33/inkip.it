@@ -30,7 +30,7 @@
         </a>
       </div>
     </div>
-    <% if @book.word_goal %>
+    <% if @user.has_written? && @book.word_goal %>
       <div class="progress-bar-block">
         <h3 class="progress-bar-label">Objectif</h3>
         <div id="progress-bar-profile"></div>

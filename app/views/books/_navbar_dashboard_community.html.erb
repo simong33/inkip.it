@@ -4,7 +4,7 @@
   </div>
   <div class="navbar-book-dashboard-content">
     <ul class="navbar-book-list">
-    <li class="navbar-item <%= "navbar-item--active" if current_page?(:controller => 'books', :action => 'index') %>"><a href="<%= books_path %>">A lire</a></li>
+    <li class="navbar-item <%= "navbar-item--active" if current_page?(:controller => 'books', :action => 'index') %>"><a href="<%= books_path(filter: "last") %>">A lire</a></li>
     <li class="navbar-item <%= "navbar-item--active" unless current_page?(:controller => 'books', :action => 'index') %>"><a href="<%= rankings_path %>">Classement</a></li>
     </ul>
   </div>

@@ -125,6 +125,10 @@ class User < ApplicationRecord
 
   end
 
+  def has_written?
+    books.present?
+  end
+
   def follow(other_user)
     following << other_user
   end

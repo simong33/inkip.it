@@ -3,16 +3,16 @@
     <div class="profile-stats-data"><%= @user.published_books.count %></div>
     <div class="profile-stats-label">Livres Publiés</div>
   </div>
-  <div class="profile-stats-item" data-toggle="modal" data-target="#publishedChaptersModal-<%= @user.books.last.id %>">
+  <div class="profile-stats-item" data-toggle="modal" data-target="#publishedChaptersModal-<%= @user.books.last.id if @user.has_written? %>">
     <div class="profile-stats-data"><%= @user.published_chapters.count %></div>
     <div class="profile-stats-label">Chapitres Publiés</div>
   </div>
   <div class="profile-stats-item">
-    <div class="profile-stats-data"><%= @book.max_streaks %></div>
+    <div class="profile-stats-data"><%= @max_streaks %></div>
     <div class="profile-stats-label">Jours d'écriture consécutifs max.</div>
   </div>
   <div class="profile-stats-item">
-    <div class="profile-stats-data"><%= @book.words_per_session %></div>
+    <div class="profile-stats-data"><%= @words_per_session %></div>
     <div class="profile-stats-label">Moyenne mots par session</div>
   </div>
 </div>
