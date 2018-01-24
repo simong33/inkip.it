@@ -81,17 +81,17 @@ function doneTyping () {
 
 // https://codepen.io/ohansemmanuel/pen/dVdvJQ
 
-const inkdrop = document.getElementById('inkdrop')
-const inkIcon = document.getElementById('inkdrop-icon')
-const inkCount = document.getElementById('ink-count')
-const inkTotalCount = document.getElementById('ink-total-count')
-const tlDuration = 300
+var inkdrop = document.getElementById('inkdrop')
+var inkIcon = document.getElementById('inkdrop-icon')
+var inkCount = document.getElementById('ink-count')
+var inkTotalCount = document.getElementById('ink-total-count')
+var tlDuration = 300
 var numberOfClicks = 0
 var inkHold;
 
 inkTotalCount.innerHTML = gon.inks
 
-const triangleBurst = new mojs.Burst({
+var triangleBurst = new mojs.Burst({
   parent: inkdrop,
   radius: {50:95},
   count: 5,
@@ -110,7 +110,7 @@ const triangleBurst = new mojs.Burst({
   }
 })
 
-const circleBurst = new mojs.Burst({
+var circleBurst = new mojs.Burst({
   parent: inkdrop,
   radius: {50:75},
   angle: 25,
@@ -125,7 +125,7 @@ const circleBurst = new mojs.Burst({
   }
 })
 
-const countAnimation = new mojs.Html({
+var countAnimation = new mojs.Html({
   el: '#ink-count',
   isShowStart: false,
   isShowEnd: true,
@@ -138,7 +138,7 @@ const countAnimation = new mojs.Html({
   delay: tlDuration/2
 })
 
-const countTotalAnimation = new mojs.Html({
+var countTotalAnimation = new mojs.Html({
   el: '#ink-total-count',
   isShowStart: true,
   isShowEnd: true,
@@ -147,7 +147,7 @@ const countTotalAnimation = new mojs.Html({
   duration: tlDuration,
 })
 
-const scaleButton = new mojs.Html({
+var scaleButton = new mojs.Html({
   el: '#inkdrop',
   duration: tlDuration,
   scale: {1.3: 1},
@@ -156,7 +156,7 @@ const scaleButton = new mojs.Html({
 
 inkdrop.style.transform = "scale(1, 1)"
 
-const animationTimeline = new mojs.Timeline()
+var animationTimeline = new mojs.Timeline()
 animationTimeline.add([
   triangleBurst,
   circleBurst,
