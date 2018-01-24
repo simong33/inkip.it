@@ -3,14 +3,23 @@ class BooksController < ApplicationController
 
   def index
     @user = current_user
-    if params["user_id"]
+    @book = Book.new
+
+    case params["filter"]
+
+    when "last"
+      @books = Book.published
+
+    when "popular"
+      @books = Book.published_popular
+
+    when "following"
+      @books = @user.books_from_authors_followed
+
+    else
       @user_library = true
       @books = current_user.books.order('updated_at DESC')
       @books_published = @user.published_books
-      @book = Book.new
-    else
-      @books = Book.published
-      @book = Book.new
     end
   end
 

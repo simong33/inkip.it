@@ -105,4 +105,9 @@ class Book < ApplicationRecord
     reactions.sum(&:inks)
   end
 
+  def self.published_popular
+    books = Book.published
+    books.sort { |x, y| y.inks <=> x.inks }
+  end
+
 end

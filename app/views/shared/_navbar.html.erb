@@ -31,7 +31,7 @@
     </div>
 
     <div class="navbar-wagon-item underlined-anchor">
-      <%= link_to books_path do %>
+      <%= link_to books_path(filter: "last") do %>
          <%= t(".profile", default: "Communauté", class: "hidden-xs") %>
       <% end %>
     </div>
@@ -97,7 +97,7 @@
             <% end %>
           </li>
           <li>
-            <%= link_to books_path do %>
+            <%= link_to books_path(filter: "last") do %>
                <%= t(".profile", default: "Communauté") %>
             <% end %>
           </li>

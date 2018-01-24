@@ -166,6 +166,16 @@ html, body {
   }
 }
 
+.sidebar--community {
+  @include mq($until: desktop) {
+    height: 50vh;
+
+    .sidebar-item {
+      font-size: 4vw;
+    }
+  }
+}
+
 .sidebar-buttons {
   display: flex;
   flex-direction: column;

@@ -153,4 +153,12 @@ class User < ApplicationRecord
     books.any? {|book| book.published? == true}
   end
 
+  def books_from_authors_followed
+    books = []
+    following.each do |author|
+      books << author.published_books if author.has_published?
+    end
+    books.flatten!
+  end
+
 end
