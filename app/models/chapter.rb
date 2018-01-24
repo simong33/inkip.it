@@ -3,8 +3,13 @@ class Chapter < ApplicationRecord
   has_many :appearances
   has_many :characters, through: :appearances
   has_many :places, through: :appearances
+  has_many :reactions, dependent: :destroy
+
+  delegate :user, :to => :book, :allow_nil => true
 
   after_save :create_streak, :count_current_streak, :count_today_wordcount, :set_max_dwc
+
+  before_update :edit_publication_date
 
   def signs
     !self.content.nil? ? WordsCounted.count(self.strip_tags).char_count : 0
@@ -16,6 +21,10 @@ class Chapter < ApplicationRecord
 
   def wordcount
     self.signs > 0 ? WordsCounted.count(self.strip_tags).token_count : 0
+  end
+
+  def reading_time
+    (wordcount / 3) / 60
   end
 
   def create_streak
@@ -85,6 +94,30 @@ class Chapter < ApplicationRecord
       book.save
     end
 
+  end
+
+  def self.published
+    self.where(published: true)
+  end
+
+  def edit_publication_date
+    if published && published_at.nil?
+      published_at = Time.current
+    elsif published && !published_at.nil?
+      edited_at = Time.current
+    end
+  end
+
+  def inks
+    reactions.sum(&:inks)
+  end
+
+  def inks_by(user)
+    reactions.find_by(user: user).nil? ? 0 : reactions.find_by(user: user).inks
+  end
+
+  def inkers
+    reactions.map(&:user)
   end
 
   private

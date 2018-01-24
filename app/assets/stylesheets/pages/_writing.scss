@@ -8,11 +8,16 @@ body {
 
 .content-dashboard--writing {
   background-color: white;
+  padding: 24px 0 0 0;
+
+  @include mq($until: desktop) {
+    padding: 3vh;
+  }
 }
 
 .content-writing {
   margin: 0 auto;
-  width: 725px;
+  width: 40vw;
 
   @include mq($until: desktop) {
     width: 100vw;
@@ -54,6 +59,18 @@ body {
   textarea {
     height: 100%;
     font-size: 16px;
+  }
+
+  @include mq($until: desktop) {
+    padding: 12px 10px 0 10px;
+    font-size: 2.5vh;
+  }
+}
+
+.text {
+  @include mq($until: desktop) {
+    font-size: 2.5vh;
+    overflow-wrap: break-word;
   }
 }
 
@@ -205,7 +222,7 @@ body {
 
 .bottom-bar__go-back {
   @include mq($until: desktop) {
-    width: 75vw;
+    // width: 75vw;
   }
 }
 
@@ -224,8 +241,16 @@ body {
 }
 
 .bottom-bar__save-status {
-  width: 250px;
+  width: 320px;
   text-align: right;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  @include mq($until: desktop) {
+    justify-content: space-between;
+    width: 100%;
+  }
 }
 
 .saving-status {
@@ -238,6 +263,23 @@ body {
 
 .saving-status--saved {
   background-color: #45A597;
+}
+
+.publish-button {
+  background-color: $purple-light;
+  border-radius: 5px;
+  color: white;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.btn-unpublish {
+  background-color: $blue-purple;
+}
+
+.label-published {
+  display: inline-block;
+  font-weight: bold;
 }
 
 #progress-bar-book {
@@ -281,4 +323,198 @@ body {
 
 .active .mention_username{
   color:#fff;
+}
+
+.content-writing-title--reader {
+  height: auto;
+  padding-bottom: 2vh;
+}
+
+.content-writint-text--reader {
+  height: auto;
+  padding: 0;
+  margin-bottom: 3vh;
+}
+
+.post-actions {
+  padding: 3vh;
+  position: relative;
+
+  &:after {
+    content: "";
+    background-color: lightgray;
+    height: 1px;
+    width: calc(100vw - 6vh);
+    position: absolute;
+    top: 0;
+    left: 3vh;
+  }
+
+  &:before {
+    content: "";
+    background-color: lightgray;
+    height: 1px;
+    width: calc(100vw - 6vh);
+    position: absolute;
+    bottom: 0;
+    left: 3vh;
+  }
+
+  @include mq($from: desktop) {
+    width: 40vw;
+    display: flex;
+    padding: 4vh 5vh;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+
+    &:after {
+      width: 40vw;
+      left: 0;
+    }
+
+    &:before {
+      width: 40vw;
+      left: 0;
+    }
+  }
+}
+
+.inkdrops-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include mq($from: desktop) {
+    // width: 30%;
+  }
+}
+
+#reaction-form {
+  position: relative;
+}
+
+.inkdrops {
+  height: 9vh;
+  width: 9vh;
+  border-radius: 50%;
+  border: 1px solid darkgrey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  outline: 1px solid transparent;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    border-radius: 50%;
+    width: calc(9vh - 1px);
+    height: calc(9vh - 1px);
+    }
+
+  &:hover {
+    border: 1px solid $purple-light;
+    transition: border-color 0.3s ease-in;
+
+     &:after {
+       animation: shockwave 1s ease-in infinite;
+     }
+  }
+}
+
+.inkdrop-image {
+  height: 5vh;
+  fill: black;
+}
+
+.ink-count {
+  position: absolute;
+  color: white;
+  top: -9vh / 1.6;
+  left: 9vh / 4;
+  font-size: 2vh;
+  background-color: $purple-light;
+  border-radius: 50%;
+  height: 4.5vh;
+  width: 4.5vh;
+  line-height: 4.5vh;
+  text-align: center;
+}
+
+.inkdrops-value {
+  color: darkgrey;
+  font-size: 2.5vh;
+  font-weight: bold;
+  position: absolute;
+  right: -6vh;
+  bottom: 3vh;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  @include mq($from: desktop) {
+    font-size: 2vh;
+    margin-left: auto;
+    margin-right: auto;
+    right: 0;
+    left: 0;
+    bottom: -3vh;
+    text-align: center;
+  }
+
+}
+
+.inkdrops-guide {
+  font-size: 2vh;
+  color: darkgrey;
+  width: calc(100vw - 6vh);
+  margin-bottom: 2vh;
+
+  span {
+    color: $purple-light;
+    font-weight: bold;
+  }
+
+  @include mq($from: desktop) {
+    font-size: 1.5vh;
+    width: 70%;
+    margin-bottom: 0;
+  }
+}
+
+.inkdrops-inkers {
+  cursor: pointer;
+}
+
+.inkdrops-guide-author {
+  width: auto;
+}
+
+.chapter-edited-at {
+  font-size: 12px;
+  color: darkgrey;
+  text-align: center;
+}
+
+// ANIMATIONS
+
+@keyframes shockwave {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 2px $purple-light;
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0;
+    box-shadow: 0 0 50px darken($purple-light, 20%), inset 0 0 10px $purple-light;
+  }
 }

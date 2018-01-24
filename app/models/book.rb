@@ -5,6 +5,7 @@ class Book < ApplicationRecord
   has_many :places, dependent: :destroy
   has_many :streaks, dependent: :destroy
   has_many :daily_word_counts, dependent: :destroy
+  has_many :reactions, through: :chapters
 
   validate do |book|
     book.errors.add(:base, "Ajoutez un titre à votre livre ! Vous pourrez le modifier par la suite.") if book.title.blank?
@@ -83,6 +84,30 @@ class Book < ApplicationRecord
 
   def self.best_maximum_streaks
     Book.where.not(max_streaks: nil).order(max_streaks: :desc)
+  end
+
+  def self.published
+    chapters = Chapter.published.sort_by &:updated_at
+    chapters.reverse!
+    books_ids = chapters.map(&:book_id)
+    Book.find(books_ids)
+  end
+
+  def published?
+    chapters.any? {|chapter| chapter.published == true}
+  end
+
+  def published_chapters
+    chapters.where(published: true).order(:created_at)
+  end
+
+  def inks
+    published_chapters.sum(&:inks)
+  end
+
+  def self.published_popular
+    books = Book.published
+    books.sort { |x, y| y.inks <=> x.inks }
   end
 
 end

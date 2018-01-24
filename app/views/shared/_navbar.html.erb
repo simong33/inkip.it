@@ -1,5 +1,9 @@
 <div class="navbar-wagon
-  <%= "navbar-wagon--landing" if defined?(landing) %>
+  <% if defined?(landing) %>
+    <%= "navbar-wagon--landing" %>
+  <% elsif defined?(profile) %>
+    <%= "navbar-wagon--profile" %>
+  <% end %>
 ">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
@@ -21,14 +25,14 @@
     <% end %>
 
     <div class="navbar-wagon-item underlined-anchor">
-      <%= link_to user_books_path(current_user) do %>
-         <%= t(".profile", default: "Mes livres", class: "hidden-xs") %>
+      <%= link_to user_books_path(current_user), user: true do %>
+         <%= t(".profile", default: "Dashboard", class: "hidden-xs") %>
       <% end %>
     </div>
 
     <div class="navbar-wagon-item underlined-anchor">
-      <%= link_to rankings_path do %>
-         <%= t(".profile", default: "Classement", class: "hidden-xs") %>
+      <%= link_to books_path(filter: "last") do %>
+         <%= t(".profile", default: "Communauté", class: "hidden-xs") %>
       <% end %>
     </div>
 
@@ -73,7 +77,11 @@
   <!-- Dropdown list appearing on mobile only -->
   <div class="navbar-wagon-burger hidden-md hidden-lg">
     <div class="dropdown">
-      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+      <button class="hamburger hamburger--spin" type="button" data-toggle="dropdown">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <% if user_signed_in? %>
           <% if current_user.admin %>
@@ -85,12 +93,12 @@
           <% end %>
           <li>
             <%= link_to user_books_path(current_user) do %>
-               <%= t(".profile", default: "Mes livres") %>
+               <%= t(".profile", default: "Dashboard") %>
             <% end %>
           </li>
           <li>
-            <%= link_to rankings_path do %>
-               <%= t(".profile", default: "Classement") %>
+            <%= link_to books_path(filter: "last") do %>
+               <%= t(".profile", default: "Communauté") %>
             <% end %>
           </li>
           <li>

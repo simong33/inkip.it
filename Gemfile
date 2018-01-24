@@ -21,6 +21,7 @@ gem 'mail_interceptor', group: [:development, :staging]
 gem "letter_opener", group: :development
 gem 'rubocop', group: :development
 gem 'sitemap_generator'
+gem 'browser-timezone-rails'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
@@ -29,6 +30,11 @@ gem 'jquery-rails'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
+gem 'hamburgers'
+gem 'cloudinary', '1.1.7'
+gem 'attachinary', github: 'assembler/attachinary'
+gem 'jquery-fileupload-rails'
+gem 'coffee-rails'
 
 group :development, :test do
   gem 'pry-byebug'

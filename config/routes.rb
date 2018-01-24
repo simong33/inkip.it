@@ -2,9 +2,13 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
+  authenticated :user do
+    root 'books#index', as: :authenticated_root, "user_id"=>true
+  end
+
   root to: 'pages#landing'
 
-  resources :users, only: [:show] do
+  resources :users, only: [:show, :update] do
     resources :books, only: [:index], name_prefix: "user_"
   end
 
@@ -14,13 +18,13 @@ Rails.application.routes.draw do
     resources :places, only: [:create, :index, :show, :destroy], name_prefix: "book_"
   end
 
-    # resources :books, only: [:index, :show, :new, :create] do
-    #   resources :chapters, only: [:create, :show, :update] do
-    #     resources :appearances, only: [:create, :update]
-    #   end
-    #   resources :characters, only: [:create, :index, :show]
-    #   resources :places, only: [:create, :index, :show]
-    # end
+  resources :users, only: :show
+
+  resources :books, only: :index
+
+  resources :relationships, only: [:create, :destroy]
+
+  resources :reactions, only: [:create, :update]
 
   get "books" => "books#index",  as: :user_root_path
 
@@ -41,5 +45,7 @@ Rails.application.routes.draw do
   get "/mentions_legales" => "pages#mentions_legales"
 
   get "/tos" => "pages#tos"
+
+  mount Attachinary::Engine => "/attachinary"
 
 end

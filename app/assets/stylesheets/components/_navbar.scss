@@ -2,7 +2,7 @@
 .navbar-wagon {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   background: $navy-blue;
-  opacity: .9;
+  background: linear-gradient(to right, $purple-light, $navy-blue);
   transition: all 0.3s ease;
   height: 60px;
   padding: 0 24px;
@@ -17,6 +17,17 @@
     padding: 0 24px;
   }
 
+}
+
+.navbar-wagon--landing {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.navbar-wagon--profile {
+  box-shadow: none;
+  background: linear-gradient(to right, $purple-light, $navy-blue);
 }
 
 /* Logo */
@@ -35,6 +46,10 @@
   &:hover {
     text-decoration: none;
     color: white;
+  }
+
+  @include mq($until: desktop) {
+    font-size: 16px;
   }
 }
 
@@ -75,7 +90,11 @@
 }
 
 .navbar-wagon-burger {
+  height: 100%;
   color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .underlined-anchor > a {
@@ -112,6 +131,12 @@
 }
 
 /* Dropdown menu */
+
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .navbar-wagon-dropdown-menu {
   margin-top: 15px;
   box-shadow: 1px 1px 4px #E6E6E6;
@@ -124,6 +149,8 @@
   font-size: 15px !important;
   line-height: 22px !important;
   padding: 10px 20px;
+  font-family: $headers-font;
+
 }
 .navbar-wagon-dropdown-menu li > a:hover {
   background: transparent !important;
@@ -165,3 +192,28 @@
   padding: 0 1px;
   text-transform: uppercase;
 }
+
+.hamburger {
+  padding: 0;
+  height: 100%;
+}
+
+.hamburger-box {
+  position: static;
+}
+
+.hamburger-inner, .hamburger-inner:before, .hamburger-inner:after {
+  background-color: white;
+  width: 28px;
+  height: 2px;
+  right: 0;
+}
+
+.hamburger-inner:before {
+  top: -8px;
+}
+
+.hamburger-inner:after {
+  bottom: -8px;
+}
+

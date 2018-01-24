@@ -32,7 +32,7 @@
     <!-- End Facebook Pixel Code -->
   </head>
   <body>
-    <% unless controller_name == "pages" %>
+    <% unless controller_name == "pages" || controller_name == "users" %>
       <%= render 'shared/navbar' %>
     <% end %>
 
@@ -50,6 +50,8 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56832869-8"></script>
 
     <%= javascript_include_tag 'application' %>
+
+    <%= cloudinary_js_config %>
 
     <% if controller_name == "pages" %>
       <script src="https://unpkg.com/typer-js"></script>

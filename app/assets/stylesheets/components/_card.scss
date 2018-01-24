@@ -46,12 +46,6 @@
   }
 }
 
-.card--book {
-  @include mq($until: desktop) {
-    width: auto;
-  }
-}
-
 .card .fa {
   position: absolute;
   top: 0;
@@ -100,6 +94,10 @@
   font-size: 12px;
   position: relative;
   bottom: 0;
+}
+
+.card__book-chapters {
+  margin-bottom: 2px;
 }
 
 .card__title {
@@ -154,4 +152,61 @@
   color: white;
   bottom: 0;
   position: absolute;
+}
+
+.card--published-book {
+  cursor: pointer;
+}
+
+.card__published-label {
+  padding: 2px 4px;
+  background-color: $purple-light;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 12px;
+  color: white;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50px;
+}
+
+.card__book-author {
+  margin-bottom: 2px;
+  color: $purple-strong;
+}
+
+.card__book-avatar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  top: 6px;
+  box-shadow: none !important;
+  border: 1px solid $purple-light;
+}
+
+.card__inks {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.card__inks-image {
+  height: 20px;
+  width: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-right: 6px;
 }

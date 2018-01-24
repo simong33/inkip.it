@@ -4,6 +4,8 @@ class Character < ApplicationRecord
   has_many :chapters, through: :appearances
   has_many :places, through: :appearances
 
+  delegate :user, :to => :book, :allow_nil => true
+
   def name
     unless self.last_name.nil?
       self.first_name + " " + self.last_name

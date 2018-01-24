@@ -2,8 +2,25 @@ class BooksController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
 
   def index
-    @books = policy_scope(Book).order('updated_at DESC')
+    @user = current_user
     @book = Book.new
+
+    case params["filter"]
+
+    when "last"
+      @books = Book.published
+
+    when "popular"
+      @books = Book.published_popular
+
+    when "following"
+      @books = @user.books_from_authors_followed
+
+    else
+      @user_library = true
+      @books = current_user.books.order('updated_at DESC')
+      @books_published = @user.published_books
+    end
   end
 
   def show

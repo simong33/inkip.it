@@ -1,0 +1,11 @@
+.small-avatar {
+  height: 42px;
+  width: 42px;
+  border-radius: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 1px solid lightgrey;
+  box-shadow: 0 14px 20px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
+  transition: all .5s ease;
+}
