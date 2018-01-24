@@ -156,6 +156,26 @@ html, body {
   }
 }
 
+.sidebar--dashboard {
+  @include mq($until: desktop) {
+    height: 40vh;
+
+    .sidebar-item {
+      font-size: 4vw;
+    }
+  }
+}
+
+.sidebar--community {
+  @include mq($until: desktop) {
+    height: 50vh;
+
+    .sidebar-item {
+      font-size: 4vw;
+    }
+  }
+}
+
 .sidebar-buttons {
   display: flex;
   flex-direction: column;
@@ -200,6 +220,7 @@ html, body {
     width: 80%;
     background-color: white;
     font-size: 4vw;
+    padding: 0 2vw;
   }
 
 }
@@ -257,6 +278,47 @@ html, body {
   }
 }
 
+.sidebar--rankings {
+  height: calc(100vh - 120px);
+  padding: 12px;
+
+  @include mq($until: desktop) {
+    flex: none;
+    height: 48vh;
+    padding: 12px;
+    min-height: 100px;
+    overflow: hidden;
+    width: 100%;
+    border-right: none;
+    position: static;
+    justify-content: space-around;
+    background-color: #F1F1F1;
+  }
+}
+
+.sidebar-title {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: $navy-blue;
+  margin-bottom: 24px;
+}
+
+.sidebar-item--rankings {
+  font-size: 3vw;
+
+  @include mq($from: tablet, $until: desktop) {
+    font-size: 2vw;
+  }
+
+    @include mq($from: desktop, $until: wide) {
+    font-size: 1vw;
+  }
+
+    @include mq($from: wide) {
+    font-size: .7vw;
+  }
+}
+
 .content-dashboard {
   padding: 24px 0 0 24px;
   width: 100%;
@@ -277,6 +339,7 @@ html, body {
 .content-dashboard--full {
   @include mq($until: desktop) {
     height: 100%;
+    justify-content: center;
   }
 }
 
@@ -284,4 +347,9 @@ html, body {
   font-size: 12px;
   color: red;
   text-align: center;
+}
+
+.no-book-disclaimer  {
+  text-align: center;
+  padding: 12px;
 }

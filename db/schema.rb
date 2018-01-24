@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180102113716) do
+ActiveRecord::Schema.define(version: 20180122104237) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,21 @@ ActiveRecord::Schema.define(version: 20180102113716) do
     t.index ["place_id"], name: "index_appearances_on_place_id", using: :btree
   end
 
+  create_table "attachinary_files", force: :cascade do |t|
+    t.string   "attachinariable_type"
+    t.integer  "attachinariable_id"
+    t.string   "scope"
+    t.string   "public_id"
+    t.string   "version"
+    t.integer  "width"
+    t.integer  "height"
+    t.string   "format"
+    t.string   "resource_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent", using: :btree
+  end
+
   create_table "books", force: :cascade do |t|
     t.string   "title"
     t.string   "genre"
@@ -57,10 +72,13 @@ ActiveRecord::Schema.define(version: 20180102113716) do
   create_table "chapters", force: :cascade do |t|
     t.text     "content"
     t.integer  "book_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.string   "title"
     t.integer  "position"
+    t.boolean  "published"
+    t.datetime "published_at"
+    t.datetime "edited_at"
     t.index ["book_id"], name: "index_chapters_on_book_id", using: :btree
   end
 
@@ -137,6 +155,26 @@ ActiveRecord::Schema.define(version: 20180102113716) do
     t.index ["book_id"], name: "index_places_on_book_id", using: :btree
   end
 
+  create_table "reactions", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "chapter_id"
+    t.integer  "inks"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chapter_id"], name: "index_reactions_on_chapter_id", using: :btree
+    t.index ["user_id"], name: "index_reactions_on_user_id", using: :btree
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer  "follower_id"
+    t.integer  "followed_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["followed_id"], name: "index_relationships_on_followed_id", using: :btree
+    t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true, using: :btree
+    t.index ["follower_id"], name: "index_relationships_on_follower_id", using: :btree
+  end
+
   create_table "streaks", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -166,6 +204,8 @@ ActiveRecord::Schema.define(version: 20180102113716) do
     t.string   "token"
     t.datetime "token_expiry"
     t.string   "user_name"
+    t.string   "profile_picture"
+    t.string   "location"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
@@ -178,5 +218,7 @@ ActiveRecord::Schema.define(version: 20180102113716) do
   add_foreign_key "characters", "books"
   add_foreign_key "daily_word_counts", "books"
   add_foreign_key "places", "books"
+  add_foreign_key "reactions", "chapters"
+  add_foreign_key "reactions", "users"
   add_foreign_key "streaks", "books"
 end

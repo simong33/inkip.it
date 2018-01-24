@@ -5,10 +5,22 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
 
   has_many :books, dependent: :destroy
+  has_many :chapters, through: :books
+  has_many :characters, through: :books
+
+  has_many :active_relationships, class_name:  "Relationship", foreign_key: "follower_id", dependent: :destroy
+  has_many :passive_relationships, class_name:  "Relationship", foreign_key: "followed_id", dependent: :destroy
+
+  has_many :following, through: :active_relationships, source: :followed
+  has_many :followers, through: :passive_relationships, source: :follower
+
+  has_many :reactions
 
   validates :user_name, uniqueness: true
 
   after_create :send_welcome_email
+
+  has_attachment :profile_picture, accept: [:jpg, :png, :gif]
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
@@ -98,6 +110,59 @@ class User < ApplicationRecord
     end
 
     most_consistent_authors.take(10)
+  end
+
+  def profile_picture_url
+
+    if self.profile_picture
+      pp = self.profile_picture
+      "http://res.cloudinary.com/inkip-it/image/upload/v1516284170/" + pp.public_id + "."+  pp.format
+    elsif self.facebook_picture_url
+      self.facebook_picture_url
+    else
+      "https://www.teamrubiconcan.org/wp-content/themes/TeamRubicon/assets/img/blank.png"
+    end
+
+  end
+
+  def has_written?
+    books.present?
+  end
+
+  def follow(other_user)
+    following << other_user
+  end
+
+  def unfollow(other_user)
+    following.delete(other_user)
+  end
+
+  def following?(other_user)
+    following.include?(other_user)
+  end
+
+  def reacted_at?(chapter)
+    reactions.any?{ |reaction| reaction.chapter == chapter }
+  end
+
+  def published_chapters
+    chapters.where(published: true)
+  end
+
+  def published_books
+    books.select {|book| book.published? == true}
+  end
+
+  def has_published?
+    books.any? {|book| book.published? == true}
+  end
+
+  def books_from_authors_followed
+    books = []
+    following.each do |author|
+      books << author.published_books if author.has_published?
+    end
+    books.flatten!
   end
 
 end

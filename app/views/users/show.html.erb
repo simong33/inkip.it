@@ -1,0 +1,84 @@
+<%= render 'shared/navbar', profile: 'profile' %>
+
+<%= render "books/navbar_dashboard_profile" %>
+
+<div class="profile-wrapper" style="background-image: url(<%= image_url("profile_page_pattern.svg") %>)">
+  <div class="profile-head-block" style="background-image: url(<%= image_url("profile_page_pattern_mini.svg") %>)">
+    <% if @user == current_user %>
+      <a id="edit-profile" data-toggle="modal" data-target="#editProfile">
+        <i class="fa fa-pencil" aria-hidden="true"></i>
+      </a>
+    <% end %>
+
+    <div class="profile-head-info">
+      <div class="profile-picture" style="background-image: url(<%= @user.profile_picture_url %>)"></div>
+      <h1 class="profile-username"><%= @user.user_name %></h1>
+      <% if @user.location %>
+        <div class="profile-location">
+          <i class="fa fa-location-arrow" aria-hidden="true"></i>
+          <p><%= @user.location %></p>
+        </div>
+      <% end %>
+      <div class="profile-following-data">
+        <a class="profile-stats-item" data-toggle="modal" data-target="#followersModal">
+          <div id="followers-count" class="profile-stats-data profile-following-figures"><%= @user.followers.count %></div>
+          <div class="profile-stats-label">Abonnés</div>
+        </a>
+        <a class="profile-stats-item" data-toggle="modal" data-target="#followingsModal">
+          <div id="followings-count" class="profile-stats-data profile-following-figures"><%= @user.following.count %></div>
+          <div class="profile-stats-label">Abonnements</div>
+        </a>
+      </div>
+    </div>
+    <% if @user.has_written? && @book.word_goal %>
+      <div class="progress-bar-block">
+        <h3 class="progress-bar-label">Objectif</h3>
+        <div id="progress-bar-profile"></div>
+        <div class="progress-bar-data"><%= number_with_delimiter(@book.wordcount, delimiter: ' ')%> / <%= number_with_delimiter(@book.word_goal, delimiter: ' ') %> mots</div>
+      </div>
+    <% end %>
+
+    <% unless @user == current_user %>
+    <div class="follow-form" id="follow-form">
+      <% if current_user.following?(@user) %>
+        <%= render 'users/unfollow' %>
+      <% else %>
+        <%= render 'users/follow' %>
+      <% end %>
+    </div>
+    <% end %>
+
+  </div>
+  <div id="profile-statistics-sm-up">
+    <%= render 'users/statistics' %>
+  </div>
+</div>
+
+<div id="profile-statistics-sm-down">
+  <%= render 'users/statistics' %>
+</div>
+
+<!-- Modals -->
+
+<%= render 'users/modal_edit_profile' %>
+
+<% if @user.has_published? %>
+  <%= render 'chapters/modal_published_chapters', book: @user.books.last %>
+<% end %>
+
+<% unless @followers.empty? %>
+  <%= render 'users/modal_followers' %>
+<% end %>
+
+<% unless @followings.empty? %>
+  <%= render 'users/modal_followings' %>
+<% end %>
+
+<script type="text/javascript"
+  src="https://maps.googleapis.com/maps/api/js?libraries=places&key=<%= ENV['GOOGLE_MAPS'] %>">
+</script>
+
+<% content_for(:after_js) do %>
+  <%= javascript_include_tag 'progressbar' %>
+  <%= javascript_include_tag 'profile_page'%>
+<% end %>

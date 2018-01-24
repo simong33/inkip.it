@@ -1,0 +1,22 @@
+<div class="modal fade" id="inkersModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content modal-inkers">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><%= @chapter.inks %> inks par <%= @inkers.count %> membres</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <% @inkers.each do |inker| %>
+          <a class="follower-stripe" href="<%= user_path(inker) %>">
+            <div class="small-avatar follower-stripe-avatar" style="background-image: url(<%= inker.profile_picture_url %>)"></div>
+            <div class="follower-username"><%= inker.user_name %></div>
+          </a>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>

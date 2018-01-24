@@ -2,7 +2,7 @@ class BookPolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
-      scope.where(user: user)
+      scope.all
     end
   end
 
@@ -23,7 +23,7 @@ class BookPolicy < ApplicationPolicy
   end
 
   def index?
-    record.user == user
+    true
   end
 
   def update?

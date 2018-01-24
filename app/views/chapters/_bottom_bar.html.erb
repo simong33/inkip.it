@@ -1,0 +1,19 @@
+<div class="bottom-bar">
+  <div class="bottom-bar-container">
+    <div class="bottom-bar-shown">
+      <div class="bottom-bar__go-back">
+        <i class="fa fa-long-arrow-left hidden-xs hidden-sm" aria-hidden="true"></i>
+          <%= link_to "Retour au livre", book_path(@book), class: "bottom-bar__back-to-book hidden-xs hidden-sm" %>
+      </div>
+      <div class="bottom-bar__save-status">
+        <div class="saving-status saving-status--saved">Enregistré !</div>
+        <% unless @chapter.published %>
+          <div class="publish-button" data-toggle="modal" data-target="#publishChapterModal">Publier</div>
+        <% else %>
+          <span class="label-published">Publié</span>
+          <%= render "chapters/unpublish" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<% books.each do |book| %>
+  <div class="card card--book card--published-book" data-toggle="modal" data-target="#publishedChaptersModal-<%= book.id %>">
+    <div class="small-avatar card__book-avatar" style="background-image: url(<%= book.user.profile_picture_url %>)"></div>
+    <div class="card__inks">
+      <div class="card__inks-image" style="background-image: url(<%= image_path("inkdrop2.svg") %>)"></div>
+      <span><%= book.inks %> inks</span>
+    </div>
+
+    <div class="card__upper-content">
+      <div class="card__title-section">
+        <h3 class="card__title"><%= book.title %></h3>
+      </div>
+    </div>
+    <div class="card__lower-content">
+      <div class="card__book-author"><%= book.user.user_name %></div>
+      <div class="card__book-chapters"><%= book.published_chapters.count %> chapitres publiés</div>
+    </div>
+  </div>
+<% end %>

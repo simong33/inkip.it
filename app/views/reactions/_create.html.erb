@@ -1,0 +1,6 @@
+<%= form_for(@reaction, remote: true) do |f| %>
+  <%= button_tag(type: 'submit', class: "inkdrops", id: "inkdrop") do %>
+    <%= hidden_field_tag :chapter, @chapter.id %>
+    <%= render "svg/inkdrop" %>
+  <% end %>
+<% end %>

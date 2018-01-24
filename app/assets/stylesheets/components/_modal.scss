@@ -28,6 +28,16 @@
 .modal-body {
   padding: 32px 64px;
 
+  @include mq($until: desktop) {
+    padding: 32px;
+  }
+
+}
+
+.modal-title {
+  span {
+    color: $purple-light;
+  }
 }
 
 .modal-footer {
@@ -52,4 +62,13 @@
       border: none !important;
     }
   }
+}
+
+.modal-followers {
+  max-height: 50vh;
+  overflow-y: scroll;
+}
+
+.btn-submit {
+  background-color: $purple-light !important;
 }

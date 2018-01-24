@@ -1,0 +1,35 @@
+.profile-banner {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3vh;
+
+  button {
+    height: 7vh;
+    width: 7vh;
+  }
+
+  @include mq($from: desktop) {
+    width: 40vw;
+    margin: 0 auto;
+    padding: 3vh 5vh;
+  }
+}
+
+.profile-banner-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.profile-banner-avatar {
+  height: 9vh;
+  width: 9vh;
+  border-color: $purple-light;
+  margin-right: 2vh;
+}
+
+.profile-banner-user-name {
+  overflow: hidden;
+}

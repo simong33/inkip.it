@@ -1,0 +1,8 @@
+<div class="sidebar sidebar--community">
+  <div class="sidebar-buttons">
+    <h2 class="sidebar-title">Communauté</h2>
+    <%= link_to "Dernières publications", books_path(filter: "last"), class: "sidebar-item sidebar-item--rankings #{'sidebar-item--your-books sidebar-item--active' if params["filter"] == "last"}" %>
+    <%= link_to "Les plus populaires", books_path(filter: "popular"), class: "sidebar-item sidebar-item--rankings #{'sidebar-item--your-books sidebar-item--active' if params["filter"] == "popular"}" %>
+    <%= link_to "Abonnements", books_path(filter: "following"), class: "sidebar-item sidebar-item--rankings #{'sidebar-item--your-books sidebar-item--active' if params["filter"] == "following"}" %>
+  </div>
+</div>
