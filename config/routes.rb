@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   authenticated :user do
-    root 'books#index', as: :authenticated_root, user: true
+    root 'books#index', as: :authenticated_root, "user_id"=>true
   end
 
   root to: 'pages#landing'

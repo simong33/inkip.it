@@ -10,7 +10,7 @@
       <div class="modal-body">
         <% book.published_chapters.each_with_index do |chapter, i| %>
           <a class="follower-stripe" href="<%= book_chapter_path(book, chapter) %>">
-            <div class="follower-username"><%= i + 1 %> - <%= chapter.title %></div>
+            <div class="follower-username"><%= i + 1 %> - <%= chapter.title %> (~<%= chapter.reading_time %>min)</div>
           </a>
         <% end %>
       </div>

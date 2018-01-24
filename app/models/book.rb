@@ -87,7 +87,8 @@ class Book < ApplicationRecord
   end
 
   def self.published
-    chapters = Chapter.published
+    chapters = Chapter.published.sort_by &:updated_at
+    chapters.reverse!
     books_ids = chapters.map(&:book_id)
     Book.find(books_ids)
   end
