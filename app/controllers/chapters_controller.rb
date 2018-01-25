@@ -11,7 +11,7 @@ class ChaptersController < ApplicationController
 
     @reaction = Reaction.new
 
-    @inkers = @chapter.inkers
+    @inkers = User.find(@chapter.inkers)
 
     @appearance = Appearance.new
     @characters_left = @chapter.book.characters - @chapter.characters

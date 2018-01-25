@@ -117,7 +117,7 @@ class Chapter < ApplicationRecord
   end
 
   def inkers
-    reactions.map(&:user)
+    reactions.pluck(:user_id)
   end
 
   private
