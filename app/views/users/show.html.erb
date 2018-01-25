@@ -13,7 +13,7 @@
     <div class="profile-head-info">
       <div class="profile-picture" style="background-image: url(<%= @user.profile_picture_url %>)"></div>
       <h1 class="profile-username"><%= @user.user_name %></h1>
-      <% if @user.location %>
+      <% if @user.location && !@user.location.empty? %>
         <div class="profile-location">
           <i class="fa fa-location-arrow" aria-hidden="true"></i>
           <p><%= @user.location %></p>
