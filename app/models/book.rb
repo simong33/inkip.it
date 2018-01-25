@@ -110,4 +110,8 @@ class Book < ApplicationRecord
     books.sort { |x, y| y.inks <=> x.inks }
   end
 
+  def is_completed?
+    self.word_goal_ratio >= 1
+  end
+
 end
