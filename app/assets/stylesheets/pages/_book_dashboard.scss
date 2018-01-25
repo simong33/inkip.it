@@ -213,6 +213,10 @@ html, body {
   text-transform: uppercase;
   transition: all .4s ease;
 
+  &:active, &:focus, &:visited {
+    text-decoration: none;
+  }
+
   &:last-child {
     margin-bottom: 0;
   }
