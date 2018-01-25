@@ -120,7 +120,7 @@ class User < ApplicationRecord
     elsif self.facebook_picture_url
       self.facebook_picture_url
     else
-      "https://www.teamrubiconcan.org/wp-content/themes/TeamRubicon/assets/img/blank.png"
+      ActionController::Base.helpers.asset_path("blank_profile.png")
     end
 
   end
