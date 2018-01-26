@@ -1,8 +1,8 @@
 <div class="sidebar sidebar--rankings">
   <div class="sidebar-buttons">
     <h2 class="sidebar-title">Records</h2>
-    <a href="" class="sidebar-item sidebar-item--rankings sidebar-item--authors_max sidebar-item--active">MAX. MOTS PAR SESSION</a>
-    <a href="" class="sidebar-item sidebar-item--rankings sidebar-item--authors_mean">MOYENNE MOTS PAR SESSION</a>
-    <a href="" class="sidebar-item sidebar-item--rankings sidebar-item--consistent_authors">max. jours d'écriture consécutifs</a>
+    <%= link_to "max. mots par session", rankings_path(filter: "words_max"), class: "sidebar-item sidebar-item--rankings sidebar-item--active" , id: 'sidebar-item--words_max', remote: true %>
+    <%= link_to "moyenne mots par session", rankings_path(filter: "words_mean"), class: "sidebar-item sidebar-item--rankings" , id: 'sidebar-item--words_mean', remote: true %>
+    <%= link_to "max. jours d'écriture consécutifs", rankings_path(filter: "streaks_max"), class: "sidebar-item sidebar-item--rankings" , id: 'sidebar-item--streaks_max', remote: true %>
   </div>
 </div>

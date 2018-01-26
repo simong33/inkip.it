@@ -6,48 +6,11 @@
 
   <%= render "users/sidebar_rankings" %>
 
-  <div class="content-dashboard content-dashboard--rankings" id="ranking-max">
-    <div class="container container--blank">
-      <ul class="ranking-list">
-        <% @best_authors_max.each_with_index do |author, i| %>
-          <li class="ranking-item
-          <%= "ranking-item--current-user" if author[0] == current_user %>">
-            <div class="rank"><%= i + 1 %>.</div>
-            <div class="ranking-name"><%= author[0].registered_name%></div>
-            <div class="ranking-data"><%= author[1] %> mots</div>
-          </li>
-        <% end %>
-      </ul>
-    </div>
+  <div class="content-dashboard content-dashboard--rankings" id="ranking-list">
+    <%= render "pages/ranking_list" %>
+
   </div>
-  <div class="content-dashboard content-dashboard--rankings hidden" id="ranking-mean">
-    <div class="container container--blank">
-      <ul class="ranking-list">
-        <% @best_authors_mean.each_with_index do |author, i| %>
-          <li class="ranking-item
-          <%= "ranking-item--current-user" if author[0] == current_user %>">
-            <div class="rank"><%= i + 1 %>.</div>
-            <div class="ranking-name"><%= author[0].registered_name%></div>
-            <div class="ranking-data"><%= author[1] %> mots</div>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-  <div class="content-dashboard content-dashboard--rankings hidden" id="ranking-streaks">
-    <div class="container container--blank">
-      <ul class="ranking-list">
-        <% @most_consistent_authors.each_with_index do |author, i| %>
-          <li class="ranking-item
-          <%= "ranking-item--current-user" if author[0] == current_user %>">
-            <div class="rank"><%= i + 1 %>.</div>
-            <div class="ranking-name"><%= author[0].registered_name%></div>
-            <div class="ranking-data"><%= author[1].max_streaks %> jours</div>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
+
 </div>
 
 <% content_for(:after_js) do %>

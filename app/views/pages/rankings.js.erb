@@ -1,0 +1,3 @@
+$(".sidebar-item").removeClass("sidebar-item--active");
+$("#sidebar-item--<%= @filter %>").addClass("sidebar-item--active");
+$("#ranking-list").html("<%= escape_javascript(render "pages/ranking_list", locals: { authors: @authors, filter: @filter }) %>");
