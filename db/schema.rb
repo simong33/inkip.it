@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180122104237) do
+ActiveRecord::Schema.define(version: 20180126124740) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 20180122104237) do
     t.datetime "published_at"
     t.datetime "edited_at"
     t.index ["book_id"], name: "index_chapters_on_book_id", using: :btree
+    t.index ["published"], name: "index_chapters_on_published", using: :btree
   end
 
   create_table "characters", force: :cascade do |t|
