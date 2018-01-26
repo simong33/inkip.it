@@ -117,134 +117,134 @@
 #     )
 # end
 
-p "Let's the seeding begin..."
+# p "Let's the seeding begin..."
 
-p "Creating people"
+# p "Creating people"
 
-sango = User.new
-sango.user_name = "Sango"
-sango.email = "sango@gmail.com"
-sango.password = "sango123"
-sango.save
+# sango = User.new
+# sango.user_name = "Sango"
+# sango.email = "sango@gmail.com"
+# sango.password = "sango123"
+# sango.save
 
-thomasb = User.new
-thomasb.user_name = "Thomas75"
-thomasb.email = "thomas@gmail.com"
-thomasb.password = "thomasb123"
-thomasb.save
+# thomasb = User.new
+# thomasb.user_name = "Thomas75"
+# thomasb.email = "thomas@gmail.com"
+# thomasb.password = "thomasb123"
+# thomasb.save
 
-sophiec = User.new
-sophiec.user_name = "Sophie E."
-sophiec.email = "sophie@gmail.com"
-sophiec.password = "sophiec123"
-sophiec.save
+# sophiec = User.new
+# sophiec.user_name = "Sophie E."
+# sophiec.email = "sophie@gmail.com"
+# sophiec.password = "sophiec123"
+# sophiec.save
 
-oradour = User.new
-oradour.user_name = "Oradille"
-oradour.email = "oradour@gmail.com"
-oradour.password = "oradille123"
-oradour.save
+# oradour = User.new
+# oradour.user_name = "Oradille"
+# oradour.email = "oradour@gmail.com"
+# oradour.password = "oradille123"
+# oradour.save
 
-gigamesh = User.new
-gigamesh.user_name = "Gigamesh"
-gigamesh.email = "gigamesh@gmail.com"
-gigamesh.password = "gigamesh123"
-gigamesh.save
+# gigamesh = User.new
+# gigamesh.user_name = "Gigamesh"
+# gigamesh.email = "gigamesh@gmail.com"
+# gigamesh.password = "gigamesh123"
+# gigamesh.save
 
-aglae = User.new
-aglae.user_name = "Aglae"
-aglae.email = "aglae@gmail.com"
-aglae.password = "aglae123"
-aglae.save
+# aglae = User.new
+# aglae.user_name = "Aglae"
+# aglae.email = "aglae@gmail.com"
+# aglae.password = "aglae123"
+# aglae.save
 
-nenuphar = User.new
-nenuphar.user_name = "nenuphar"
-nenuphar.email = "nenuphar@gmail.com"
-nenuphar.password = "nenuphar123"
-nenuphar.save
+# nenuphar = User.new
+# nenuphar.user_name = "nenuphar"
+# nenuphar.email = "nenuphar@gmail.com"
+# nenuphar.password = "nenuphar123"
+# nenuphar.save
 
-jolly_coeur = User.new
-jolly_coeur.user_name = "jolly_coeur"
-jolly_coeur.email = "jolly_coeur@gmail.com"
-jolly_coeur.password = "jolly_coeur123"
-jolly_coeur.save
+# jolly_coeur = User.new
+# jolly_coeur.user_name = "jolly_coeur"
+# jolly_coeur.email = "jolly_coeur@gmail.com"
+# jolly_coeur.password = "jolly_coeur123"
+# jolly_coeur.save
 
-elza = User.new
-elza.user_name = "elza"
-elza.email = "elza@gmail.com"
-elza.password = "elza123"
-elza.save
+# elza = User.new
+# elza.user_name = "elza"
+# elza.email = "elza@gmail.com"
+# elza.password = "elza123"
+# elza.save
 
-domino = User.new
-domino.user_name = "domino"
-domino.email = "domino@gmail.com"
-domino.password = "domino123"
-domino.save
+# domino = User.new
+# domino.user_name = "domino"
+# domino.email = "domino@gmail.com"
+# domino.password = "domino123"
+# domino.save
 
-p "Create their books"
+# p "Create their books"
 
-b1 = Book.new(user: sango)
-b1.title = "Les Hautes Montagnes"
-b1.max_streaks = 33
-b1.save
+# b1 = Book.new(user: sango)
+# b1.title = "Les Hautes Montagnes"
+# b1.max_streaks = 33
+# b1.save
 
-b2 = Book.new(user: thomasb)
-b2.title = "Viens me voir"
-b2.max_streaks = 27
-b2.max_daily_wordcount = 4533
-b2.save
+# b2 = Book.new(user: thomasb)
+# b2.title = "Viens me voir"
+# b2.max_streaks = 27
+# b2.max_daily_wordcount = 4533
+# b2.save
 
-b3 = Book.new(user: sophiec)
-b3.title = "Plus loin les rêves"
-b3.max_streaks = 25
-b3.max_daily_wordcount = 5410
-b3.save
+# b3 = Book.new(user: sophiec)
+# b3.title = "Plus loin les rêves"
+# b3.max_streaks = 25
+# b3.max_daily_wordcount = 5410
+# b3.save
 
-b4 = Book.new(user: oradour)
-b4.title = "Demain trop loin"
-b4.max_streaks = 25
-b4.max_daily_wordcount = 2109
-b4.save
+# b4 = Book.new(user: oradour)
+# b4.title = "Demain trop loin"
+# b4.max_streaks = 25
+# b4.max_daily_wordcount = 2109
+# b4.save
 
-b5 = Book.new(user: gigamesh)
-b5.title = "Trozorus"
-b5.max_streaks = 19
-b5.max_daily_wordcount = 2566
-b5.save
+# b5 = Book.new(user: gigamesh)
+# b5.title = "Trozorus"
+# b5.max_streaks = 19
+# b5.max_daily_wordcount = 2566
+# b5.save
 
-b6 = Book.new(user: aglae)
-b6.title = "Pardon"
-b6.max_streaks = 19
-b6.max_daily_wordcount = 3147
-b6.save
+# b6 = Book.new(user: aglae)
+# b6.title = "Pardon"
+# b6.max_streaks = 19
+# b6.max_daily_wordcount = 3147
+# b6.save
 
-b7 = Book.new(user: nenuphar)
-b7.title = "Nenu le Trogloïde"
-b7.max_streaks = 15
-b7.max_daily_wordcount = 4598
-b7.save
+# b7 = Book.new(user: nenuphar)
+# b7.title = "Nenu le Trogloïde"
+# b7.max_streaks = 15
+# b7.max_daily_wordcount = 4598
+# b7.save
 
-b8 = Book.new(user: jolly_coeur)
-b8.title = "Ola 19"
-b8.max_streaks = 14
-b8.max_daily_wordcount = 2599
-b8.save
+# b8 = Book.new(user: jolly_coeur)
+# b8.title = "Ola 19"
+# b8.max_streaks = 14
+# b8.max_daily_wordcount = 2599
+# b8.save
 
-b9 = Book.new(user: elza)
-b9.title = "Stop it"
-b9.max_streaks = 12
-b9.max_daily_wordcount = 9521
-b9.save
+# b9 = Book.new(user: elza)
+# b9.title = "Stop it"
+# b9.max_streaks = 12
+# b9.max_daily_wordcount = 9521
+# b9.save
 
-b10 = Book.new(user: domino)
-b10.title = "Domino et ses frères"
-b10.max_streaks = 12
-b10.max_daily_wordcount = 1987
-b10.save
+# b10 = Book.new(user: domino)
+# b10.title = "Domino et ses frères"
+# b10.max_streaks = 12
+# b10.max_daily_wordcount = 1987
+# b10.save
 
-p "Create 100 chapters"
+p "Create 1000 chapters"
 
-1.upto(100) do |n|
+1.upto(1000) do |n|
   content = "je suis " * rand(1700..2456)
   Chapter.create!(
     book: Book.all.last(10).sample,
@@ -252,33 +252,33 @@ p "Create 100 chapters"
     )
 end
 
-p "Create 500 DWC"
+# p "Create 500 DWC"
 
-1.upto(500) do |n|
-  DailyWordCount.create!(
-    book: Book.all.last(10).sample,
-    wordcount: rand(100..2000),
-    )
-end
+# 1.upto(500) do |n|
+#   DailyWordCount.create!(
+#     book: Book.all.last(10).sample,
+#     wordcount: rand(100..2000),
+#     )
+# end
 
-b1.max_daily_wordcount = rand(2500..6000)
-b2.max_daily_wordcount = rand(2500..6000)
-b3.max_daily_wordcount = rand(2500..6000)
-b4.max_daily_wordcount = rand(2500..6000)
-b5.max_daily_wordcount = rand(2500..6000)
-b6.max_daily_wordcount = rand(2500..6000)
-b7.max_daily_wordcount = rand(2500..6000)
-b8.max_daily_wordcount = rand(2500..6000)
-b9.max_daily_wordcount = rand(2500..6000)
-b10.max_daily_wordcount = rand(2500..6000)
+# b1.max_daily_wordcount = rand(2500..6000)
+# b2.max_daily_wordcount = rand(2500..6000)
+# b3.max_daily_wordcount = rand(2500..6000)
+# b4.max_daily_wordcount = rand(2500..6000)
+# b5.max_daily_wordcount = rand(2500..6000)
+# b6.max_daily_wordcount = rand(2500..6000)
+# b7.max_daily_wordcount = rand(2500..6000)
+# b8.max_daily_wordcount = rand(2500..6000)
+# b9.max_daily_wordcount = rand(2500..6000)
+# b10.max_daily_wordcount = rand(2500..6000)
 
-b1.save
-b2.save
-b3.save
-b4.save
-b5.save
-b6.save
-b7.save
-b8.save
-b9.save
-b10.save
+# b1.save
+# b2.save
+# b3.save
+# b4.save
+# b5.save
+# b6.save
+# b7.save
+# b8.save
+# b9.save
+# b10.save
