@@ -98,11 +98,11 @@ class Book < ApplicationRecord
   end
 
   def published_chapters
-    Chapter.where(published: true, book: self).includes(:reactions).order(:created_at)
+    Chapter.where(published: true, book: self).order(:created_at)
   end
 
   def inks
-    published_chapters.sum(&:inks)
+    published_chapters.includes(:reactions).sum(&:inks)
   end
 
   def self.published_popular
