@@ -1,0 +1,3 @@
+$(".sidebar-item").removeClass("sidebar-item--active");
+$("#sidebar-item--<%= @filter %>").addClass("sidebar-item--active");
+$("#all-published-books").html("<%= escape_javascript(render "books/card_published_books", locals: { books: @books } ) %>");

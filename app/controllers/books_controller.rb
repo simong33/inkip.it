@@ -9,12 +9,23 @@ class BooksController < ApplicationController
 
     when "last"
       @books = Book.includes(:user).published
+      @filter = "last"
 
     when "popular"
       @books = Book.includes(:user).published_popular
+      @filter = "popular"
+
+      respond_to do |format|
+          format.js
+      end
 
     when "following"
       @books = Book.authored_by_followers_of(@user)
+      @filter = "following"
+
+      respond_to do |format|
+          format.js
+      end
 
     else
       @user_library = true

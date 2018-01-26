@@ -116,8 +116,12 @@ class Book < ApplicationRecord
 
   def self.authored_by_followers_of(user)
     following = user.following
+    books = []
 
-    Book.includes(:user).where(user: following)
+    Book.includes(:user).where(user: following).each do |book|
+      books << book if book.published?
+    end
+    books
   end
 
 end

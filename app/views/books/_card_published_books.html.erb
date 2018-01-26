@@ -1,4 +1,4 @@
-<% books.each do |book| %>
+<% @books.each do |book| %>
   <div class="card card--book card--published-book">
     <div class="small-avatar card__book-avatar" style="background-image: url(<%= book.user.profile_picture_url %>)"></div>
     <div class="card__inks">
