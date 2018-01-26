@@ -161,6 +161,15 @@ class BooksController < ApplicationController
 
   end
 
+  def modal_chapters
+    @book = Book.find(params[:book_id])
+    authorize @book
+
+    respond_to do |format|
+        format.js
+    end
+  end
+
   private
 
   def book_params

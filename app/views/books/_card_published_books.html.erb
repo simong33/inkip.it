@@ -1,5 +1,5 @@
 <% books.each do |book| %>
-  <div class="card card--book card--published-book" data-toggle="modal" data-target="#publishedChaptersModal-<%= book.id %>">
+  <div class="card card--book card--published-book">
     <div class="small-avatar card__book-avatar" style="background-image: url(<%= book.user.profile_picture_url %>)"></div>
     <div class="card__inks">
       <div class="card__inks-image" style="background-image: url(<%= image_path("inkdrop2.svg") %>)"></div>
@@ -15,5 +15,6 @@
       <div class="card__book-author"><%= book.user.user_name %></div>
       <div class="card__book-chapters"><%= book.published_chapters.count %> chapitres publiés</div>
     </div>
+    <%= link_to "", modal_chapters_path(book_id: book.id), remote: true, class:"card__link" %>
   </div>
 <% end %>

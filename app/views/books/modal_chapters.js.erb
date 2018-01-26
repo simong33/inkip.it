@@ -1,0 +1,2 @@
+$("#modal-container").html("<%= escape_javascript(render "chapters/modal_published_chapters", locals: { book: @book } ) %>");
+$("#publishedChaptersModal").modal();

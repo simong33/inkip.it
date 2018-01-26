@@ -37,4 +37,8 @@ class BookPolicy < ApplicationPolicy
   def download?
     record.user == user
   end
+
+  def modal_chapters?
+    record.published?
+  end
 end

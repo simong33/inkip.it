@@ -24,6 +24,8 @@
 
   </div>
 
+  <%= render "books/modal_new_book" %>
+
 <% else %>
   <!-- Community books -->
 
@@ -37,9 +39,8 @@
 
       <div class="content-dashboard content-dashboard--full" id="all-published-books">
         <%= render "books/card_published_books", books: @books %>
-        <% @books.each do |book| %>
-          <%= render "chapters/modal_published_chapters", book: book %>
-        <% end %>
+        <div id="modal-container">
+        </div>
       </div>
 
     <% else %>
@@ -48,4 +49,4 @@
 
 <% end %>
 
-<%= render "books/modal_new_book" %>
+
