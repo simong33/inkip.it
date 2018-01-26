@@ -74,7 +74,7 @@ class User < ApplicationRecord
     best_authors_max = []
     authors = []
 
-    Book.best_max_dwc.each do |book|
+    Book.includes(:user).best_max_dwc.each do |book|
       unless authors.include?(book.user)
         authors << book.user
         best_authors_max << [book.user, book.max_daily_wordcount]
@@ -88,7 +88,7 @@ class User < ApplicationRecord
     best_authors_mean = []
     authors = []
 
-    Book.best_average_dwc.each do |array|
+    Book.includes(:user).best_average_dwc.each do |array|
       unless authors.include?(array[0].user)
         authors << array[0].user
         best_authors_mean << [array[0].user, array[1]]
@@ -102,7 +102,7 @@ class User < ApplicationRecord
     most_consistent_authors = []
     authors = []
 
-    Book.best_maximum_streaks.each do |book|
+    Book.includes(:user).best_maximum_streaks.each do |book|
       unless authors.include?(book.user)
         authors << book.user
         most_consistent_authors << [book.user, book]
@@ -150,19 +150,11 @@ class User < ApplicationRecord
   end
 
   def published_books
-    books.select {|book| book.published? == true}
+    Book.where(user: self).includes(:chapters).select {|book| book.published? == true}
   end
 
   def has_published?
     books.any? {|book| book.published? == true}
-  end
-
-  def books_from_authors_followed
-    books = []
-    following.each do |author|
-      books << author.published_books if author.has_published?
-    end
-    books.flatten!
   end
 
 end

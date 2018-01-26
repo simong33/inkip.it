@@ -75,7 +75,7 @@ class Book < ApplicationRecord
   def self.best_average_dwc
     books_average_dwc = []
 
-    Book.where('max_streaks > 1').each do |book|
+    Book.where('max_streaks > 1').includes(:daily_word_counts, :chapters).each do |book|
       books_average_dwc << [book, book.words_per_session]
     end
 
@@ -98,7 +98,7 @@ class Book < ApplicationRecord
   end
 
   def published_chapters
-    chapters.where(published: true).order(:created_at)
+    Chapter.where(published: true, book: self).includes(:reactions).order(:created_at)
   end
 
   def inks
@@ -112,6 +112,12 @@ class Book < ApplicationRecord
 
   def is_completed?
     self.word_goal_ratio >= 1
+  end
+
+  def self.authored_by_followers_of(user)
+    following = user.following
+
+    Book.includes(:user).where(user: following)
   end
 
 end

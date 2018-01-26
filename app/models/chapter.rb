@@ -97,7 +97,7 @@ class Chapter < ApplicationRecord
   end
 
   def self.published
-    self.where(published: true)
+    self.where(published: true).includes(:reactions)
   end
 
   def edit_publication_date

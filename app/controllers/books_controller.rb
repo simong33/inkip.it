@@ -8,17 +8,17 @@ class BooksController < ApplicationController
     case params["filter"]
 
     when "last"
-      @books = Book.published
+      @books = Book.includes(:user).published
 
     when "popular"
-      @books = Book.published_popular
+      @books = Book.includes(:user).published_popular
 
     when "following"
-      @books = @user.books_from_authors_followed
+      @books = Book.authored_by_followers_of(@user)
 
     else
       @user_library = true
-      @books = current_user.books.order('updated_at DESC')
+      @books = Book.where(user: current_user).includes(:user).order('updated_at DESC')
       @books_published = @user.published_books
     end
   end
