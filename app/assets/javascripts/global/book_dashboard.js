@@ -16,7 +16,4 @@ $(document).ready(function(){
     loader.removeClass("hidden");
   });
 
-  $( document ).ajaxStart(function() {
-
-  });
 });
