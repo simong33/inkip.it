@@ -39,8 +39,12 @@
 
       <div class="content-dashboard content-dashboard--full" id="all-published-books">
         <%= render "books/card_published_books", books: @books %>
+        <div id="loader-container" class="hidden">
+          <div class="loader" id="loader-1"></div>
+        </div>
       </div>
-        <div id="modal-container"></div>
+
+      <div id="modal-container"></div>
 
     <% else %>
       <p class="no-book-disclaimer">Pas de livre pour le moment...</p>

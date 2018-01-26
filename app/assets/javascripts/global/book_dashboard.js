@@ -8,4 +8,15 @@ $(document).ready(function(){
   $("#add-place-btn").click(function(){
     $("#newPlace").modal();
   });
+
+  var loader = $("#loader-container") ;
+
+  $('.sidebar-item--community').click(function() {
+    $("#all-published-books").html(loader);
+    loader.removeClass("hidden");
+  });
+
+  $( document ).ajaxStart(function() {
+
+  });
 });
