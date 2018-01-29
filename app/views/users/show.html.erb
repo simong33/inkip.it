@@ -58,10 +58,6 @@
 
 <%= render 'users/modal_edit_profile' %>
 
-<% if @user.has_published? %>
-  <%= render 'chapters/modal_published_chapters', book: @user.books.last %>
-<% end %>
-
 <% unless @followers.empty? %>
   <%= render 'users/modal_followers' %>
 <% end %>
