@@ -23,33 +23,36 @@
         </div>
       <% end %>
     </div>
-    <div class="sidebar-block">
-      <div class="sidebar-block-data">
-        <%= @book.chapters.count %>
+    <div class="sidebar-footer">
+      <div class="sidebar-block">
+        <div class="sidebar-block-data">
+          <%= @book.chapters.count %>
+        </div>
+        <div class="sidebar-block-label">
+          Chapitres
+        </div>
+        <div class="sidebar-block-sidenote">
+          <%= @words_per_chapter %> mots en moyenne par chapitre
+        </div>
       </div>
-      <div class="sidebar-block-label">
-        Chapitres
+      <div class="sidebar-block">
+        <div class="sidebar-block-data">
+          <%= @book.characters.count %>
+        </div>
+        <div class="sidebar-block-label">
+          Personnages
+        </div>
       </div>
-      <div class="sidebar-block-sidenote">
-        <%= @words_per_chapter %> mots en moyenne par chapitre
+      <div class="sidebar-block">
+        <div class="sidebar-block-data">
+          <%= @book.places.count %>
+        </div>
+        <div class="sidebar-block-label">
+          Lieux
+        </div>
       </div>
     </div>
-    <div class="sidebar-block">
-      <div class="sidebar-block-data">
-        <%= @book.characters.count %>
-      </div>
-      <div class="sidebar-block-label">
-        Personnages
-      </div>
-    </div>
-    <div class="sidebar-block">
-      <div class="sidebar-block-data">
-        <%= @book.places.count %>
-      </div>
-      <div class="sidebar-block-label">
-        Lieux
-      </div>
-    </div>
+
   </div>
 
   <!-- CONTENT -->
@@ -87,7 +90,7 @@
     </div>
     <div class="content-chart content-chart--down content-chart--down-3">
       <div id="cal-heatmap"></div>
-      <div class="content-chart-label">Calendrier de vos contributions</div>
+      <div class="content-chart-label hidden-sm hidden-md">Calendrier de vos contributions</div>
     </div>
   </div>
 

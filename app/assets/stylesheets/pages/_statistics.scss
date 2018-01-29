@@ -79,14 +79,28 @@
 
   .content-chart-data:first-child {
     font-size: 24px;
+    color: black;
+  }
+
+  .content-chart-data {
+    color: darkgrey;
   }
 
   .content-chart-label:last-child {
     font-size: 14px;
+    color: darkgrey;
+
+    @include mq($from: desktop, $until: wide) {
+      font-size: 2vh;
+    }
   }
 
   @include mq($until: desktop) {
     margin: 0 0 12px 0;
+  }
+
+  @include mq($from: desktop, $until: wide) {
+    padding: 0 2vh;
   }
 }
 
@@ -97,6 +111,12 @@
 
   @include mq($until: desktop) {
     margin: 0 0 12px 0;
+  }
+
+  .content-chart-label {
+    @include mq($from: desktop, $until: wide) {
+      visibility: hidden;
+    }
   }
 
 }
@@ -112,8 +132,17 @@
   display: flex;
   flex-direction: column;
 
+  @include mq($from: desktop, $until: wide) {
+    justify-content: flex-start;
+  }
+
   h2 {
     margin: 0 0 12px 0;
+
+    @include mq($from: desktop, $until: wide) {
+      margin-bottom: 1vh;
+      font-size: 3vh;
+    }
   }
 
   p {
@@ -136,14 +165,24 @@
   text-align: center;
   padding: 0 12px;
   margin-bottom: 12px;
+
+  @include mq($from: desktop, $until: wide) {
+    font-size: 2vh;
+  }
 }
 
 .sidebar-block-data {
   font-size: 24px;
+
+  @include mq($from: desktop, $until: wide) {
+    font-size: 2.5vh;
+  }
 }
 
 .sidebar-block-label {
-  font-size: 16px;
+  @include mq($from: desktop, $until: wide) {
+    font-size: 2vh;
+  }
 }
 
 .sidebar-block-sidenote {
@@ -157,10 +196,22 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @include mq($from: desktop, $until: wide) {
+    justify-content: flex-start;
+  }
+}
+
+.sidebar-footer {
+
 }
 
 #wordCountGoal {
   max-height: 280px;
+
+  @include mq($from: desktop, $until: wide) {
+    max-height: 60%;
+  }
 }
 
 .gif {
@@ -189,6 +240,18 @@
   flex-direction: column;
   margin-bottom: 12px;
   padding: 0 24px;
+
+  @include mq($from: desktop, $until: wide) {
+    flex-direction: row;
+    padding: 0;
+    justify-content: space-between;
+  }
+}
+
+.streaks-current {
+  @include mq($from: desktop, $until: wide) {
+    margin-right: 2vh;
+  }
 }
 
 .content-chart-label {
@@ -196,6 +259,11 @@
   font-size: 16px;
   opacity: .8;
   text-align: center;
+
+  @include mq($from: desktop, $until: wide) {
+    font-size: 2vh;
+    margin-bottom: 0;
+  }
 }
 
 .streaks-data {
@@ -207,6 +275,14 @@
 
   i {
     font-size: 16px;
+  }
+
+  @include mq($from: desktop, $until: wide) {
+    font-size: 2.5vh;
+
+    i {
+      font-size: 2vh;
+    }
   }
 }
 
@@ -221,6 +297,10 @@
 .streaks-text {
   font-size: 12px;
   margin-bottom: 12px;
+
+  @include mq($from: desktop, $until: wide) {
+    text-align: center;
+  }
 }
 
 .icon-circle--streak-gold {
@@ -239,4 +319,8 @@
   display: flex;
   justify-content: center;
   margin-bottom: 12px;
+
+  @include mq($from: desktop, $until: wide) {
+    margin-bottom: 0;
+  }
 }
