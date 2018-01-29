@@ -15,6 +15,11 @@ body {
   }
 }
 
+.content-dashboard--published {
+  overflow-y: auto;
+  height: auto;
+}
+
 .content-writing {
   margin: 0 auto;
   width: 40vw;
@@ -330,7 +335,7 @@ body {
   padding-bottom: 2vh;
 }
 
-.content-writint-text--reader {
+.content-writing-text--reader {
   height: auto;
   padding: 0;
   margin-bottom: 3vh;
