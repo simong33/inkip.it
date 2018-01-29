@@ -311,7 +311,6 @@
     display: inline-block;
     white-space: nowrap;
     text-align: center;
-    width: 133px;
 
     @include mq($until: tablet) {
       font-size: 12px;
