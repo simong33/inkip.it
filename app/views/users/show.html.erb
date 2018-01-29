@@ -16,7 +16,7 @@
       <% if @user.location && !@user.location.empty? %>
         <div class="profile-location">
           <i class="fa fa-location-arrow" aria-hidden="true"></i>
-          <p><%= @user.location %></p>
+          <p><%= @user.city %></p>
         </div>
       <% end %>
       <div class="profile-following-data">
@@ -70,9 +70,7 @@
   <%= render 'users/modal_followings' %>
 <% end %>
 
-<script type="text/javascript"
-  src="https://maps.googleapis.com/maps/api/js?libraries=places&key=<%= ENV['GOOGLE_MAPS'] %>">
-</script>
+<script src="https://cdn.jsdelivr.net/npm/places.js@1.4.18"></script>
 
 <% content_for(:after_js) do %>
   <%= javascript_include_tag 'progressbar' %>

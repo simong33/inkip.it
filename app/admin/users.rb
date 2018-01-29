@@ -11,6 +11,7 @@ ActiveAdmin.register User do
     column :first_name
     column :last_name
     column :email
+    column :city
     column :provider
     column :admin
     column :created_at

@@ -157,4 +157,13 @@ class User < ApplicationRecord
     books.any? {|book| book.published? == true}
   end
 
+  def city
+    if location && location.include?(",")
+      location_split = location.split(/,\s*/)
+      location_split[0] + ", " + location_split[2]
+    else
+      location
+    end
+  end
+
 end
