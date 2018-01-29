@@ -158,9 +158,9 @@ class User < ApplicationRecord
   end
 
   def city
-    if location && !location.empty? && location.include?(",")
+    if location && !location.empty? && location.include?(",") && !location.nil?
       location_split = location.split(/,\s*/)
-      location_split[0] + ", " + location_split[2]
+      location_split[0]
     elsif location
       location
     else
