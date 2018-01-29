@@ -67,6 +67,10 @@
 .modal-followers {
   max-height: 50vh;
   overflow-y: scroll;
+
+  @include mq($from: mobile, $until: desktop) {
+    max-height: 90vh;
+  }
 }
 
 .btn-submit {
