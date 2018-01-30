@@ -2,5 +2,5 @@
   <%= @chapter.title %>
 </div>
 <div class="content-writing-text content-writing-text--reader">
-  <%= @chapter.content.html_safe %>
+  <%= @chapter.content.html_safe if @chapter.content %>
 </div>
