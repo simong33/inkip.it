@@ -35,20 +35,22 @@
           <%= @words_per_chapter %> mots en moyenne par chapitre
         </div>
       </div>
-      <div class="sidebar-block">
-        <div class="sidebar-block-data">
-          <%= @book.characters.count %>
+      <div class="sidebar-horizontal-block hidden-xl-up">
+        <div class="sidebar-block">
+          <div class="sidebar-block-data">
+            <%= @book.characters.count %>
+          </div>
+          <div class="sidebar-block-label">
+            Personnages
+          </div>
         </div>
-        <div class="sidebar-block-label">
-          Personnages
-        </div>
-      </div>
-      <div class="sidebar-block">
-        <div class="sidebar-block-data">
-          <%= @book.places.count %>
-        </div>
-        <div class="sidebar-block-label">
-          Lieux
+        <div class="sidebar-block">
+          <div class="sidebar-block-data">
+            <%= @book.places.count %>
+          </div>
+          <div class="sidebar-block-label">
+            Lieux
+          </div>
         </div>
       </div>
     </div>

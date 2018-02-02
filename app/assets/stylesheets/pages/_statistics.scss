@@ -171,6 +171,12 @@
   }
 }
 
+.sidebar-horizontal-block {
+  @include mq($from: desktop, $until: wide) {
+    display: flex;
+  }
+}
+
 .sidebar-block-data {
   font-size: 24px;
 
@@ -218,6 +224,11 @@
   height: 300px;
   width: 300px;
   margin-bottom: 12px;
+
+  @include mq($from: desktop, $until: wide) {
+    height: 200px;
+    width: 200px;
+  }
 }
 
 .gradient-congratulations-text {
@@ -228,6 +239,11 @@
   text-transform: uppercase;
   letter-spacing: 4px;
   width: 300px;
+
+  @include mq($from: desktop, $until: wide) {
+    font-size: 3vh;
+    margin-top: 0;
+  }
 }
 
 .congratulations-modify-wordcount {
