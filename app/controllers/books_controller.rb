@@ -108,37 +108,21 @@ class BooksController < ApplicationController
 
     # DWC
 
-    dwc = @book.daily_word_counts.order('created_at').last(30)
-    dwc_year = @book.daily_word_counts.order('created_at').last(365)
-    dwc_all = @book.daily_word_counts
-
-    dwc_dates = []
-    dwc_values = []
-    dwc_total_values = []
-
-    dwc.each do |dwc|
-      dwc_dates << dwc.created_at.strftime('%d/%m/%Y')
-      dwc_values << dwc.wordcount
-      dwc_total_values << dwc.total_word_count
-    end
-
-    gon.dwc_dates = dwc_dates.as_json
-    gon.dwc_values = dwc_values.as_json
-    gon.dwc_total_values = dwc_total_values.as_json
+    gon.dwc_dates = @book.daily_word_counts_info[0].as_json
+    gon.dwc_values = @book.daily_word_counts_info[1].as_json
+    gon.dwc_total_values = @book.daily_word_counts_info[2].as_json
 
     # WORDCOUNT GOAL
 
     gon.wordcount = @book.wordcount
 
     if @book.word_goal
-      gon.words_left = @book.word_goal - @book.wordcount
+      gon.words_left = @book.words_left
     end
 
     # CAL-HEATMAP
 
-    dwc_map = dwc_year.map {|dwc| [dwc.created_at.to_datetime.strftime('%s'), dwc.wordcount]}
-    dwc_hash = Hash[dwc_map]
-    gon.dwc_calendar = dwc_hash
+    gon.dwc_calendar = @book.daily_word_counts_calendar
 
     # WORDS PER SESSION
 
@@ -146,15 +130,7 @@ class BooksController < ApplicationController
 
     # GLOBAL WORDS PER SESSION MEAN
 
-    all_dwc = DailyWordCount.where('wordcount < 10000')
-
-    all_dwc_size = 0
-
-    all_dwc.each do |dwc|
-      all_dwc_size += dwc.wordcount unless dwc.wordcount.nil? || dwc.wordcount > 10000
-    end
-
-    @global_words_per_session = (all_dwc_size / all_dwc.count) unless all_dwc.count == 0
+    @global_words_per_session = @book.global_words_per_session
 
     # WORDS PER CHAPTER
 

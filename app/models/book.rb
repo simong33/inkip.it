@@ -21,7 +21,7 @@ class Book < ApplicationRecord
 
   def signs
     signs = 0
-    self.chapters.each do |chapter|
+    chapters.each do |chapter|
       signs += chapter.signs unless chapter.content.nil?
     end
     signs
@@ -29,30 +29,30 @@ class Book < ApplicationRecord
 
   def wordcount
     words = 0
-    self.chapters.each do |chapter|
+    chapters.each do |chapter|
       words += chapter.wordcount unless chapter.content.nil?
     end
     words
   end
 
   def word_goal_ratio
-    if self.word_goal != nil && self.word_goal > 0
-      self.wordcount.to_f / self.word_goal
+    if word_goal != nil && word_goal > 0
+      wordcount.to_f / word_goal
     else
       0
     end
   end
 
   def average_daily_wordcount
-    self.wordcount / self.age_in_days
+    wordcount / age_in_days
   end
 
   def age_in_days
-    ((Time.current - self.created_at) / (60*60*24)).floor
+    ((Time.current - created_at) / (60*60*24)).floor
   end
 
   def words_per_session
-    dwc_all = self.daily_word_counts.sort_by { |obj| obj.wordcount }.reverse!
+    dwc_all = daily_word_counts.sort_by { |obj| obj.wordcount }.reverse!
     dwc_all.shift
 
     dwc_wordcount = 0
@@ -111,7 +111,7 @@ class Book < ApplicationRecord
   end
 
   def is_completed?
-    self.word_goal_ratio >= 1
+    word_goal_ratio >= 1
   end
 
   def self.authored_by_followers_of(user)
@@ -122,6 +122,50 @@ class Book < ApplicationRecord
       books << book if book.published?
     end
     books
+  end
+
+  def last_month_daily_word_counts
+    daily_word_counts.order('created_at').last(30)
+  end
+
+  def last_year_daily_word_counts
+    daily_word_counts.order('created_at').last(365)
+  end
+
+  def daily_word_counts_info
+    dwc_dates = []
+    dwc_values = []
+    dwc_total_values = []
+
+    last_month_daily_word_counts.each do |dwc|
+      dwc_dates << dwc.created_at.strftime('%d/%m/%Y')
+      dwc_values << dwc.wordcount
+      dwc_total_values << dwc.total_word_count
+    end
+
+    [dwc_dates, dwc_values, dwc_total_values]
+  end
+
+  def words_left
+    word_goal - wordcount if word_goal
+  end
+
+  def daily_word_counts_calendar
+    dwc_map = last_year_daily_word_counts.map {|dwc| [dwc.created_at.to_datetime.strftime('%s'), dwc.wordcount]}
+    Hash[dwc_map]
+  end
+
+  def global_words_per_session
+    all_dwc = DailyWordCount.where('wordcount < 10000')
+    dwc = last_month_daily_word_counts
+
+    all_dwc_size = 0
+
+    all_dwc.each do |dwc|
+      all_dwc_size += dwc.wordcount unless dwc.wordcount.nil? || dwc.wordcount > 10000
+    end
+
+    (all_dwc_size / all_dwc.count) unless all_dwc.count == 0
   end
 
 end
