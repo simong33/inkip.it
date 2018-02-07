@@ -1,4 +1,7 @@
 var cal = new CalHeatMap();
+var startingDate = new Date();
+startingDate.setMonth(startingDate.getMonth() - 3);
+
 cal.init({
   domain: 'month',
   subdomain: 'day',
@@ -7,6 +10,7 @@ cal.init({
   domainGutter: 6,
   tooltip: true,
   range: 4,
+  start: startingDate,
   data: gon.dwc_calendar,
   itemName: ["mot", "mots"],
   subDomainTitleFormat: {
