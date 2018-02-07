@@ -1,6 +1,7 @@
 var cal = new CalHeatMap();
 var startingDate = new Date();
 startingDate.setMonth(startingDate.getMonth() - 3);
+moment.lang("fr");
 
 cal.init({
   domain: 'month',
@@ -28,5 +29,8 @@ cal.init({
     max: "#C06C84",
     empty: "white"
   },
-  domainLabelFormat: "%m-%Y"
+  domainLabelFormat: "%m-%Y",
+  subDomainDateFormat:  function(date) {
+      return moment(date).format("LL"); // Use moment.js library to translate date
+    }
 });
