@@ -37,14 +37,14 @@
     </div>
 
     <div class="navbar-wagon-item underlined-anchor">
-      <%= link_to destroy_user_session_path, method: :delete do %>
-        <%= t(".sign_out", default: "Déconnexion") %>
+      <%= link_to rankings_path do %>
+         <%= t(".profile", default: "Classement", class: "hidden-xs") %>
       <% end %>
     </div>
 
     <div class="navbar-wagon-item underlined-anchor">
-      <%= link_to rankings_path do %>
-         <%= t(".profile", default: "Classement", class: "hidden-xs") %>
+      <%= link_to destroy_user_session_path, method: :delete do %>
+        <%= t(".sign_out", default: "Déconnexion") %>
       <% end %>
     </div>
 
