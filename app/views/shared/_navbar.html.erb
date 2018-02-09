@@ -37,12 +37,6 @@
     </div>
 
     <div class="navbar-wagon-item underlined-anchor">
-      <%= link_to rankings_path do %>
-         <%= t(".profile", default: "Classement", class: "hidden-xs") %>
-      <% end %>
-    </div>
-
-    <div class="navbar-wagon-item underlined-anchor">
       <%= link_to destroy_user_session_path, method: :delete do %>
         <%= t(".sign_out", default: "Déconnexion") %>
       <% end %>
@@ -82,11 +76,6 @@
           <li>
             <%= link_to books_path(filter: "last") do %>
                <%= t(".profile", default: "Communauté") %>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to rankings_path do %>
-               <%= t(".profile", default: "Classement") %>
             <% end %>
           </li>
           <li>
