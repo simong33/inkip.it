@@ -1,8 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:landing, :rankings, :privacy_policy, :tos]
-
-  def landing
-  end
+  skip_before_action :authenticate_user!, only: [:landing, :privacy_policy, :tos, :cgu, :mentions_legales]
 
   def rankings
 
@@ -40,9 +37,4 @@ class PagesController < ApplicationController
     end
   end
 
-  def privacy_policy
-  end
-
-  def tos
-  end
 end

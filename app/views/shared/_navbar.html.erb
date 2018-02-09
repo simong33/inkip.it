@@ -42,31 +42,14 @@
       <% end %>
     </div>
 
-      <!-- Avatar with dropdown menu -->
-  <!--      <div class="navbar-wagon-item">
-        <div class="dropdown">
-          <%= image_tag "https://vignette.wikia.nocookie.net/oddworld/images/1/14/Abe_Bio.jpg/revision/latest?cb=20151207223655", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-          <div class="avatar dropdown-toggle avatar-letter" id="navbar-wagon-menu" data-toggle="dropdown"><%= current_user.email[0] %></div>
-        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-             <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Profil") %>
-              <% end %>
-            </li> -->
-<!--             <li>
-              <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Déconnexion") %>
-              <% end %>
-            </li>
-          </ul>
-        </div>
-      </div>-->
-    <% else %>
     <div class="navbar-wagon-item underlined-anchor">
       <%= link_to rankings_path do %>
          <%= t(".profile", default: "Classement", class: "hidden-xs") %>
       <% end %>
     </div>
+
+    <% else %>
+
     <div class="navbar-wagon-item underlined-anchor">
       <!-- Login link (when logged out) -->
       <%= link_to t(".sign_in", default: "Se connecter"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
@@ -106,12 +89,12 @@
               <%= t(".sign_out", default: "Déconnexion") %>
             <% end %>
           </li>
-        <% else %>
           <li>
             <%= link_to rankings_path do %>
                <%= t(".profile", default: "Classement") %>
             <% end %>
           </li>
+        <% else %>
           <li>
             <%= link_to t(".sign_in", default: "Se connecter"), new_user_session_path %>
           </li>

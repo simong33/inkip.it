@@ -42,11 +42,11 @@ Rails.application.routes.draw do
 
   get "/privacy" => "pages#privacy_policy"
 
-  get "/cgu" => "pages#cgu"
-
-  get "/mentions_legales" => "pages#mentions_legales"
-
   get "/tos" => "pages#tos"
+
+  get "/cgu" => "pages#cgu", as: :cgu
+
+  get "/mentions_legales" => "pages#mentions_legales", as: :mentions_legales
 
   mount Attachinary::Engine => "/attachinary"
 
