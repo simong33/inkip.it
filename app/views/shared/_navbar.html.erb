@@ -85,13 +85,13 @@
             <% end %>
           </li>
           <li>
-            <%= link_to destroy_user_session_path, method: :delete do %>
-              <%= t(".sign_out", default: "Déconnexion") %>
+            <%= link_to rankings_path do %>
+               <%= t(".profile", default: "Classement") %>
             <% end %>
           </li>
           <li>
-            <%= link_to rankings_path do %>
-               <%= t(".profile", default: "Classement") %>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              <%= t(".sign_out", default: "Déconnexion") %>
             <% end %>
           </li>
         <% else %>
