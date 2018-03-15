@@ -1,6 +1,6 @@
 # inkip.it | Finish your novel!
 
-[inkip.it](https://www.inkip.it) is a writing platform focused on fiction authors. It enables writers to focus on reaching quantitative goals and creating a healthy (and fun!) writing routine.
+[inkip.it](https://www.inkip.it) is a writing platform for fiction authors. It enables writers to focus on reaching quantitative goals and creating a healthy (and fun!) writing routine.
 
 ![Novel writing overview](https://www.inkip.it/assets/screenshot_data-9619e36f8570bafd7a2f29d4beae0a9f6995920894e5338c19ef9b2a4cbcb2bb.png)
 
