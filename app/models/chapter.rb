@@ -11,6 +11,8 @@ class Chapter < ApplicationRecord
 
   before_update :edit_publication_date
 
+  scope :popular, -> { reorder(inks: :asc) }
+
   def signs
     !self.content.nil? ? WordsCounted.count(self.strip_tags).char_count : 0
   end

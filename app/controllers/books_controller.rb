@@ -1,30 +1,31 @@
 class BooksController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
+  include Pagy::Backend
 
   def index
     @user = current_user
     @book = Book.new
 
-    case params["filter"]
+    case params['filter']
 
-    when "last"
-      @books = Book.includes(:user).published
-      @filter = "last"
+    when 'last'
+      @pagy, @books = pagy(Book.includes(:user).published, items: 10)
+      @filter = 'last'
 
-    when "popular"
+    when 'popular'
       @books = Book.includes(:user).published_popular
-      @filter = "popular"
+      @filter = 'popular'
 
       respond_to do |format|
-          format.js
+        format.js
       end
 
-    when "following"
+    when 'following'
       @books = Book.authored_by_followers_of(@user)
-      @filter = "following"
+      @filter = 'following'
 
       respond_to do |format|
-          format.js
+        format.js
       end
 
     else

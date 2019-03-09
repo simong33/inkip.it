@@ -7,6 +7,8 @@ class Book < ApplicationRecord
   has_many :daily_word_counts, dependent: :destroy
   has_many :reactions, through: :chapters
 
+  scope :find_lazy, ->(id) { where(id: id) }
+
   validate do |book|
     book.errors.add(:base, "Ajoutez un titre à votre livre ! Vous pourrez le modifier par la suite.") if book.title.blank?
   end
@@ -90,7 +92,7 @@ class Book < ApplicationRecord
     chapters = Chapter.published.sort_by &:updated_at
     chapters.reverse!
     books_ids = chapters.pluck(:book_id)
-    Book.find(books_ids)
+    Book.find_lazy(books_ids)
   end
 
   def published?
@@ -106,7 +108,7 @@ class Book < ApplicationRecord
   end
 
   def self.published_popular
-    books = Book.published
+    books = Book.published.limit(10)
     books.sort { |x, y| y.inks <=> x.inks }
   end
 

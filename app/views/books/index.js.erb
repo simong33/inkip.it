@@ -1,4 +1,4 @@
 $(".sidebar-item").removeClass("sidebar-item--active");
 $("#sidebar-item--<%= @filter %>").addClass("sidebar-item--active");
-$("#all-published-books").html("<%= escape_javascript(render "books/card_published_books", locals: { books: @books } ) %>");
+$("#all-published-books").html("<%= escape_javascript(render "books/card_published_books", locals: { books: @books } ) %>").append("<%= escape_javascript(render "shared/pagination", locals: { filter: @filter } ) %>");
 $('#loader-container').addClass("hidden");

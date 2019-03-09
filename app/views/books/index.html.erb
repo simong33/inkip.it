@@ -37,10 +37,11 @@
     <% if @books %>
 
       <div class="content-dashboard content-dashboard--full" id="all-published-books">
-        <%= render "books/card_published_books", books: @books %>
-        <div id="loader-container" class="hidden">
-          <div class="loader" id="loader-1"></div>
-        </div>
+          <%= render "books/card_published_books", books: @books %>
+          <div id="loader-container" class="hidden">
+            <div class="loader" id="loader-1"></div>
+          </div>
+          <%= render "shared/pagination", filter: @filter %>
       </div>
 
       <div id="modal-container"></div>
