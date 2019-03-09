@@ -18,7 +18,7 @@ class User < ApplicationRecord
 
   validates :user_name, uniqueness: true
 
-  after_create :send_welcome_email
+  # after_create :send_welcome_email
 
   has_attachment :profile_picture, accept: [:jpg, :png, :gif]
 
