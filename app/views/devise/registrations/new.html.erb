@@ -1,15 +1,12 @@
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v3.2&appId=538287653207624&autoLogAppEvents=1"></script>
+
 <div class="content-dashboard wrapper__signin">
   <div class="container container__signin">
 
     <h2>Inscription</h2>
 
-    <%- if devise_mapping.omniauthable? %>
-      <%- resource_class.omniauth_providers.each do |provider| %>
-        <%= link_to omniauth_authorize_path(resource_name, provider), class: "facebook-cta" do %>
-          <i class="fa fa-facebook" aria-hidden="true"></i><%= "Se connecter avec #{OmniAuth::Utils.camelize(provider)}" %>
-        <% end %>
-      <% end -%>
-    <% end -%>
+    <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-auto-logout-link="false" data-use-continue-as="false"></div>
 
     <p>ou avec votre email</p>
 
