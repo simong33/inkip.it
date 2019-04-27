@@ -413,7 +413,7 @@ DEPENDENCIES
   devise
   faker!
   figaro
-  font-awesome-sass
+  font-awesome-sass (~> 5.8.1)
   gon
   hamburgers
   htmltoword
